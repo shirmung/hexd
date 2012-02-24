@@ -6,7 +6,6 @@
 //  Copyright (c) 2012. All rights reserved.
 //
 
-// howard was here
 #import <UIKit/UIKit.h>
 
 @class Doll;

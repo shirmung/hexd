@@ -198,8 +198,8 @@
         
         [NSTimer scheduledTimerWithTimeInterval:0.2
                                          target:self
-                                       selector:@selector(addBurn)
-                                       userInfo:nil
+                                       selector:@selector(addBurn:)
+                                       userInfo:fireBurnsLayer
                                         repeats:NO];
     } else if (lightningButtonPressed) {
 		[NSTimer scheduledTimerWithTimeInterval:0.3
@@ -212,8 +212,8 @@
 		
 		[NSTimer scheduledTimerWithTimeInterval:0.4
 										 target:self
-									   selector:@selector(addBurn)
-									   userInfo:nil
+									   selector:@selector(addBurn:)
+									   userInfo:lightningBurnsLayer
 										repeats:NO];
     } else if (foodButtonPressed) {
         NSString *file = @"";
@@ -327,15 +327,19 @@
 	}
 }
 
-- (void)addBurn
+- (void)addBurn:(NSTimer *)timer
 {
+    UIImageView *layer = [timer userInfo];
+    
     UIImage *image = [UIImage imageNamed:@"burn.png"];
     
     UIGraphicsBeginImageContext(self.view.frame.size);
-    [lightningBurnsLayer.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    [layer.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     [image drawInRect:CGRectMake(firstPoint.x - 17, firstPoint.y - 20, 40.0f, 35.0f)];
-    lightningBurnsLayer.image = UIGraphicsGetImageFromCurrentImageContext();
+    layer.image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+    
+    [self saveDolls];
 }
 
 - (void)vibrate
@@ -347,11 +351,12 @@
 {
     specificDoll.pinsImageData = UIImagePNGRepresentation(pinsLayer.image);
     specificDoll.fireImageData = UIImagePNGRepresentation(fireLayer.image);
+    specificDoll.fireBurnsImageData = UIImagePNGRepresentation(fireBurnsLayer.image);
     specificDoll.lightningImageData = UIImagePNGRepresentation(lightningLayer.image);
+    specificDoll.lightningBurnsImageData = UIImagePNGRepresentation(lightningBurnsLayer.image);
     specificDoll.foodImageData = UIImagePNGRepresentation(foodLayer.image);
     specificDoll.drawingImageData = UIImagePNGRepresentation(drawingLayer.image);
-    specificDoll.lightningBurnsImageData = UIImagePNGRepresentation(lightningBurnsLayer.image);
-    
+
     [[DollDataManager sharedDollDataManager] saveDolls];
 }
 
