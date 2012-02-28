@@ -12,6 +12,8 @@
 {
     NSString *name;
     NSString *gender;
+    NSString *eyes;
+    NSString *mouth;
     NSString *hair;
     NSString *shirt;
     NSString *pants;
@@ -28,6 +30,8 @@
 
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *gender;
+@property (nonatomic, retain) NSString *eyes;
+@property (nonatomic, retain) NSString *mouth;
 @property (nonatomic, retain) NSString *hair;
 @property (nonatomic, retain) NSString *shirt;
 @property (nonatomic, retain) NSString *pants;

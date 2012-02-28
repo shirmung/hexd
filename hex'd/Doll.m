@@ -10,7 +10,7 @@
 
 @implementation Doll
 
-@synthesize name, gender, hair, shirt, pants, other;
+@synthesize name, gender, eyes, mouth, hair, shirt, pants, other;
 @synthesize pinsImageData, fireImageData, fireBurnsImageData, lightningImageData, lightningBurnsImageData, foodImageData, drawingImageData;
 
 -(id)init
@@ -19,6 +19,8 @@
     {
         name = @"";
         gender = @"";
+        eyes = @"neutraleyes";
+        mouth = @"neutralmouth";
         hair = @"";
         shirt = @"";
         pants = @"";
@@ -32,6 +34,8 @@
 {
     [name release];
     [gender release];
+    [eyes release];
+    [mouth release];
     [hair release];
     [shirt release];
     [pants release];

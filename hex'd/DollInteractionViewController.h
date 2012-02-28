@@ -20,6 +20,10 @@
     UIImageView *pantsLayer;
     UIImageView *otherLayer;
     
+    // facial stuff
+    UIImageView *eyesLayer;
+    UIImageView *mouthLayer;
+    
     UIImageView *pinsLayer;
     UIImageView *fireLayer;
     UIImageView *fireBurnsLayer;
