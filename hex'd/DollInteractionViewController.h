@@ -66,6 +66,8 @@
 - (IBAction)drawingOptions:(UIButton *)button;
 - (void)optionsVisibility;
 
+- (IBAction)shareDoll:(UIButton *)button;
+
 - (IBAction)toCustomizationView:(UIBarButtonItem *)barButtonItem;
 
 @end

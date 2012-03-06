@@ -8,8 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
-#import "DollDataManager.h"
-#import "Doll.h"
+#import "SHK.h"
 
 @implementation AppDelegate
 
@@ -35,7 +34,14 @@
     
     [navigationController release];
     
+    [self performSelector:@selector(testOffline) withObject:nil afterDelay:0.5];
+    
     return YES;
+}
+
+- (void)testOffline
+{	
+	[SHK flushOfflineQueue];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

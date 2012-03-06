@@ -7,10 +7,12 @@
 //
 
 #import <AudioToolbox/AudioToolbox.h>
+#import <QuartzCore/QuartzCore.h>
 
 #import "DollInteractionViewController.h"
 #import "DollDataManager.h"
 #import "Doll.h"
+#import "SHK.h"
 #import "DollCustomizationViewController.h"
 
 @implementation DollInteractionViewController
@@ -546,6 +548,25 @@
             else if (foodButtonPressed == NO && view.tag >= 6 && view.tag <= 7) view.hidden = YES;
         }
     }
+}
+
+- (IBAction)shareDoll:(UIButton *)button
+{
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    
+    UIGraphicsBeginImageContext(window.frame.size);
+    [window.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *screenshot = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    CGImageRef temp = CGImageCreateWithImageInRect([screenshot CGImage], CGRectMake(0, 20, 320, 460));
+    UIImage *croppedImage = [UIImage imageWithCGImage:temp];
+    CGImageRelease(temp);
+    
+    SHKItem *item = [SHKItem image:croppedImage title:@"Check out the voodoo doll I created with hex'd!"];
+    SHKActionSheet *actionSheet = [SHKActionSheet actionSheetForItem:item];
+    
+    [actionSheet showInView:self.view];
 }
 
 - (IBAction)toCustomizationView:(UIBarButtonItem *)barButtonItem
