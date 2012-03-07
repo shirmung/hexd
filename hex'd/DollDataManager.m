@@ -91,9 +91,9 @@ static DollDataManager *sharedDollDataManager;
         [detailsOfDoll setObject:doll.eyes forKey:@"eyes"];
         [detailsOfDoll setObject:doll.mouth forKey:@"mouth"];
         [detailsOfDoll setObject:doll.hair forKey:@"hair"];
-        [detailsOfDoll setObject:doll.name forKey:@"shirt"];
-        [detailsOfDoll setObject:doll.gender forKey:@"pants"];
-        [detailsOfDoll setObject:doll.hair forKey:@"other"];
+        [detailsOfDoll setObject:doll.shirt forKey:@"shirt"];
+        [detailsOfDoll setObject:doll.pants forKey:@"pants"];
+        [detailsOfDoll setObject:doll.other forKey:@"other"];
         
         if (doll.pinsImageData != nil) [detailsOfDoll setObject:doll.pinsImageData forKey:@"pinsImageData"];
         if (doll.fireImageData != nil) [detailsOfDoll setObject:doll.fireImageData forKey:@"fireImageData"];

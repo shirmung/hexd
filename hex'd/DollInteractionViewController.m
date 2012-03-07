@@ -60,71 +60,97 @@
     // goes on bottom
     genderLayer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", specificDoll.gender]]];
     [self.view addSubview:genderLayer];
+    [genderLayer release];
     
     eyesLayer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", specificDoll.eyes]]];
-    [self.view insertSubview:eyesLayer aboveSubview:genderLayer];
+    [self.view addSubview:eyesLayer];
+    [eyesLayer release];
     
     mouthLayer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", specificDoll.mouth]]];
-    [self.view insertSubview:mouthLayer aboveSubview:eyesLayer];
+    [self.view addSubview:mouthLayer];
+    [mouthLayer release];
     
     hairLayer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", specificDoll.hair]]];
-    [self.view insertSubview:hairLayer aboveSubview:mouthLayer];
+    [self.view addSubview:hairLayer];
+    [hairLayer release];
     
     shirtLayer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", specificDoll.shirt]]];
-    [self.view insertSubview:shirtLayer aboveSubview:hairLayer];
+    [self.view addSubview:shirtLayer];
+    [shirtLayer release];
     
     pantsLayer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", specificDoll.pants]]];
-    [self.view insertSubview:pantsLayer aboveSubview:shirtLayer];
+    [self.view addSubview:pantsLayer];
+    [pantsLayer release];
     
     otherLayer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", specificDoll.other]]];
-    [self.view insertSubview:otherLayer aboveSubview:pantsLayer];
+    [self.view addSubview:otherLayer];
+    [otherLayer release];
     
     fireBurnsLayer = [[UIImageView alloc] initWithImage:[UIImage imageWithData:specificDoll.fireBurnsImageData]];
     fireBurnsLayer.frame = self.view.frame;
-    [self.view insertSubview:fireBurnsLayer aboveSubview:otherLayer];
+    [self.view addSubview:fireBurnsLayer];
+    [fireBurnsLayer release];
     
     lightningBurnsLayer = [[UIImageView alloc] initWithImage:[UIImage imageWithData:specificDoll.lightningBurnsImageData]];
     lightningBurnsLayer.frame = self.view.frame;
-    [self.view insertSubview:lightningBurnsLayer aboveSubview:fireBurnsLayer];
+    [self.view addSubview:lightningBurnsLayer];
+    [lightningBurnsLayer release];
     
     foodLayer = [[UIImageView alloc] initWithImage:[UIImage imageWithData:specificDoll.foodImageData]];
 	foodLayer.frame = self.view.frame;
-    [self.view insertSubview:foodLayer aboveSubview:lightningBurnsLayer];
+    [self.view addSubview:foodLayer];
+    [foodLayer release];
     
     pinsLayer = [[UIImageView alloc] initWithImage:[UIImage imageWithData:specificDoll.pinsImageData]];
 	pinsLayer.frame = self.view.frame;
-    [self.view insertSubview:pinsLayer aboveSubview:foodLayer];
+    [self.view addSubview:pinsLayer];
+    [pinsLayer release];
     
     drawingLayer = [[UIImageView alloc] initWithImage:[UIImage imageWithData:specificDoll.drawingImageData]];
 	drawingLayer.frame = self.view.frame;
-    [self.view insertSubview:drawingLayer aboveSubview:pinsLayer];
+    [self.view addSubview:drawingLayer];
+    [drawingLayer release];
     
     fireLayer = [[UIImageView alloc] initWithImage:[UIImage imageWithData:specificDoll.fireImageData]];
 	fireLayer.frame = self.view.frame;
-    [self.view insertSubview:fireLayer aboveSubview:drawingLayer];
+    [self.view addSubview:fireLayer];
+    [fireLayer release];
     
     lightningLayer = [[UIImageView alloc] initWithImage:[UIImage imageWithData:specificDoll.lightningImageData]];
 	lightningLayer.frame = self.view.frame;
     [self.view insertSubview:lightningLayer aboveSubview:fireLayer];
+    [lightningLayer release];
+    
+//    NSLog(@"Lightning retain count: %d", [lightningLayer retainCount]);
+//    
+//    NSLog(@"name: %@", specificDoll.name);
+//    NSLog(@"gender: %@", specificDoll.gender);
+//    NSLog(@"eyes: %@", specificDoll.eyes);
+//    NSLog(@"mouth: %@", specificDoll.mouth);
+//    NSLog(@"hair: %@", specificDoll.hair);
+//    NSLog(@"shirt: %@", specificDoll.shirt);
+//    NSLog(@"pants: %@", specificDoll.pants);
+//    NSLog(@"other: %@", specificDoll.other);
+    
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-    NSLog(@"some housekeeping");
-    [genderLayer removeFromSuperview];
-    [eyesLayer removeFromSuperview];
-    [mouthLayer removeFromSuperview];
-    [hairLayer removeFromSuperview];
-    [shirtLayer removeFromSuperview];
-    [pantsLayer removeFromSuperview];
-    [otherLayer removeFromSuperview];
-    [fireBurnsLayer removeFromSuperview];
-    [lightningBurnsLayer removeFromSuperview];
-    [foodLayer removeFromSuperview];
-    [pinsLayer removeFromSuperview];
-    [drawingLayer removeFromSuperview];
-    [fireLayer removeFromSuperview];
-    [lightningLayer removeFromSuperview];
+//    NSLog(@"some housekeeping");
+//    [genderLayer removeFromSuperview];
+//    [eyesLayer removeFromSuperview];
+//    [mouthLayer removeFromSuperview];
+//    [hairLayer removeFromSuperview];
+//    [shirtLayer removeFromSuperview];
+//    [pantsLayer removeFromSuperview];
+//    [otherLayer removeFromSuperview];
+//    [fireBurnsLayer removeFromSuperview];
+//    [lightningBurnsLayer removeFromSuperview];
+//    [foodLayer removeFromSuperview];
+//    [pinsLayer removeFromSuperview];
+//    [drawingLayer removeFromSuperview];
+//    [fireLayer removeFromSuperview];
+//    [lightningLayer removeFromSuperview];
 }
 
 - (BOOL)canBecomeFirstResponder 
