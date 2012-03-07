@@ -62,7 +62,7 @@
     
     eyesLayer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", specificDoll.eyes]]];
     [self.view addSubview:eyesLayer];
-    NSLog(@"eyes: %@", specificDoll.eyes);
+    //NSLog(@"eyes: %@", specificDoll.eyes);
     
     mouthLayer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", specificDoll.mouth]]];
     [self.view addSubview:mouthLayer];
@@ -190,7 +190,13 @@
     if (bodyHit)
     {
         [self bodyAnimation];
-        [self wince];
+        
+        if (pinButtonPressed) {
+            [self wince];
+        } else if (fireButtonPressed) {
+            [self ouch];
+        }
+        
         
         bodyHit = NO;
     }
@@ -203,6 +209,7 @@
 		[image drawInRect:CGRectMake(firstPoint.x - 7, firstPoint.y - 45, 40.0f, 60.0f)];
 		pinsLayer.image = UIGraphicsGetImageFromCurrentImageContext();
 		UIGraphicsEndImageContext();
+        
 	} else if (fireButtonPressed) {
         [self fireAnimation];
         
@@ -211,6 +218,7 @@
                                        selector:@selector(addBurn:)
                                        userInfo:fireBurnsLayer
                                         repeats:NO];
+
     } else if (lightningButtonPressed) {
 		[NSTimer scheduledTimerWithTimeInterval:0.3
 										 target:self 
@@ -372,24 +380,82 @@
 
 #pragma mark - Facial expressions
 
+// the doll will have atomic actions: squeeze eyes, open mouth
+// the doll will make more actions by mixing and matching atomic actions
+
+
+
+// wince after being stuck with a pin
 - (void)wince
 {
-    // declare wincing eyes image array
-    NSArray *winceAnimation = [NSArray arrayWithObject: [UIImage imageNamed: [self imageName:@"squeezedeyes"]] ];
+    double winceDuration = 0.25;    
+    [self squeezeEyesWithDuration:winceDuration];
+}
+
+// ouch after being burned
+- (void)ouch
+{
+    // blink twice
+    double blinkLength = 0.35;
+    double squeezeLength = 1;
+    int repeatCount = 2;
+    double ouchDelay = blinkLength * repeatCount;
+
+    [self blinkEyesWithDuration:blinkLength withRepeatCount:repeatCount];
     
-    // declare wincing mouth image array
-    // TDL
+    // open mouth
+    NSMethodSignature *mouthSignature = [self methodSignatureForSelector:@selector(openMouthWithDuration:)];
+    NSInvocation *mouthInvocation = [NSInvocation invocationWithMethodSignature:mouthSignature];
+    [mouthInvocation setTarget:self];
+    [mouthInvocation setSelector:@selector(openMouthWithDuration:)];
+    [mouthInvocation setArgument:&squeezeLength atIndex:2];
     
-    [self animateLayer:eyesLayer withImages:winceAnimation withDuration:0.25];
+    [NSTimer scheduledTimerWithTimeInterval:ouchDelay invocation:mouthInvocation repeats:NO];
     
+    // squeeze eyes
+    NSMethodSignature *eyesSignature = [self methodSignatureForSelector:@selector(squeezeEyesWithDuration:)];
+    NSInvocation *squeezeEyesInvocation = [NSInvocation invocationWithMethodSignature:eyesSignature];
+    [squeezeEyesInvocation setTarget:self];
+    [squeezeEyesInvocation setSelector:@selector(squeezeEyesWithDuration:)];
+    [squeezeEyesInvocation setArgument:&squeezeLength atIndex:2];
+    
+    [NSTimer scheduledTimerWithTimeInterval:ouchDelay invocation:squeezeEyesInvocation repeats:NO];
+    
+
+}
+
+// blink (eyes sqeezed for 1/3 of animation)
+- (void)blinkEyesWithDuration:(double)duration withRepeatCount:(int)numTimes
+{
+    UIImage *image1 = [UIImage imageNamed: [self imageName:@"squeezedeyes"]];
+    UIImage *image2 = [UIImage imageNamed: [self imageName: specificDoll.eyes]];
+    NSArray *animation = [NSArray arrayWithObjects: image1, image1, image2, image2, nil];
+    [self animateLayer:eyesLayer withImages:animation withDuration:duration withRepeatCount:numTimes];
+}
+
+// squeeze eyes (without blinking)
+- (void)squeezeEyesWithDuration:(double)duration
+{
+    UIImage *image1 = [UIImage imageNamed: [self imageName:@"squeezedeyes"]];
+    NSArray *animation = [NSArray arrayWithObject: image1];
+    [self animateLayer:eyesLayer withImages:animation withDuration:duration withRepeatCount:1];
+}
+
+// atomic action
+- (void) openMouthWithDuration:(double)duration
+{
+    UIImage *image1 = [UIImage imageNamed: [self imageName:@"openmouth"]];
+    NSArray *openAnimation = [NSArray arrayWithObject:image1];
+    
+    [self animateLayer:mouthLayer withImages:openAnimation withDuration:duration withRepeatCount:1];
 }
 
 // helper method for animations
-- (void)animateLayer:(UIImageView *)layer withImages:(NSArray *)images withDuration:(double)duration
+- (void)animateLayer:(UIImageView *)layer withImages:(NSArray *)images withDuration:(double)duration withRepeatCount:(int)repeatCount
 {
     layer.animationImages = images;
     layer.animationDuration = duration;
-    layer.animationRepeatCount = 1;
+    layer.animationRepeatCount = repeatCount;
 
     [layer startAnimating];
 }
