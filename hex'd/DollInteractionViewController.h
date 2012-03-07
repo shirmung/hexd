@@ -51,6 +51,8 @@
     float howMuchRed;
 	float howMuchGreen;
 	float howMuchBlue;
+    
+    NSTimer *blinkTimer;
 }
 
 @property (nonatomic, retain) Doll *specificDoll;

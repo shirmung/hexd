@@ -120,12 +120,11 @@
 	lightningLayer.frame = self.view.frame;
     [self.view insertSubview:lightningLayer aboveSubview:fireLayer];
     [lightningLayer release];
-    
+
     // the doll should blink
     double blinkDelay = 4;
     double blinkDuration = 0.25;
     int blinkRepeatCount = 1;
-    
     NSMethodSignature *blinkEyesSignature = [self methodSignatureForSelector:@selector(blinkEyesWithDuration:withRepeatCount:)];
     NSInvocation *blinkEyesInvocation = [NSInvocation invocationWithMethodSignature:blinkEyesSignature];
     [blinkEyesInvocation setTarget:self];
@@ -133,8 +132,7 @@
     [blinkEyesInvocation setArgument:&blinkDuration atIndex:2];
     [blinkEyesInvocation setArgument:&blinkRepeatCount atIndex:3];
     
-    [NSTimer scheduledTimerWithTimeInterval:blinkDelay invocation:blinkEyesInvocation repeats:YES];
-
+    blinkTimer = [NSTimer scheduledTimerWithTimeInterval:blinkDelay invocation:blinkEyesInvocation repeats:YES];
 //    NSLog(@"Lightning retain count: %d", [lightningLayer retainCount]);
 //    
 //    NSLog(@"name: %@", specificDoll.name);
@@ -150,6 +148,8 @@
 
 - (void)viewDidDisappear:(BOOL)animated
 {
+    [blinkTimer invalidate];
+    
 //    NSLog(@"some housekeeping");
 //    [genderLayer removeFromSuperview];
 //    [eyesLayer removeFromSuperview];
@@ -193,6 +193,7 @@
     self.navigationItem.rightBarButtonItem = customizationButton;
     
     [customizationButton release];
+    
 }
 
 - (void)viewDidUnload
