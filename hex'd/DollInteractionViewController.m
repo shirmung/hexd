@@ -57,55 +57,74 @@
         if (![view isKindOfClass:[UIButton class]]) [view removeFromSuperview];
     }
     
+    // goes on bottom
     genderLayer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", specificDoll.gender]]];
     [self.view addSubview:genderLayer];
     
     eyesLayer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", specificDoll.eyes]]];
-    [self.view addSubview:eyesLayer];
-    //NSLog(@"eyes: %@", specificDoll.eyes);
+    [self.view insertSubview:eyesLayer aboveSubview:genderLayer];
     
     mouthLayer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", specificDoll.mouth]]];
-    [self.view addSubview:mouthLayer];
+    [self.view insertSubview:mouthLayer aboveSubview:eyesLayer];
     
     hairLayer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", specificDoll.hair]]];
-    [self.view addSubview:hairLayer];
+    [self.view insertSubview:hairLayer aboveSubview:mouthLayer];
     
     shirtLayer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", specificDoll.shirt]]];
-    [self.view addSubview:shirtLayer];
+    [self.view insertSubview:shirtLayer aboveSubview:hairLayer];
     
     pantsLayer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", specificDoll.pants]]];
-    [self.view addSubview:pantsLayer];
+    [self.view insertSubview:pantsLayer aboveSubview:shirtLayer];
     
     otherLayer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", specificDoll.other]]];
-    [self.view addSubview:otherLayer];
+    [self.view insertSubview:otherLayer aboveSubview:pantsLayer];
     
     fireBurnsLayer = [[UIImageView alloc] initWithImage:[UIImage imageWithData:specificDoll.fireBurnsImageData]];
     fireBurnsLayer.frame = self.view.frame;
-    [self.view addSubview:fireBurnsLayer];
+    [self.view insertSubview:fireBurnsLayer aboveSubview:otherLayer];
     
     lightningBurnsLayer = [[UIImageView alloc] initWithImage:[UIImage imageWithData:specificDoll.lightningBurnsImageData]];
     lightningBurnsLayer.frame = self.view.frame;
-    [self.view addSubview:lightningBurnsLayer];
+    [self.view insertSubview:lightningBurnsLayer aboveSubview:fireBurnsLayer];
     
     foodLayer = [[UIImageView alloc] initWithImage:[UIImage imageWithData:specificDoll.foodImageData]];
 	foodLayer.frame = self.view.frame;
-    [self.view addSubview:foodLayer];
+    [self.view insertSubview:foodLayer aboveSubview:lightningBurnsLayer];
     
     pinsLayer = [[UIImageView alloc] initWithImage:[UIImage imageWithData:specificDoll.pinsImageData]];
 	pinsLayer.frame = self.view.frame;
-    [self.view addSubview:pinsLayer];
+    [self.view insertSubview:pinsLayer aboveSubview:foodLayer];
     
     drawingLayer = [[UIImageView alloc] initWithImage:[UIImage imageWithData:specificDoll.drawingImageData]];
 	drawingLayer.frame = self.view.frame;
-    [self.view addSubview:drawingLayer];
+    [self.view insertSubview:drawingLayer aboveSubview:pinsLayer];
     
     fireLayer = [[UIImageView alloc] initWithImage:[UIImage imageWithData:specificDoll.fireImageData]];
 	fireLayer.frame = self.view.frame;
-    [self.view addSubview:fireLayer];
+    [self.view insertSubview:fireLayer aboveSubview:drawingLayer];
     
     lightningLayer = [[UIImageView alloc] initWithImage:[UIImage imageWithData:specificDoll.lightningImageData]];
 	lightningLayer.frame = self.view.frame;
-    [self.view addSubview:lightningLayer];
+    [self.view insertSubview:lightningLayer aboveSubview:fireLayer];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    NSLog(@"some housekeeping");
+    [genderLayer removeFromSuperview];
+    [eyesLayer removeFromSuperview];
+    [mouthLayer removeFromSuperview];
+    [hairLayer removeFromSuperview];
+    [shirtLayer removeFromSuperview];
+    [pantsLayer removeFromSuperview];
+    [otherLayer removeFromSuperview];
+    [fireBurnsLayer removeFromSuperview];
+    [lightningBurnsLayer removeFromSuperview];
+    [foodLayer removeFromSuperview];
+    [pinsLayer removeFromSuperview];
+    [drawingLayer removeFromSuperview];
+    [fireLayer removeFromSuperview];
+    [lightningLayer removeFromSuperview];
 }
 
 - (BOOL)canBecomeFirstResponder 

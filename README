@@ -5,3 +5,7 @@ TDL:
 -add sounds/music
 -test sharekit
 -when in editing mode, should be able to delete dolls
+
+Here are some bugs to be fixed:
+1) Layers do not appear in fixed order
+2) When switching hair, the old hair is drawn underneath the new hair
