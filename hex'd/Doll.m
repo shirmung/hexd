@@ -12,6 +12,7 @@
 
 @synthesize name, gender, eyes, mouth, hair, shirt, pants, other;
 @synthesize pinsImageData, fireImageData, fireBurnsImageData, lightningImageData, lightningBurnsImageData, foodImageData, drawingImageData;
+@synthesize emotionLevel;
 
 -(id)init
 {
@@ -25,6 +26,8 @@
         shirt = @"";
         pants = @"";
         other = @"";
+        
+        emotion = 0;
     }
     
     return self;

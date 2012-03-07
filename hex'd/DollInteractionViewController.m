@@ -62,6 +62,7 @@
     
     eyesLayer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", specificDoll.eyes]]];
     [self.view addSubview:eyesLayer];
+    NSLog(@"eyes: %@", specificDoll.eyes);
     
     mouthLayer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", specificDoll.mouth]]];
     [self.view addSubview:mouthLayer];
@@ -189,6 +190,7 @@
     if (bodyHit)
     {
         [self bodyAnimation];
+        [self wince];
         
         bodyHit = NO;
     }
@@ -366,6 +368,37 @@
     specificDoll.drawingImageData = UIImagePNGRepresentation(drawingLayer.image);
 
     [[DollDataManager sharedDollDataManager] saveDolls];
+}
+
+#pragma mark - Facial expressions
+
+- (void)wince
+{
+    // declare wincing eyes image array
+    NSArray *winceAnimation = [NSArray arrayWithObject: [UIImage imageNamed: [self imageName:@"squeezedeyes"]] ];
+    
+    // declare wincing mouth image array
+    // TDL
+    
+    [self animateLayer:eyesLayer withImages:winceAnimation withDuration:0.25];
+    
+}
+
+// helper method for animations
+- (void)animateLayer:(UIImageView *)layer withImages:(NSArray *)images withDuration:(double)duration
+{
+    layer.animationImages = images;
+    layer.animationDuration = duration;
+    layer.animationRepeatCount = 1;
+
+    [layer startAnimating];
+}
+
+// helper method for getting file types
+- (NSString *) imageName:(NSString *)name 
+{
+    NSString *format = @"png";
+    return [NSString stringWithFormat:@"%@.%@", name, format];
 }
 
 #pragma mark - Animations

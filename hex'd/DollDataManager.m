@@ -46,6 +46,8 @@ static DollDataManager *sharedDollDataManager;
                 
                 doll.name = [detailsOfDoll objectForKey:@"name"];
                 doll.gender = [detailsOfDoll objectForKey:@"gender"];
+                doll.eyes = [detailsOfDoll objectForKey:@"eyes"];
+                doll.mouth = [detailsOfDoll objectForKey:@"mouth"];
                 doll.hair = [detailsOfDoll objectForKey:@"hair"];
                 doll.shirt = [detailsOfDoll objectForKey:@"shirt"];
                 doll.pants = [detailsOfDoll objectForKey:@"pants"];
@@ -86,6 +88,8 @@ static DollDataManager *sharedDollDataManager;
         
         [detailsOfDoll setObject:doll.name forKey:@"name"];
         [detailsOfDoll setObject:doll.gender forKey:@"gender"];
+        [detailsOfDoll setObject:doll.eyes forKey:@"eyes"];
+        [detailsOfDoll setObject:doll.mouth forKey:@"mouth"];
         [detailsOfDoll setObject:doll.hair forKey:@"hair"];
         [detailsOfDoll setObject:doll.name forKey:@"shirt"];
         [detailsOfDoll setObject:doll.gender forKey:@"pants"];

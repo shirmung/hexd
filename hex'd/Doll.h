@@ -19,6 +19,8 @@
     NSString *pants;
     NSString *other;
     
+    int emotion;
+    
     NSData *pinsImageData;
     NSData *fireImageData;
     NSData *fireBurnsImageData;
@@ -36,6 +38,8 @@
 @property (nonatomic, retain) NSString *shirt;
 @property (nonatomic, retain) NSString *pants;
 @property (nonatomic, retain) NSString *other;
+
+@property (nonatomic, assign) int emotionLevel;
 
 @property (nonatomic, retain) NSData *pinsImageData;
 @property (nonatomic, retain) NSData *fireImageData;
