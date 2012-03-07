@@ -121,6 +121,20 @@
     [self.view insertSubview:lightningLayer aboveSubview:fireLayer];
     [lightningLayer release];
     
+    // the doll should blink
+    double blinkDelay = 4;
+    double blinkDuration = 0.25;
+    int blinkRepeatCount = 1;
+    
+    NSMethodSignature *blinkEyesSignature = [self methodSignatureForSelector:@selector(blinkEyesWithDuration:withRepeatCount:)];
+    NSInvocation *blinkEyesInvocation = [NSInvocation invocationWithMethodSignature:blinkEyesSignature];
+    [blinkEyesInvocation setTarget:self];
+    [blinkEyesInvocation setSelector:@selector(blinkEyesWithDuration:withRepeatCount:)];
+    [blinkEyesInvocation setArgument:&blinkDuration atIndex:2];
+    [blinkEyesInvocation setArgument:&blinkRepeatCount atIndex:3];
+    
+    [NSTimer scheduledTimerWithTimeInterval:blinkDelay invocation:blinkEyesInvocation repeats:YES];
+
 //    NSLog(@"Lightning retain count: %d", [lightningLayer retainCount]);
 //    
 //    NSLog(@"name: %@", specificDoll.name);
@@ -469,16 +483,16 @@
 
 }
 
-// blink (eyes sqeezed for 1/3 of animation)
+// blink (eyes blink for 1/3 of animation)
 - (void)blinkEyesWithDuration:(double)duration withRepeatCount:(int)numTimes
 {
-    UIImage *image1 = [UIImage imageNamed: [self imageName:@"squeezedeyes"]];
+    UIImage *image1 = [UIImage imageNamed: [self imageName:@"blinkedeyes"]];
     UIImage *image2 = [UIImage imageNamed: [self imageName: specificDoll.eyes]];
     NSArray *animation = [NSArray arrayWithObjects: image1, image1, image2, image2, nil];
     [self animateLayer:eyesLayer withImages:animation withDuration:duration withRepeatCount:numTimes];
 }
 
-// squeeze eyes (without blinking)
+// squeeze eyes
 - (void)squeezeEyesWithDuration:(double)duration
 {
     UIImage *image1 = [UIImage imageNamed: [self imageName:@"squeezedeyes"]];
@@ -486,7 +500,7 @@
     [self animateLayer:eyesLayer withImages:animation withDuration:duration withRepeatCount:1];
 }
 
-// atomic action
+// open mouth
 - (void) openMouthWithDuration:(double)duration
 {
     UIImage *image1 = [UIImage imageNamed: [self imageName:@"openmouth"]];
