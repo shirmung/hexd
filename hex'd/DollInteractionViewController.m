@@ -57,6 +57,8 @@
         if (![view isKindOfClass:[UIButton class]]) [view removeFromSuperview];
     }
     
+    // TDL: make this a loop
+    
     // goes on bottom
     genderLayer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", specificDoll.gender]]];
     [self.view addSubview:genderLayer];
@@ -65,6 +67,21 @@
     eyesLayer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", specificDoll.eyes]]];
     [self.view addSubview:eyesLayer];
     [eyesLayer release];
+    
+    cryingLayer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"crying1.png"]];
+    cryingLayer.animationImages = [NSArray arrayWithObjects:
+                                   [UIImage imageNamed:@"crying1.png"],
+                                   [UIImage imageNamed:@"crying2.png"],
+                                   [UIImage imageNamed:@"crying3.png"],
+                                   [UIImage imageNamed:@"crying4.png"],
+                                   [UIImage imageNamed:@"crying5.png"], 
+                                   [UIImage imageNamed:@"crying6.png"],
+                                   [UIImage imageNamed:@"crying7.png"], nil];
+	cryingLayer.animationDuration = 0.5;
+    cryingLayer.animationRepeatCount = 1;
+    cryingLayer.alpha = 0;
+    [self.view addSubview:cryingLayer];
+    [cryingLayer release];
     
     mouthLayer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", specificDoll.mouth]]];
     [self.view addSubview:mouthLayer];
@@ -133,6 +150,14 @@
     [blinkEyesInvocation setArgument:&blinkRepeatCount atIndex:3];
     
     blinkTimer = [NSTimer scheduledTimerWithTimeInterval:blinkDelay invocation:blinkEyesInvocation repeats:YES];
+    
+    // the doll should feel better over time
+    emotionTimer = [NSTimer scheduledTimerWithTimeInterval:blinkDelay
+                                     target:self
+                                   selector:@selector(feelingBetter)
+                                   userInfo:nil
+                                    repeats:YES];
+    
 //    NSLog(@"Lightning retain count: %d", [lightningLayer retainCount]);
 //    
 //    NSLog(@"name: %@", specificDoll.name);
@@ -148,23 +173,9 @@
 
 - (void)viewDidDisappear:(BOOL)animated
 {
+    [super viewDidDisappear:animated];
     [blinkTimer invalidate];
-    
-//    NSLog(@"some housekeeping");
-//    [genderLayer removeFromSuperview];
-//    [eyesLayer removeFromSuperview];
-//    [mouthLayer removeFromSuperview];
-//    [hairLayer removeFromSuperview];
-//    [shirtLayer removeFromSuperview];
-//    [pantsLayer removeFromSuperview];
-//    [otherLayer removeFromSuperview];
-//    [fireBurnsLayer removeFromSuperview];
-//    [lightningBurnsLayer removeFromSuperview];
-//    [foodLayer removeFromSuperview];
-//    [pinsLayer removeFromSuperview];
-//    [drawingLayer removeFromSuperview];
-//    [fireLayer removeFromSuperview];
-//    [lightningLayer removeFromSuperview];
+    [emotionTimer invalidate];
 }
 
 - (BOOL)canBecomeFirstResponder 
@@ -193,6 +204,11 @@
     self.navigationItem.rightBarButtonItem = customizationButton;
     
     [customizationButton release];
+    
+    // reset face
+    specificDoll.eyes = @"neutraleyes";
+    specificDoll.mouth = @"neutralmouth";
+    
     
 }
 
@@ -249,6 +265,7 @@
     
     if (bodyHit)
     {
+        [self feelingWorse];
         [self bodyAnimation];
         
         if (pinButtonPressed) {
@@ -436,6 +453,65 @@
     specificDoll.drawingImageData = UIImagePNGRepresentation(drawingLayer.image);
 
     [[DollDataManager sharedDollDataManager] saveDolls];
+}
+
+#pragma mark - Emotions
+
+#define SAD -5
+#define REALLY_SAD -15
+#define CRYING -25
+
+// time heals all wounds
+- (void)feelingBetter
+{
+    if (specificDoll.emotionLevel < 0) {
+        
+        // change emotion level
+        specificDoll.emotionLevel += 1;
+        
+        // adjust facial expression
+        if (specificDoll.emotionLevel >= SAD && specificDoll.emotionLevel <= 0) {
+            specificDoll.eyes = @"neutraleyes";
+            specificDoll.mouth = @"neutralmouth";
+        } else if (specificDoll.emotionLevel >= REALLY_SAD && specificDoll.emotionLevel < SAD) {
+            specificDoll.eyes = @"sadeyes1.png";
+            specificDoll.mouth = @"sadmouth1.png";
+        } else if (specificDoll.emotionLevel >= CRYING && specificDoll.emotionLevel < REALLY_SAD) {
+            cryingLayer.alpha = 0;
+        }
+        [eyesLayer setImage:[UIImage imageNamed:specificDoll.eyes]];
+        [mouthLayer setImage:[UIImage imageNamed:specificDoll.mouth]];
+    }
+    
+    NSLog(@"emotion level: %d", specificDoll.emotionLevel);
+}
+
+// time wounds all heals
+- (void)feelingWorse
+{
+    if (specificDoll.emotionLevel > INT_MIN) {
+        
+        // change emotion level
+        specificDoll.emotionLevel -= 1;
+        
+        // adjust facial expression
+        if (specificDoll.emotionLevel <= SAD && specificDoll.emotionLevel > REALLY_SAD) {
+            specificDoll.eyes = @"sadeyes1";
+            specificDoll.mouth = @"sadmouth1";
+        } else if ( specificDoll.emotionLevel <= REALLY_SAD && specificDoll.emotionLevel > CRYING) {
+            specificDoll.eyes = @"sadeyes2";
+            specificDoll.mouth = @"sadmouth2";
+        } else if ( specificDoll.emotionLevel <= CRYING) {
+            NSLog(@"cry");
+            cryingLayer.alpha = 1;
+            [cryingLayer startAnimating];
+        }
+        
+        [eyesLayer setImage:[UIImage imageNamed:specificDoll.eyes]];
+        [mouthLayer setImage:[UIImage imageNamed:specificDoll.mouth]];
+    }
+    
+    NSLog(@"emotion level: %d", specificDoll.emotionLevel);
 }
 
 #pragma mark - Facial expressions

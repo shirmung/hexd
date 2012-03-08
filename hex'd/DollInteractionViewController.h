@@ -23,6 +23,7 @@
     // facial stuff
     UIImageView *eyesLayer;
     UIImageView *mouthLayer;
+    UIImageView *cryingLayer;
     
     UIImageView *pinsLayer;
     UIImageView *fireLayer;
@@ -53,6 +54,7 @@
 	float howMuchBlue;
     
     NSTimer *blinkTimer;
+    NSTimer *emotionTimer;
 }
 
 @property (nonatomic, retain) Doll *specificDoll;
