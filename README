@@ -5,6 +5,5 @@ TDL:
 -add sounds/music
 
 BUGS TDL:
--doll should open mouth when hit
 -should be able to delete dolls when editing
 -should not save when cancel is pressed in customization modal view controller

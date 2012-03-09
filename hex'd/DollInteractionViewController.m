@@ -518,6 +518,7 @@
 {
     double winceDuration = 0.25;    
     [self squeezeEyesWithDuration:winceDuration];
+    [self openMouthWithDuration:winceDuration];
 }
 
 // ouch after being burned
