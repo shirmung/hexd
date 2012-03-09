@@ -1,7 +1,10 @@
 TDL:
 -add @2x versions of: main views, main buttons, all doll images, fire, lightning, burn
 -add button selection
--add facial animations
--test sharekit
--when in editing mode, should be able to delete dolls
+-saving to photo album and emailing
 -add sounds/music
+
+BUGS TDL:
+-doll should open mouth when hit
+-should be able to delete dolls when editing
+-should not save when cancel is pressed in customization modal view controller

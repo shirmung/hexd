@@ -19,6 +19,4 @@
 
 - (void)saveDolls;
 
-- (NSString *)dollsFilePath;
-
 @end

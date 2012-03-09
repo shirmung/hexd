@@ -21,7 +21,4 @@
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *fixedSpaceBarButtonItem;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *editBarButtonItem;
 
-- (IBAction)addDoll:(UIBarButtonItem *)barButtonItem;
-- (IBAction)toggleEditMode:(UIBarButtonItem *)barButtonItem;
-
 @end

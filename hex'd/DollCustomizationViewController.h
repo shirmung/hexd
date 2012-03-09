@@ -17,11 +17,4 @@
 
 @property (nonatomic, retain) Doll *specificDoll;
 
-- (IBAction)selectHair:(UIButton *)button;
-- (IBAction)selectShirt:(UIButton *)button;
-- (IBAction)selectPants:(UIButton *)button;
-- (IBAction)selectOther:(UIButton *)button;
-
-- (IBAction)dismissView:(UIBarButtonItem *)barButtonItem;
-
 @end

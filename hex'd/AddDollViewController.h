@@ -17,6 +17,4 @@
 @property (nonatomic, retain) IBOutlet UITextField *nameTextField;
 @property (nonatomic, retain) IBOutlet UISegmentedControl *genderSegmentedControl;
 
-- (IBAction)dismissView:(UIBarButtonItem *)barButtonItem;
-
 @end

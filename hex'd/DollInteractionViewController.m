@@ -12,7 +12,6 @@
 #import "DollInteractionViewController.h"
 #import "DollDataManager.h"
 #import "Doll.h"
-#import "SHK.h"
 #import "DollCustomizationViewController.h"
 
 @implementation DollInteractionViewController
@@ -58,8 +57,6 @@
     }
     
     // TDL: make this a loop
-    
-    // goes on bottom
     genderLayer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", specificDoll.gender]]];
     [self.view addSubview:genderLayer];
     [genderLayer release];
@@ -168,12 +165,12 @@
 //    NSLog(@"shirt: %@", specificDoll.shirt);
 //    NSLog(@"pants: %@", specificDoll.pants);
 //    NSLog(@"other: %@", specificDoll.other);
-    
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
+    
     [blinkTimer invalidate];
     [emotionTimer invalidate];
 }
@@ -208,8 +205,6 @@
     // reset face
     specificDoll.eyes = @"neutraleyes";
     specificDoll.mouth = @"neutralmouth";
-    
-    
 }
 
 - (void)viewDidUnload
@@ -273,7 +268,6 @@
         } else if (fireButtonPressed) {
             [self ouch];
         }
-        
         
         bodyHit = NO;
     }
@@ -464,8 +458,8 @@
 // time heals all wounds
 - (void)feelingBetter
 {
-    if (specificDoll.emotionLevel < 0) {
-        
+    if (specificDoll.emotionLevel < 0)
+    {
         // change emotion level
         specificDoll.emotionLevel += 1;
         
@@ -489,8 +483,8 @@
 // time wounds all heals
 - (void)feelingWorse
 {
-    if (specificDoll.emotionLevel > INT_MIN) {
-        
+    if (specificDoll.emotionLevel > INT_MIN)
+    {
         // change emotion level
         specificDoll.emotionLevel -= 1;
         
@@ -518,8 +512,6 @@
 
 // the doll will have atomic actions: squeeze eyes, open mouth
 // the doll will make more actions by mixing and matching atomic actions
-
-
 
 // wince after being stuck with a pin
 - (void)wince
@@ -556,8 +548,6 @@
     [squeezeEyesInvocation setArgument:&squeezeLength atIndex:2];
     
     [NSTimer scheduledTimerWithTimeInterval:ouchDelay invocation:squeezeEyesInvocation repeats:NO];
-    
-
 }
 
 // blink (eyes blink for 1/3 of animation)
@@ -578,7 +568,7 @@
 }
 
 // open mouth
-- (void) openMouthWithDuration:(double)duration
+- (void)openMouthWithDuration:(double)duration
 {
     UIImage *image1 = [UIImage imageNamed: [self imageName:@"openmouth"]];
     NSArray *openAnimation = [NSArray arrayWithObject:image1];
@@ -597,7 +587,7 @@
 }
 
 // helper method for getting file types
-- (NSString *) imageName:(NSString *)name 
+- (NSString *)imageName:(NSString *)name 
 {
     NSString *format = @"png";
     return [NSString stringWithFormat:@"%@.%@", name, format];
@@ -787,21 +777,21 @@
 
 - (IBAction)shareDoll:(UIButton *)button
 {
-    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-    
-    UIGraphicsBeginImageContext(window.frame.size);
-    [window.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *screenshot = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    CGImageRef temp = CGImageCreateWithImageInRect([screenshot CGImage], CGRectMake(0, 20, 320, 460));
-    UIImage *croppedImage = [UIImage imageWithCGImage:temp];
-    CGImageRelease(temp);
-    
-    SHKItem *item = [SHKItem image:croppedImage title:@"Check out the voodoo doll I created with hex'd!"];
-    SHKActionSheet *actionSheet = [SHKActionSheet actionSheetForItem:item];
-    
-    [actionSheet showInView:self.view];
+//    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+//    
+//    UIGraphicsBeginImageContext(window.frame.size);
+//    [window.layer renderInContext:UIGraphicsGetCurrentContext()];
+//    UIImage *screenshot = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    
+//    CGImageRef temp = CGImageCreateWithImageInRect([screenshot CGImage], CGRectMake(0, 20, 320, 460));
+//    UIImage *croppedImage = [UIImage imageWithCGImage:temp];
+//    CGImageRelease(temp);
+//    
+//    SHKItem *item = [SHKItem image:croppedImage title:@"Check out the voodoo doll I created with hex'd!"];
+//    SHKActionSheet *actionSheet = [SHKActionSheet actionSheetForItem:item];
+//    
+//    [actionSheet showInView:self.view];
 }
 
 - (IBAction)toCustomizationView:(UIBarButtonItem *)barButtonItem

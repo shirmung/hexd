@@ -13,6 +13,4 @@
 
 }
 
-- (IBAction)toAnotherView:(UIButton *)button;
-
 @end

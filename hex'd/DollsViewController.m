@@ -54,10 +54,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];  
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    
     if (![userDefaults objectForKey:@"hasUsed"])
     {
         [userDefaults setObject:@"YES" forKey:@"hasUsed"];
+        [userDefaults synchronize];
         
         Doll *newDoll = [[Doll alloc] init];
         newDoll.name = @"Jack";
@@ -65,7 +67,7 @@
         
         [[[DollDataManager sharedDollDataManager] dolls] addObject:newDoll];
         [[DollDataManager sharedDollDataManager] saveDolls];
-        
+    
         [newDoll release];
     }
     

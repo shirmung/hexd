@@ -59,19 +59,4 @@
 
 @property (nonatomic, retain) Doll *specificDoll;
 
-- (void)bodyAnimation;
-- (void)fireAnimation;
-- (void)lightningAnimation;
-
-- (void)saveDolls;
-
-- (IBAction)selectInteraction:(UIButton *)button;
-- (IBAction)foodOptions:(UIButton *)button;
-- (IBAction)drawingOptions:(UIButton *)button;
-- (void)optionsVisibility;
-
-- (IBAction)shareDoll:(UIButton *)button;
-
-- (IBAction)toCustomizationView:(UIBarButtonItem *)barButtonItem;
-
 @end
