@@ -2,6 +2,6 @@ TDL:
 -add @2x versions of: main views, main buttons, all doll images, fire, lightning, burn
 -add button selection
 -add facial animations
--add sounds/music
 -test sharekit
 -when in editing mode, should be able to delete dolls
+-add sounds/music
