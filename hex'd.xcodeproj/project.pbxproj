@@ -68,6 +68,14 @@
 		C1A3954B1506AB8B00C8EE8E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1A3954A1506AB8B00C8EE8E /* Security.framework */; };
 		C1A3954D1506AB9600C8EE8E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1A3954C1506AB9600C8EE8E /* MessageUI.framework */; };
 		C1A395DD1506C4FB00C8EE8E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1A395DC1506C4FA00C8EE8E /* QuartzCore.framework */; };
+		C1A3F22B150AD65E00857179 /* burn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A3F22A150AD65E00857179 /* burn@2x.png */; };
+		C1A3F22E150AD66500857179 /* flame1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A3F22D150AD66500857179 /* flame1@2x.png */; };
+		C1A3F230150AD66A00857179 /* flame2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A3F22F150AD66A00857179 /* flame2@2x.png */; };
+		C1A3F232150AD66F00857179 /* lightning1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A3F231150AD66F00857179 /* lightning1@2x.png */; };
+		C1A3F234150AD67300857179 /* lightning2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A3F233150AD67300857179 /* lightning2@2x.png */; };
+		C1A3F236150AD67700857179 /* lightning3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A3F235150AD67700857179 /* lightning3@2x.png */; };
+		C1A3F238150AD67A00857179 /* lightning4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A3F237150AD67A00857179 /* lightning4@2x.png */; };
+		C1A3F23A150AD68300857179 /* lightning5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A3F239150AD68300857179 /* lightning5@2x.png */; };
 		C1F511A814F29E450005A8CA /* pin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1F511A714F29E450005A8CA /* pin@2x.png */; };
 		C1F511AA14F29E6D0005A8CA /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = C1F511A914F29E6D0005A8CA /* pin.png */; };
 		C1F511AD14F29F070005A8CA /* tomato.png in Resources */ = {isa = PBXBuildFile; fileRef = C1F511AB14F29F070005A8CA /* tomato.png */; };
@@ -181,6 +189,14 @@
 		C1A3954A1506AB8B00C8EE8E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		C1A3954C1506AB9600C8EE8E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		C1A395DC1506C4FA00C8EE8E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C1A3F22A150AD65E00857179 /* burn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "burn@2x.png"; sourceTree = "<group>"; };
+		C1A3F22D150AD66500857179 /* flame1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flame1@2x.png"; sourceTree = "<group>"; };
+		C1A3F22F150AD66A00857179 /* flame2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flame2@2x.png"; sourceTree = "<group>"; };
+		C1A3F231150AD66F00857179 /* lightning1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lightning1@2x.png"; sourceTree = "<group>"; };
+		C1A3F233150AD67300857179 /* lightning2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lightning2@2x.png"; sourceTree = "<group>"; };
+		C1A3F235150AD67700857179 /* lightning3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lightning3@2x.png"; sourceTree = "<group>"; };
+		C1A3F237150AD67A00857179 /* lightning4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lightning4@2x.png"; sourceTree = "<group>"; };
+		C1A3F239150AD68300857179 /* lightning5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lightning5@2x.png"; sourceTree = "<group>"; };
 		C1F511A714F29E450005A8CA /* pin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin@2x.png"; sourceTree = "<group>"; };
 		C1F511A914F29E6D0005A8CA /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
 		C1F511AB14F29F070005A8CA /* tomato.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tomato.png; sourceTree = "<group>"; };
@@ -244,13 +260,21 @@
 				C1F511A914F29E6D0005A8CA /* pin.png */,
 				C1F511A714F29E450005A8CA /* pin@2x.png */,
 				C1F511BF14F2A2820005A8CA /* flame1.png */,
+				C1A3F22D150AD66500857179 /* flame1@2x.png */,
 				C1F511C014F2A2820005A8CA /* flame2.png */,
+				C1A3F22F150AD66A00857179 /* flame2@2x.png */,
 				C1F511B314F2A0CD0005A8CA /* lightning1.png */,
+				C1A3F231150AD66F00857179 /* lightning1@2x.png */,
 				C1F511B414F2A0CD0005A8CA /* lightning2.png */,
+				C1A3F233150AD67300857179 /* lightning2@2x.png */,
 				C1F511B514F2A0CD0005A8CA /* lightning3.png */,
+				C1A3F235150AD67700857179 /* lightning3@2x.png */,
 				C1F511B614F2A0CD0005A8CA /* lightning4.png */,
+				C1A3F237150AD67A00857179 /* lightning4@2x.png */,
 				C1F511B714F2A0CD0005A8CA /* lightning5.png */,
+				C1A3F239150AD68300857179 /* lightning5@2x.png */,
 				C1F511BD14F2A1D60005A8CA /* burn.png */,
+				C1A3F22A150AD65E00857179 /* burn@2x.png */,
 				C1F511AB14F29F070005A8CA /* tomato.png */,
 				C1F511AC14F29F070005A8CA /* tomato@2x.png */,
 				C1F511AF14F29F9F0005A8CA /* egg.png */,
@@ -650,6 +674,14 @@
 				C1FA68DE150AC40A0097B378 /* pants5.png in Resources */,
 				C1FA68E1150AC8FC0097B378 /* pants4out.png in Resources */,
 				C1FA68E2150AC8FC0097B378 /* pants4.png in Resources */,
+				C1A3F22B150AD65E00857179 /* burn@2x.png in Resources */,
+				C1A3F22E150AD66500857179 /* flame1@2x.png in Resources */,
+				C1A3F230150AD66A00857179 /* flame2@2x.png in Resources */,
+				C1A3F232150AD66F00857179 /* lightning1@2x.png in Resources */,
+				C1A3F234150AD67300857179 /* lightning2@2x.png in Resources */,
+				C1A3F236150AD67700857179 /* lightning3@2x.png in Resources */,
+				C1A3F238150AD67A00857179 /* lightning4@2x.png in Resources */,
+				C1A3F23A150AD68300857179 /* lightning5@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
