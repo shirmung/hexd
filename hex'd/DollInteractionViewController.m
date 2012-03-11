@@ -267,6 +267,18 @@
             [self wince];
         } else if (fireButtonPressed) {
             [self ouch];
+        } else if (lightningButtonPressed) {
+            [NSTimer scheduledTimerWithTimeInterval:0.3
+                                             target:self 
+                                           selector:@selector(wince) 
+                                           userInfo:nil 
+                                            repeats:NO];
+        } else if (foodButtonPressed) {
+            [self wince];
+        } else if (drawingButtonPressed) {
+            
+        } else {
+            [self wince];
         }
         
         bodyHit = NO;
