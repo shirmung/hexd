@@ -1,5 +1,5 @@
 TDL:
--add @2x versions of: main views, main buttons, all doll images
+-add @2x versions of: main views, main buttons
 -add button selection
 -saving to photo album and emailing
 -add sounds/music
@@ -7,3 +7,4 @@ TDL:
 BUGS TDL:
 -should be able to delete dolls when editing
 -should not save when cancel is pressed in customization modal view controller
+-color issues with some images

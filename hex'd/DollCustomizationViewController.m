@@ -86,7 +86,8 @@
 
 - (IBAction)dismissView:(UIBarButtonItem *)barButtonItem
 {
-    if (barButtonItem.tag == 1) {
+    if (barButtonItem.tag == 1) 
+    {
         [[DollDataManager sharedDollDataManager] saveDolls];
     }
     
