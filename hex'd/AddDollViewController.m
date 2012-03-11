@@ -82,7 +82,7 @@
         
         if (genderSegmentedControl.selectedSegmentIndex == 0) newDoll.gender = @"male";
         else if (genderSegmentedControl.selectedSegmentIndex == 1) newDoll.gender = @"female";
-        else if (genderSegmentedControl.selectedSegmentIndex == 2) newDoll.gender = @"other";
+        else if (genderSegmentedControl.selectedSegmentIndex == 2) newDoll.gender = @"othergender";
         
         [[[DollDataManager sharedDollDataManager] dolls] addObject:newDoll];
         [[DollDataManager sharedDollDataManager] saveDolls];

@@ -39,8 +39,8 @@
 		C183AE2914BBB5BB009D8ABF /* femaleout.png in Resources */ = {isa = PBXBuildFile; fileRef = C183AE2714BBB5BB009D8ABF /* femaleout.png */; };
 		C183AE2C14BBB642009D8ABF /* male.png in Resources */ = {isa = PBXBuildFile; fileRef = C183AE2A14BBB642009D8ABF /* male.png */; };
 		C183AE2D14BBB642009D8ABF /* maleout.png in Resources */ = {isa = PBXBuildFile; fileRef = C183AE2B14BBB642009D8ABF /* maleout.png */; };
-		C183AE3014BBB699009D8ABF /* other.png in Resources */ = {isa = PBXBuildFile; fileRef = C183AE2E14BBB699009D8ABF /* other.png */; };
-		C183AE3114BBB699009D8ABF /* otherout.png in Resources */ = {isa = PBXBuildFile; fileRef = C183AE2F14BBB699009D8ABF /* otherout.png */; };
+		C183AE3014BBB699009D8ABF /* othergender.png in Resources */ = {isa = PBXBuildFile; fileRef = C183AE2E14BBB699009D8ABF /* othergender.png */; };
+		C183AE3114BBB699009D8ABF /* othergenderout.png in Resources */ = {isa = PBXBuildFile; fileRef = C183AE2F14BBB699009D8ABF /* othergenderout.png */; };
 		C183AE3714BBB8FE009D8ABF /* hair1.png in Resources */ = {isa = PBXBuildFile; fileRef = C183AE3214BBB8FD009D8ABF /* hair1.png */; };
 		C183AE3814BBB8FE009D8ABF /* hair2.png in Resources */ = {isa = PBXBuildFile; fileRef = C183AE3314BBB8FD009D8ABF /* hair2.png */; };
 		C183AE3914BBB8FE009D8ABF /* hair3.png in Resources */ = {isa = PBXBuildFile; fileRef = C183AE3414BBB8FD009D8ABF /* hair3.png */; };
@@ -78,8 +78,8 @@
 		C1C46EDE150C7A160047479D /* maleout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C46EDD150C7A160047479D /* maleout@2x.png */; };
 		C1C46EE0150C7A1F0047479D /* female@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C46EDF150C7A1F0047479D /* female@2x.png */; };
 		C1C46EE2150C7A420047479D /* femaleout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C46EE1150C7A420047479D /* femaleout@2x.png */; };
-		C1C46EE6150C7A950047479D /* other@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C46EE5150C7A950047479D /* other@2x.png */; };
-		C1C46EE8150C7AB70047479D /* otherout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C46EE7150C7AB70047479D /* otherout@2x.png */; };
+		C1C46EE6150C7A950047479D /* othergender@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C46EE5150C7A950047479D /* othergender@2x.png */; };
+		C1C46EE8150C7AB70047479D /* othergenderout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C46EE7150C7AB70047479D /* othergenderout@2x.png */; };
 		C1C46EEA150C7AE80047479D /* blinkedeyes@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C46EE9150C7AE80047479D /* blinkedeyes@2x.png */; };
 		C1C46EEC150C7AF20047479D /* crying1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C46EEB150C7AF20047479D /* crying1@2x.png */; };
 		C1C46EEE150C7AF50047479D /* crying2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C46EED150C7AF50047479D /* crying2@2x.png */; };
@@ -208,8 +208,8 @@
 		C183AE2714BBB5BB009D8ABF /* femaleout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = femaleout.png; sourceTree = "<group>"; };
 		C183AE2A14BBB642009D8ABF /* male.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = male.png; sourceTree = "<group>"; };
 		C183AE2B14BBB642009D8ABF /* maleout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maleout.png; sourceTree = "<group>"; };
-		C183AE2E14BBB699009D8ABF /* other.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = other.png; sourceTree = "<group>"; };
-		C183AE2F14BBB699009D8ABF /* otherout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = otherout.png; sourceTree = "<group>"; };
+		C183AE2E14BBB699009D8ABF /* othergender.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = othergender.png; sourceTree = "<group>"; };
+		C183AE2F14BBB699009D8ABF /* othergenderout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = othergenderout.png; sourceTree = "<group>"; };
 		C183AE3214BBB8FD009D8ABF /* hair1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hair1.png; sourceTree = "<group>"; };
 		C183AE3314BBB8FD009D8ABF /* hair2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hair2.png; sourceTree = "<group>"; };
 		C183AE3414BBB8FD009D8ABF /* hair3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hair3.png; sourceTree = "<group>"; };
@@ -248,8 +248,8 @@
 		C1C46EDD150C7A160047479D /* maleout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "maleout@2x.png"; sourceTree = "<group>"; };
 		C1C46EDF150C7A1F0047479D /* female@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "female@2x.png"; sourceTree = "<group>"; };
 		C1C46EE1150C7A420047479D /* femaleout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "femaleout@2x.png"; sourceTree = "<group>"; };
-		C1C46EE5150C7A950047479D /* other@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "other@2x.png"; sourceTree = "<group>"; };
-		C1C46EE7150C7AB70047479D /* otherout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "otherout@2x.png"; sourceTree = "<group>"; };
+		C1C46EE5150C7A950047479D /* othergender@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "othergender@2x.png"; sourceTree = "<group>"; };
+		C1C46EE7150C7AB70047479D /* othergenderout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "othergenderout@2x.png"; sourceTree = "<group>"; };
 		C1C46EE9150C7AE80047479D /* blinkedeyes@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blinkedeyes@2x.png"; sourceTree = "<group>"; };
 		C1C46EEB150C7AF20047479D /* crying1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "crying1@2x.png"; sourceTree = "<group>"; };
 		C1C46EED150C7AF50047479D /* crying2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "crying2@2x.png"; sourceTree = "<group>"; };
@@ -564,10 +564,10 @@
 				C1C46EDF150C7A1F0047479D /* female@2x.png */,
 				C183AE2714BBB5BB009D8ABF /* femaleout.png */,
 				C1C46EE1150C7A420047479D /* femaleout@2x.png */,
-				C183AE2E14BBB699009D8ABF /* other.png */,
-				C1C46EE5150C7A950047479D /* other@2x.png */,
-				C183AE2F14BBB699009D8ABF /* otherout.png */,
-				C1C46EE7150C7AB70047479D /* otherout@2x.png */,
+				C183AE2E14BBB699009D8ABF /* othergender.png */,
+				C1C46EE5150C7A950047479D /* othergender@2x.png */,
+				C183AE2F14BBB699009D8ABF /* othergenderout.png */,
+				C1C46EE7150C7AB70047479D /* othergenderout@2x.png */,
 			);
 			name = Genders;
 			sourceTree = "<group>";
@@ -761,8 +761,8 @@
 				C183AE2914BBB5BB009D8ABF /* femaleout.png in Resources */,
 				C183AE2C14BBB642009D8ABF /* male.png in Resources */,
 				C183AE2D14BBB642009D8ABF /* maleout.png in Resources */,
-				C183AE3014BBB699009D8ABF /* other.png in Resources */,
-				C183AE3114BBB699009D8ABF /* otherout.png in Resources */,
+				C183AE3014BBB699009D8ABF /* othergender.png in Resources */,
+				C183AE3114BBB699009D8ABF /* othergenderout.png in Resources */,
 				C183AE3714BBB8FE009D8ABF /* hair1.png in Resources */,
 				C183AE3814BBB8FE009D8ABF /* hair2.png in Resources */,
 				C183AE3914BBB8FE009D8ABF /* hair3.png in Resources */,
@@ -829,8 +829,8 @@
 				C1C46EDE150C7A160047479D /* maleout@2x.png in Resources */,
 				C1C46EE0150C7A1F0047479D /* female@2x.png in Resources */,
 				C1C46EE2150C7A420047479D /* femaleout@2x.png in Resources */,
-				C1C46EE6150C7A950047479D /* other@2x.png in Resources */,
-				C1C46EE8150C7AB70047479D /* otherout@2x.png in Resources */,
+				C1C46EE6150C7A950047479D /* othergender@2x.png in Resources */,
+				C1C46EE8150C7AB70047479D /* othergenderout@2x.png in Resources */,
 				C1C46EEA150C7AE80047479D /* blinkedeyes@2x.png in Resources */,
 				C1C46EEC150C7AF20047479D /* crying1@2x.png in Resources */,
 				C1C46EEE150C7AF50047479D /* crying2@2x.png in Resources */,
