@@ -7,4 +7,3 @@ TDL:
 BUGS TDL:
 -should be able to delete dolls when editing
 -should not save when cancel is pressed in customization modal view controller
--color issues with some images
