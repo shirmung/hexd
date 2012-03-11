@@ -1,7 +1,8 @@
 TDL:
--add @2x versions of: main views, main buttons
+-add @2x versions of: main views + buttons
 -add button selection
--saving to photo album and emailing
+-add saving to photo album and emailing
+-add horizontal scrollview for customization modal view controller
 -add sounds/music
 
 BUGS TDL:
