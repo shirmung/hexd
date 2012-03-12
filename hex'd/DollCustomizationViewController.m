@@ -21,6 +21,7 @@
     if (self)
     {
         // Custom initialization
+        self.view.backgroundColor = [UIColor blackColor];
     }
     
     return self;
@@ -67,6 +68,26 @@
 - (IBAction)selectHair:(UIButton *)button
 {
     specificDoll.hair = [NSString stringWithFormat:@"hair%i", button.tag];
+
+    // if the button was selected, then unselect it
+    if ([button isSelected]) {
+        [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"hair%ibutton.png", button.tag]]
+                forState:UIControlStateNormal];
+        [button setSelected:NO];
+
+    } else { // otherwise select it, unselect previous hair
+        [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"hair%ibuttonselected.png", button.tag]]
+                forState:UIControlStateSelected];
+        
+        // deselect other hair buttons
+        for (id butt in self.view.subviews) {
+            if ([butt isKindOfClass:[UIButton class]] && 
+                [(UIButton *)butt respondsToSelector:@selector(selectHair:)]) { // doesn't work
+                [butt setSelected:NO];
+            }
+        }
+        [button setSelected:YES];
+    }
 }
 
 - (IBAction)selectShirt:(UIButton *)button
