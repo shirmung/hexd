@@ -17,7 +17,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    
+
     if (self)
     {
         // Custom initialization
@@ -26,6 +26,8 @@
     
     return self;
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -48,6 +50,60 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated 
+{
+    [super viewWillAppear:animated];
+    
+    // highlight the doll's selected buttons
+    for (id button in self.view.subviews) {
+        
+        if ([button isKindOfClass:[UIButton class]]) {
+
+            // highlight hair
+            if ([[button currentTitle] isEqualToString:@"hair"]) {
+                if ([button tag] == [self hair]) {
+                    [button setImage:[UIImage imageNamed:
+                                      [NSString stringWithFormat:@"hair%ibuttonselected.png", [button tag]]]
+                            forState:UIControlStateSelected];
+                    [button setSelected:YES];
+                }
+            }
+            
+            // highlight shirt
+            if ([[button currentTitle] isEqualToString:@"shirt"]) {
+                if ([button tag] == [self shirt]) {
+                    [button setImage:[UIImage imageNamed:
+                                      [NSString stringWithFormat:@"shirt%ibuttonselected.png", [button tag]]]
+                            forState:UIControlStateSelected];
+                    [button setSelected:YES];
+                }
+            }
+            
+            // highlight pants
+            if ([[button currentTitle] isEqualToString:@"pants"]) {
+                if ([button tag] == [self pants]) {
+                    [button setImage:[UIImage imageNamed:
+                                      [NSString stringWithFormat:@"pants%ibuttonselected.png", [button tag]]]
+                            forState:UIControlStateSelected];
+                    [button setSelected:YES];
+                }
+            }
+            
+            // highlight other
+            if ([[button currentTitle] isEqualToString:@"other"]) {
+                if ([button tag] == [self other]) {
+                    [button setImage:[UIImage imageNamed:
+                                      [NSString stringWithFormat:@"other%ibuttonselected.png", [button tag]]]
+                            forState:UIControlStateSelected];
+                    [button setSelected:YES];
+                }
+            }
+        }
+    }
+
 }
 
 - (void)viewDidUnload
@@ -67,12 +123,13 @@
 
 - (IBAction)selectHair:(UIButton *)button
 {
-    specificDoll.hair = [NSString stringWithFormat:@"hair%i", button.tag];
-
     // if the button was selected, then unselect it
     if ([button isSelected]) {
         [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"hair%ibutton.png", button.tag]]
                 forState:UIControlStateNormal];
+        
+        // unselect the hair
+        specificDoll.hair = @"";
         [button setSelected:NO];
 
     } else { // otherwise select it, unselect previous hair
@@ -82,27 +139,106 @@
         // deselect other hair buttons
         for (id butt in self.view.subviews) {
             if ([butt isKindOfClass:[UIButton class]] && 
-                [(UIButton *)butt respondsToSelector:@selector(selectHair:)]) { // doesn't work
+                [[butt currentTitle] isEqualToString:@"hair"]) {
                 [butt setSelected:NO];
             }
         }
+        
+        // select the hair
         [button setSelected:YES];
+        specificDoll.hair = [NSString stringWithFormat:@"hair%i", button.tag];
     }
 }
 
 - (IBAction)selectShirt:(UIButton *)button
 {
-    specificDoll.shirt = [NSString stringWithFormat:@"shirt%i", button.tag];
+    
+    NSLog(@"hair is: %d", [self hair]);
+    // if the button was selected, then unselect it
+    if ([button isSelected]) {
+        [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"shirt%ibutton.png", button.tag]]
+                forState:UIControlStateNormal];
+        
+        // unselect the shirt
+        specificDoll.shirt = @"";
+        [button setSelected:NO];
+        
+    } else { // otherwise select it, unselect previous shirt
+        [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"shirt%ibuttonselected.png", button.tag]]
+                forState:UIControlStateSelected];
+        
+        // deselect other shirt buttons
+        for (id butt in self.view.subviews) {
+            if ([butt isKindOfClass:[UIButton class]] && 
+                [[butt currentTitle] isEqualToString:@"shirt"]) {
+                [butt setSelected:NO];
+            }
+        }
+        
+        // select the shirt
+        specificDoll.shirt = [NSString stringWithFormat:@"shirt%i", button.tag];
+        [button setSelected:YES];
+    }
 }
 
 - (IBAction)selectPants:(UIButton *)button
 {
-    specificDoll.pants = [NSString stringWithFormat:@"pants%i", button.tag];
+    
+    // if the button was selected, then unselect it
+    if ([button isSelected]) {
+        [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"pants%ibutton.png", button.tag]]
+                forState:UIControlStateNormal];
+        
+        // unselect the pants
+        specificDoll.pants = @"";
+        [button setSelected:NO];
+        
+    } else { // otherwise select it, unselect previous pants
+        [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"pants%ibuttonselected.png", button.tag]]
+                forState:UIControlStateSelected];
+        
+        // deselect other pants buttons
+        for (id butt in self.view.subviews) {
+            if ([butt isKindOfClass:[UIButton class]] && 
+                [[butt currentTitle] isEqualToString:@"pants"]) {
+                [butt setSelected:NO];
+            }
+        }
+        
+        // select the pants
+        specificDoll.pants = [NSString stringWithFormat:@"pants%i", button.tag];
+        [button setSelected:YES];
+    }
 }
 
 - (IBAction)selectOther:(UIButton *)button
 {
-    specificDoll.other = [NSString stringWithFormat:@"other%i", button.tag];
+        
+    // if the button was selected, then unselect it
+    if ([button isSelected]) {
+        [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"other%ibutton.png", button.tag]]
+                forState:UIControlStateNormal];
+        
+        // unselect the other
+        specificDoll.other = @"";
+        [button setSelected:NO];
+        
+    } else { // otherwise select it, unselect previous other
+        [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"other%ibuttonselected.png", button.tag]]
+                forState:UIControlStateSelected];
+        
+        // deselect other other buttons
+        for (id butt in self.view.subviews) {
+            if ([butt isKindOfClass:[UIButton class]] && 
+                [[butt currentTitle] isEqualToString:@"other"]) {
+                [butt setSelected:NO];
+            }
+        }
+        
+        // select the other
+        specificDoll.other = [NSString stringWithFormat:@"other%i", button.tag];
+        [button setSelected:YES];
+    }
 }
 
 - (IBAction)dismissView:(UIBarButtonItem *)barButtonItem
@@ -113,6 +249,43 @@
     }
     
     [self dismissModalViewControllerAnimated:YES];
+}
+
+#pragma mark - Helper methods
+// helper method to get specific doll's hair
+- (int)hair
+{
+    if (![specificDoll.hair isEqualToString:@""]) {
+        return [[specificDoll.hair substringFromIndex:4] intValue];
+    }
+    return 0;
+}
+
+// helper method to get specific doll's shirt
+- (int)shirt
+{
+    if (![specificDoll.shirt isEqualToString:@""]) {
+        return [[specificDoll.shirt substringFromIndex:5] intValue];
+    }
+    return 0;
+}
+
+// helper method to get specific doll's pants
+- (int)pants
+{
+    if (![specificDoll.pants isEqualToString:@""]) {
+        return [[specificDoll.pants substringFromIndex:5] intValue];
+    }
+    return 0;
+}
+
+// helper method to get specific doll's other
+- (int)other
+{
+    if (![specificDoll.other isEqualToString:@""]) {
+        return [[specificDoll.other substringFromIndex:5] intValue];
+    }
+    return 0;
 }
 
 @end
