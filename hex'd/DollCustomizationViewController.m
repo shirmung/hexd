@@ -21,7 +21,6 @@
     if (self)
     {
         // Custom initialization
-        self.view.backgroundColor = [UIColor blackColor];
     }
     
     return self;
@@ -68,26 +67,22 @@
 - (IBAction)selectHair:(UIButton *)button
 {
     specificDoll.hair = [NSString stringWithFormat:@"hair%i", button.tag];
-
-    // if the button was selected, then unselect it
-    if ([button isSelected]) {
-        [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"hair%ibutton.png", button.tag]]
-                forState:UIControlStateNormal];
-        [button setSelected:NO];
-
-    } else { // otherwise select it, unselect previous hair
-        [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"hair%ibuttonselected.png", button.tag]]
-                forState:UIControlStateSelected];
-        
-        // deselect other hair buttons
-        for (id butt in self.view.subviews) {
-            if ([butt isKindOfClass:[UIButton class]] && 
-                [(UIButton *)butt respondsToSelector:@selector(selectHair:)]) { // doesn't work
-                [butt setSelected:NO];
-            }
-        }
-        [button setSelected:YES];
-    }
+    
+//    if ([button isSelected]) {
+//		//[button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@button.png", specificDoll.hair]] forState:UIControlStateNormal];
+//		[button setSelected:NO];
+//	} else {
+//        //[button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@buttonselected.png", specificDoll.hair]] forState:UIControlStateSelected];
+//		[button setSelected:YES];
+//		
+//		for (UIView *view in self.view.subviews) 
+//        {
+//			if ([view isKindOfClass:[UIButton class]]) 
+//            {
+//				if([view.image hasPrefix:@"shirt"] && ![view isEqual: sender]) [view setSelected:NO];
+//			}
+//		}
+//	}
 }
 
 - (IBAction)selectShirt:(UIButton *)button
@@ -103,6 +98,16 @@
 - (IBAction)selectOther:(UIButton *)button
 {
     specificDoll.other = [NSString stringWithFormat:@"other%i", button.tag];
+}
+
+- (IBAction)selectBackground:(UIButton *)button
+{
+    specificDoll.background = [NSString stringWithFormat:@"background%i", button.tag];
+}
+
+- (void)updateSelections
+{
+    
 }
 
 - (IBAction)dismissView:(UIBarButtonItem *)barButtonItem

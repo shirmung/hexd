@@ -10,7 +10,7 @@
 
 @implementation Doll
 
-@synthesize name, gender, eyes, mouth, hair, shirt, pants, other;
+@synthesize name, gender, eyes, mouth, hair, shirt, pants, other, background;
 @synthesize pinsImageData, fireImageData, fireBurnsImageData, lightningImageData, lightningBurnsImageData, foodImageData, drawingImageData;
 @synthesize emotionLevel;
 
@@ -26,6 +26,7 @@
         shirt = @"";
         pants = @"";
         other = @"";
+        background = @"";
         
         emotion = 0;
     }
@@ -43,6 +44,7 @@
     [shirt release];
     [pants release];
     [other release];
+    [background release];
     
     [pinsImageData release];
     [fireImageData release];

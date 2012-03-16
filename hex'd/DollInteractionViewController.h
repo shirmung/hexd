@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 
 @class Doll;
 
-@interface DollInteractionViewController : UIViewController
+@interface DollInteractionViewController : UIViewController <UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
 {
     Doll *specificDoll;
     
@@ -19,6 +20,7 @@
     UIImageView *shirtLayer;
     UIImageView *pantsLayer;
     UIImageView *otherLayer;
+    UIImageView *backgroundLayer;
     
     // facial stuff
     UIImageView *eyesLayer;
@@ -55,6 +57,8 @@
     
     NSTimer *blinkTimer;
     NSTimer *emotionTimer;
+    
+    UIImage *croppedImage;
 }
 
 @property (nonatomic, retain) Doll *specificDoll;

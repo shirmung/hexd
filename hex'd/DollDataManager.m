@@ -52,6 +52,7 @@ static DollDataManager *sharedDollDataManager;
                 doll.shirt = [detailsOfDoll objectForKey:@"shirt"];
                 doll.pants = [detailsOfDoll objectForKey:@"pants"];
                 doll.other = [detailsOfDoll objectForKey:@"other"];
+                doll.background = [detailsOfDoll objectForKey:@"background"];
                 
                 doll.pinsImageData = [detailsOfDoll objectForKey:@"pinsImageData"];
                 doll.fireImageData = [detailsOfDoll objectForKey:@"fireImageData"];
@@ -94,6 +95,7 @@ static DollDataManager *sharedDollDataManager;
         [detailsOfDoll setObject:doll.shirt forKey:@"shirt"];
         [detailsOfDoll setObject:doll.pants forKey:@"pants"];
         [detailsOfDoll setObject:doll.other forKey:@"other"];
+        [detailsOfDoll setObject:doll.background forKey:@"background"];
         
         if (doll.pinsImageData != nil) [detailsOfDoll setObject:doll.pinsImageData forKey:@"pinsImageData"];
         if (doll.fireImageData != nil) [detailsOfDoll setObject:doll.fireImageData forKey:@"fireImageData"];

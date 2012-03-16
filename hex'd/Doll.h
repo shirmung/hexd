@@ -18,6 +18,7 @@
     NSString *shirt;
     NSString *pants;
     NSString *other;
+    NSString *background;
     
     int emotion;
     
@@ -38,6 +39,7 @@
 @property (nonatomic, retain) NSString *shirt;
 @property (nonatomic, retain) NSString *pants;
 @property (nonatomic, retain) NSString *other;
+@property (nonatomic, retain) NSString *background;
 
 @property (nonatomic, assign) int emotionLevel;
 

@@ -1,9 +1,8 @@
 TDL:
--add @2x versions of: main views + buttons
+-add loading screen, main icon, default background, eraser/food buttons
 -add button selection
--add saving to photo album and emailing
--add horizontal scrollview for customization modal view controller
 -add sounds/music
+-clean up overall
 
 BUGS TDL:
--should not save when cancel is pressed in customization modal view controller
+-should not save when cancel is pressed in customization view controller

@@ -8,6 +8,7 @@
 
 #import <AudioToolbox/AudioToolbox.h>
 #import <QuartzCore/QuartzCore.h>
+#import <MessageUI/MessageUI.h>
 
 #import "DollInteractionViewController.h"
 #import "DollDataManager.h"
@@ -57,6 +58,10 @@
     }
     
     // TDL: make this a loop
+    backgroundLayer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", specificDoll.background]]];
+    [self.view addSubview:backgroundLayer];
+    [backgroundLayer release];
+    
     genderLayer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", specificDoll.gender]]];
     [self.view addSubview:genderLayer];
     [genderLayer release];
@@ -134,6 +139,11 @@
 	lightningLayer.frame = self.view.frame;
     [self.view insertSubview:lightningLayer aboveSubview:fireLayer];
     [lightningLayer release];
+    
+    for (UIView *view in self.view.subviews) 
+    {
+        if ([view isKindOfClass:[UIButton class]]) [self.view bringSubviewToFront:view];
+    }
 
     // the doll should blink
     double blinkDelay = 4;
@@ -195,7 +205,7 @@
     self.navigationItem.title = specificDoll.name;
     
     UIBarButtonItem *customizationButton = [[UIBarButtonItem alloc] initWithTitle:@"Customize" 
-                                                                            style:UIBarButtonItemStyleBordered 
+                                                                            style:UIBarButtonItemStyleDone
                                                                            target:self
                                                                             action:@selector(toCustomizationView:)];
     self.navigationItem.rightBarButtonItem = customizationButton;
@@ -790,21 +800,53 @@
 
 - (IBAction)shareDoll:(UIButton *)button
 {
-//    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-//    
-//    UIGraphicsBeginImageContext(window.frame.size);
-//    [window.layer renderInContext:UIGraphicsGetCurrentContext()];
-//    UIImage *screenshot = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-//    
-//    CGImageRef temp = CGImageCreateWithImageInRect([screenshot CGImage], CGRectMake(0, 20, 320, 460));
-//    UIImage *croppedImage = [UIImage imageWithCGImage:temp];
-//    CGImageRelease(temp);
-//    
-//    SHKItem *item = [SHKItem image:croppedImage title:@"Check out the voodoo doll I created with hex'd!"];
-//    SHKActionSheet *actionSheet = [SHKActionSheet actionSheetForItem:item];
-//    
-//    [actionSheet showInView:self.view];
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    
+    UIGraphicsBeginImageContext(window.frame.size);
+    [window.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *screenshot = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    CGImageRef temp = CGImageCreateWithImageInRect([screenshot CGImage], CGRectMake(0, 20, 320, 460));
+    croppedImage = [[UIImage alloc] initWithCGImage:temp];
+    CGImageRelease(temp);
+
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                             delegate:self 
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"Save to Photo Album", @"Email", nil];
+    actionSheet.actionSheetStyle = UIBarStyleBlackTranslucent;
+
+    [actionSheet showInView:self.view];
+    [actionSheet release];
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)index 
+{
+    if (index == 0) {
+        UIImageWriteToSavedPhotosAlbum(croppedImage, nil, nil, nil);
+    } else if (index == 1) {
+        if ([MFMailComposeViewController canSendMail]) 
+        {
+            MFMailComposeViewController *mailComposeViewController = [[MFMailComposeViewController alloc] init];
+            mailComposeViewController.mailComposeDelegate = self;
+            mailComposeViewController.subject = @"Check out the voodoo doll that I created with hex'd!";
+            
+            NSData *croppedImageData = UIImagePNGRepresentation(croppedImage);
+            [mailComposeViewController addAttachmentData:croppedImageData mimeType:@"image/png" fileName:@"croppedImageData.png"];
+            
+            [self presentModalViewController:mailComposeViewController animated:YES];
+            [mailComposeViewController release];
+        }
+    }
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)mailComposeViewController didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error 
+{
+	[self becomeFirstResponder];
+    
+	[self dismissModalViewControllerAnimated:YES];
 }
 
 - (IBAction)toCustomizationView:(UIBarButtonItem *)barButtonItem
