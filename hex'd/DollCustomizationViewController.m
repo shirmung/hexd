@@ -50,7 +50,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated 
@@ -152,7 +151,6 @@
 
 - (IBAction)selectShirt:(UIButton *)button
 {
-    
     NSLog(@"hair is: %d", [self hair]);
     // if the button was selected, then unselect it
     if ([button isSelected]) {
@@ -183,7 +181,6 @@
 
 - (IBAction)selectPants:(UIButton *)button
 {
-    
     // if the button was selected, then unselect it
     if ([button isSelected]) {
         [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"pants%ibutton.png", button.tag]]
@@ -213,7 +210,6 @@
 
 - (IBAction)selectOther:(UIButton *)button
 {
-        
     // if the button was selected, then unselect it
     if ([button isSelected]) {
         [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"other%ibutton.png", button.tag]]
@@ -239,6 +235,11 @@
         specificDoll.other = [NSString stringWithFormat:@"other%i", button.tag];
         [button setSelected:YES];
     }
+}
+
+- (IBAction)selectBackground:(UIButton *)button
+{
+    specificDoll.background = [NSString stringWithFormat:@"background%i", button.tag];
 }
 
 - (IBAction)dismissView:(UIBarButtonItem *)barButtonItem
