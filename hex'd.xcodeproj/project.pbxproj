@@ -52,8 +52,6 @@
 		C17C5F6E14B27ED400B2F38F /* HelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C17C5F6C14B27ED300B2F38F /* HelpViewController.xib */; };
 		C17C5F7714B283D600B2F38F /* DollInteractionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C17C5F7514B283D400B2F38F /* DollInteractionViewController.m */; };
 		C17C5F7814B283D600B2F38F /* DollInteractionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C17C5F7614B283D600B2F38F /* DollInteractionViewController.xib */; };
-		C17C5F7C14B283F400B2F38F /* DollCustomizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C17C5F7A14B283F100B2F38F /* DollCustomizationViewController.m */; };
-		C17C5F7D14B283F400B2F38F /* DollCustomizationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C17C5F7B14B283F200B2F38F /* DollCustomizationViewController.xib */; };
 		C17C5F8014B2840E00B2F38F /* Doll.m in Sources */ = {isa = PBXBuildFile; fileRef = C17C5F7F14B2840C00B2F38F /* Doll.m */; };
 		C17C5F8714B284B600B2F38F /* DollDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C17C5F8614B284B300B2F38F /* DollDataManager.m */; };
 		C181806114B89DBC00EAB6F2 /* AddDollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C181805F14B89DBC00EAB6F2 /* AddDollViewController.m */; };
@@ -296,6 +294,8 @@
 		C1E162A31514028D0083B830 /* blackbuttonselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E162A21514028D0083B830 /* blackbuttonselected@2x.png */; };
 		C1E162A5151402980083B830 /* greenbuttonselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E162A4151402980083B830 /* greenbuttonselected@2x.png */; };
 		C1E162A71514029B0083B830 /* greenbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E162A61514029B0083B830 /* greenbutton@2x.png */; };
+		C1E162AE151406700083B830 /* DollCustomizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1E162AC151406700083B830 /* DollCustomizationViewController.m */; };
+		C1E162AF151406700083B830 /* DollCustomizationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1E162AD151406700083B830 /* DollCustomizationViewController.xib */; };
 		C1F511A814F29E450005A8CA /* pin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1F511A714F29E450005A8CA /* pin@2x.png */; };
 		C1F511AA14F29E6D0005A8CA /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = C1F511A914F29E6D0005A8CA /* pin.png */; };
 		C1F511AD14F29F070005A8CA /* tomato.png in Resources */ = {isa = PBXBuildFile; fileRef = C1F511AB14F29F070005A8CA /* tomato.png */; };
@@ -387,8 +387,6 @@
 		C17C5F7514B283D400B2F38F /* DollInteractionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DollInteractionViewController.m; sourceTree = "<group>"; };
 		C17C5F7614B283D600B2F38F /* DollInteractionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DollInteractionViewController.xib; sourceTree = "<group>"; };
 		C17C5F7914B283EF00B2F38F /* DollCustomizationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DollCustomizationViewController.h; sourceTree = "<group>"; };
-		C17C5F7A14B283F100B2F38F /* DollCustomizationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DollCustomizationViewController.m; sourceTree = "<group>"; };
-		C17C5F7B14B283F200B2F38F /* DollCustomizationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DollCustomizationViewController.xib; sourceTree = "<group>"; };
 		C17C5F7E14B2840B00B2F38F /* Doll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Doll.h; sourceTree = "<group>"; };
 		C17C5F7F14B2840C00B2F38F /* Doll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Doll.m; sourceTree = "<group>"; };
 		C17C5F8514B284B000B2F38F /* DollDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DollDataManager.h; sourceTree = "<group>"; };
@@ -635,6 +633,8 @@
 		C1E162A21514028D0083B830 /* blackbuttonselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blackbuttonselected@2x.png"; sourceTree = "<group>"; };
 		C1E162A4151402980083B830 /* greenbuttonselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greenbuttonselected@2x.png"; sourceTree = "<group>"; };
 		C1E162A61514029B0083B830 /* greenbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greenbutton@2x.png"; sourceTree = "<group>"; };
+		C1E162AC151406700083B830 /* DollCustomizationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DollCustomizationViewController.m; sourceTree = "<group>"; };
+		C1E162AD151406700083B830 /* DollCustomizationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DollCustomizationViewController.xib; sourceTree = "<group>"; };
 		C1F511A714F29E450005A8CA /* pin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin@2x.png"; sourceTree = "<group>"; };
 		C1F511A914F29E6D0005A8CA /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
 		C1F511AB14F29F070005A8CA /* tomato.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tomato.png; sourceTree = "<group>"; };
@@ -857,8 +857,8 @@
 			isa = PBXGroup;
 			children = (
 				C17C5F7914B283EF00B2F38F /* DollCustomizationViewController.h */,
-				C17C5F7A14B283F100B2F38F /* DollCustomizationViewController.m */,
-				C17C5F7B14B283F200B2F38F /* DollCustomizationViewController.xib */,
+				C1E162AC151406700083B830 /* DollCustomizationViewController.m */,
+				C1E162AD151406700083B830 /* DollCustomizationViewController.xib */,
 			);
 			name = Customization;
 			sourceTree = "<group>";
@@ -1317,7 +1317,6 @@
 				C17C5F6914B27EB800B2F38F /* CreditsViewController.xib in Resources */,
 				C17C5F6E14B27ED400B2F38F /* HelpViewController.xib in Resources */,
 				C17C5F7814B283D600B2F38F /* DollInteractionViewController.xib in Resources */,
-				C17C5F7D14B283F400B2F38F /* DollCustomizationViewController.xib in Resources */,
 				C181806214B89DBC00EAB6F2 /* AddDollViewController.xib in Resources */,
 				C183ADE614BA64C9009D8ABF /* mainview.png in Resources */,
 				C183ADE814BA64FA009D8ABF /* startbutton.png in Resources */,
@@ -1618,6 +1617,7 @@
 				C1E162A31514028D0083B830 /* blackbuttonselected@2x.png in Resources */,
 				C1E162A5151402980083B830 /* greenbuttonselected@2x.png in Resources */,
 				C1E162A71514029B0083B830 /* greenbutton@2x.png in Resources */,
+				C1E162AF151406700083B830 /* DollCustomizationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1634,11 +1634,11 @@
 				C17C5F6814B27EB800B2F38F /* CreditsViewController.m in Sources */,
 				C17C5F6D14B27ED400B2F38F /* HelpViewController.m in Sources */,
 				C17C5F7714B283D600B2F38F /* DollInteractionViewController.m in Sources */,
-				C17C5F7C14B283F400B2F38F /* DollCustomizationViewController.m in Sources */,
 				C17C5F8014B2840E00B2F38F /* Doll.m in Sources */,
 				C17C5F8714B284B600B2F38F /* DollDataManager.m in Sources */,
 				C181806114B89DBC00EAB6F2 /* AddDollViewController.m in Sources */,
 				C183AE7E14BCE708009D8ABF /* DollsViewController.m in Sources */,
+				C1E162AE151406700083B830 /* DollCustomizationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
