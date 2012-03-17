@@ -20,6 +20,10 @@
     if (self) 
     {
         // Custom initialization
+        backgroundMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"darkestchild" ofType:@"mp3"]] error:NULL];
+        [backgroundMusic setNumberOfLoops:-1];
+        [backgroundMusic prepareToPlay];
+        //[backgroundMusic play];
     }
     
     return self;
@@ -74,6 +78,17 @@
 }
 
 #pragma mark - UIButtons
+
+-(IBAction)toggleMusic:(UIButton *)button 
+{
+	if ([backgroundMusic isPlaying]) {
+		[button setSelected:YES];
+		[backgroundMusic stop];
+	} else {
+		[button setSelected:NO];
+		[backgroundMusic play];
+	}
+}
 
 - (IBAction)toAnotherView:(UIButton *)button
 {

@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVAudioPlayer.h>
 
 @interface MainViewController : UIViewController
 {
-
+    AVAudioPlayer *backgroundMusic;
 }
 
 @end

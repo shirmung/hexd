@@ -38,6 +38,9 @@
 		C10854EC150DBB4300EE6A0B /* background3.png in Resources */ = {isa = PBXBuildFile; fileRef = C10854EB150DBB4300EE6A0B /* background3.png */; };
 		C10854EE150DBB4700EE6A0B /* background3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C10854ED150DBB4700EE6A0B /* background3@2x.png */; };
 		C10D926014F20483000EA216 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C10D925F14F20483000EA216 /* AudioToolbox.framework */; };
+		C1211D3E1515444600E7C476 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1211D3D1515444600E7C476 /* AVFoundation.framework */; };
+		C1211D451515469300E7C476 /* musicbuttonselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1211D441515469300E7C476 /* musicbuttonselected@2x.png */; };
+		C1211D4C151546B600E7C476 /* musicbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1211D4B151546B600E7C476 /* musicbutton@2x.png */; };
 		C17C5F4614B27C8D00B2F38F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C17C5F4514B27C8D00B2F38F /* UIKit.framework */; };
 		C17C5F4814B27C8D00B2F38F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C17C5F4714B27C8D00B2F38F /* Foundation.framework */; };
 		C17C5F4A14B27C8D00B2F38F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C17C5F4914B27C8D00B2F38F /* CoreGraphics.framework */; };
@@ -298,6 +301,9 @@
 		C1E162AF151406700083B830 /* DollCustomizationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1E162AD151406700083B830 /* DollCustomizationViewController.xib */; };
 		C1F496C715153EAB00F1D71D /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1F496C615153EAB00F1D71D /* icon@2x.png */; };
 		C1F496CA15153EAE00F1D71D /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C1F496C915153EAE00F1D71D /* icon.png */; };
+		C1F496DD151542DE00F1D71D /* musicbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = C1F496DB151542DE00F1D71D /* musicbutton.png */; };
+		C1F496E01515430C00F1D71D /* musicbuttonselected.png in Resources */ = {isa = PBXBuildFile; fileRef = C1F496DF1515430C00F1D71D /* musicbuttonselected.png */; };
+		C1F496E2151543C000F1D71D /* darkestchild.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C1F496E1151543C000F1D71D /* darkestchild.mp3 */; };
 		C1F511A814F29E450005A8CA /* pin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1F511A714F29E450005A8CA /* pin@2x.png */; };
 		C1F511AA14F29E6D0005A8CA /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = C1F511A914F29E6D0005A8CA /* pin.png */; };
 		C1F511AD14F29F070005A8CA /* tomato.png in Resources */ = {isa = PBXBuildFile; fileRef = C1F511AB14F29F070005A8CA /* tomato.png */; };
@@ -366,6 +372,9 @@
 		C10854EB150DBB4300EE6A0B /* background3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background3.png; sourceTree = "<group>"; };
 		C10854ED150DBB4700EE6A0B /* background3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background3@2x.png"; sourceTree = "<group>"; };
 		C10D925F14F20483000EA216 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		C1211D3D1515444600E7C476 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C1211D441515469300E7C476 /* musicbuttonselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "musicbuttonselected@2x.png"; sourceTree = "<group>"; };
+		C1211D4B151546B600E7C476 /* musicbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "musicbutton@2x.png"; sourceTree = "<group>"; };
 		C17C5F4114B27C8D00B2F38F /* hex'd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "hex'd.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C17C5F4514B27C8D00B2F38F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C17C5F4714B27C8D00B2F38F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -639,6 +648,9 @@
 		C1E162AD151406700083B830 /* DollCustomizationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DollCustomizationViewController.xib; sourceTree = "<group>"; };
 		C1F496C615153EAB00F1D71D /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../icon@2x.png"; sourceTree = "<group>"; };
 		C1F496C915153EAE00F1D71D /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
+		C1F496DB151542DE00F1D71D /* musicbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = musicbutton.png; sourceTree = "<group>"; };
+		C1F496DF1515430C00F1D71D /* musicbuttonselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = musicbuttonselected.png; sourceTree = "<group>"; };
+		C1F496E1151543C000F1D71D /* darkestchild.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = darkestchild.mp3; sourceTree = "<group>"; };
 		C1F511A714F29E450005A8CA /* pin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin@2x.png"; sourceTree = "<group>"; };
 		C1F511A914F29E6D0005A8CA /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
 		C1F511AB14F29F070005A8CA /* tomato.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tomato.png; sourceTree = "<group>"; };
@@ -680,6 +692,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1211D3E1515444600E7C476 /* AVFoundation.framework in Frameworks */,
 				C1A395DD1506C4FB00C8EE8E /* QuartzCore.framework in Frameworks */,
 				C1A3954D1506AB9600C8EE8E /* MessageUI.framework in Frameworks */,
 				C10D926014F20483000EA216 /* AudioToolbox.framework in Frameworks */,
@@ -809,6 +822,7 @@
 		C17C5F4414B27C8D00B2F38F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C1211D3D1515444600E7C476 /* AVFoundation.framework */,
 				C1A395DC1506C4FA00C8EE8E /* QuartzCore.framework */,
 				C1A3954C1506AB9600C8EE8E /* MessageUI.framework */,
 				C10D925F14F20483000EA216 /* AudioToolbox.framework */,
@@ -845,6 +859,7 @@
 				C183AE0F14BBA987009D8ABF /* Doll Images */,
 				C1181D1114BEBEC3002AB227 /* Interaction Images */,
 				C1D774F7150D35C00060F02A /* Button Images */,
+				C1F496E3151543C500F1D71D /* Audio */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1111,12 +1126,13 @@
 		C1D774F7150D35C00060F02A /* Button Images */ = {
 			isa = PBXGroup;
 			children = (
+				C1F496D9151542D600F1D71D /* Main */,
+				C10854A7150DAFA900EE6A0B /* Interaction */,
 				C1D77511150D36240060F02A /* Hair */,
 				C1D77512150D36310060F02A /* Shirt */,
 				C1D77513150D36610060F02A /* Pants */,
 				C1D77514150D36790060F02A /* Other */,
 				C189070E150F71F2009CA365 /* Background */,
-				C10854A7150DAFA900EE6A0B /* Interaction */,
 			);
 			name = "Button Images";
 			sourceTree = "<group>";
@@ -1227,6 +1243,25 @@
 				C1D77565150D415E0060F02A /* other1buttonselected@2x.png */,
 			);
 			name = Other;
+			sourceTree = "<group>";
+		};
+		C1F496D9151542D600F1D71D /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C1F496DB151542DE00F1D71D /* musicbutton.png */,
+				C1211D4B151546B600E7C476 /* musicbutton@2x.png */,
+				C1F496DF1515430C00F1D71D /* musicbuttonselected.png */,
+				C1211D441515469300E7C476 /* musicbuttonselected@2x.png */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		C1F496E3151543C500F1D71D /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				C1F496E1151543C000F1D71D /* darkestchild.mp3 */,
+			);
+			name = Audio;
 			sourceTree = "<group>";
 		};
 		C1FA68AE150ABD510097B378 /* Face */ = {
@@ -1626,6 +1661,11 @@
 				C1E162AF151406700083B830 /* DollCustomizationViewController.xib in Resources */,
 				C1F496C715153EAB00F1D71D /* icon@2x.png in Resources */,
 				C1F496CA15153EAE00F1D71D /* icon.png in Resources */,
+				C1F496DD151542DE00F1D71D /* musicbutton.png in Resources */,
+				C1F496E01515430C00F1D71D /* musicbuttonselected.png in Resources */,
+				C1F496E2151543C000F1D71D /* darkestchild.mp3 in Resources */,
+				C1211D451515469300E7C476 /* musicbuttonselected@2x.png in Resources */,
+				C1211D4C151546B600E7C476 /* musicbutton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
