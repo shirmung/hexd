@@ -285,8 +285,6 @@
                                             repeats:NO];
         } else if (foodButtonPressed) {
             [self wince];
-        } else if (drawingButtonPressed) {
-            
         } else {
             [self wince];
         }

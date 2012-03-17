@@ -13,6 +13,7 @@
 @implementation DollCustomizationViewController
 
 @synthesize specificDoll;
+@synthesize tempHair, tempShirt, tempPants, tempOther, tempBackground;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,8 +28,6 @@
     return self;
 }
 
-
-
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -40,6 +39,12 @@
 - (void)dealloc
 {
     [specificDoll release];
+    
+    [tempHair release];
+    [tempShirt release];
+    [tempPants release];
+    [tempOther release];
+    [tempBackground release];
     
     [super dealloc];
 }
@@ -55,6 +60,12 @@
 - (void)viewWillAppear:(BOOL)animated 
 {
     [super viewWillAppear:animated];
+    
+    self.tempHair = specificDoll.hair;
+    self.tempShirt = specificDoll.shirt;
+    self.tempPants = specificDoll.pants;
+    self.tempOther = specificDoll.other;
+    self.tempBackground = specificDoll.background;
     
     // highlight the doll's selected buttons
     for (id button in self.view.subviews) 
@@ -103,10 +114,7 @@
             
             if ([[button currentTitle] isEqualToString:@"background"]) 
             {
-                if ([button tag] == [self background]) 
-                {
-                    [button setSelected:YES];
-                }
+                if ([button tag] == [self background]) [button setSelected:YES];
             }
         }
     }
@@ -149,14 +157,13 @@
         }
         
         // select the hair
-        [button setSelected:YES];
         specificDoll.hair = [NSString stringWithFormat:@"hair%i", button.tag];
+        [button setSelected:YES];
     }
 }
 
 - (IBAction)selectShirt:(UIButton *)button
 {
-    NSLog(@"hair is: %d", [self hair]);
     // if the button was selected, then unselect it
     if ([button isSelected]) {
         [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"shirt%ibutton.png", button.tag]] forState:UIControlStateNormal];
@@ -265,6 +272,14 @@
 {
     if (barButtonItem.tag == 1) 
     {
+        [[DollDataManager sharedDollDataManager] saveDolls];
+    } else {
+        specificDoll.hair = self.tempHair;
+        specificDoll.shirt = self.tempShirt;
+        specificDoll.pants = self.tempPants;
+        specificDoll.other = self.tempOther;
+        specificDoll.background = self.tempBackground;
+        
         [[DollDataManager sharedDollDataManager] saveDolls];
     }
     

@@ -13,8 +13,20 @@
 @interface DollCustomizationViewController : UIViewController
 {
     Doll *specificDoll;
+    
+    NSString *tempHair;
+    NSString *tempShirt;
+    NSString *tempPants;
+    NSString *tempOther;
+    NSString *tempBackground;
 }
 
 @property (nonatomic, retain) Doll *specificDoll;
+
+@property (nonatomic, retain) NSString *tempHair;
+@property (nonatomic, retain) NSString *tempShirt;
+@property (nonatomic, retain) NSString *tempPants;
+@property (nonatomic, retain) NSString *tempOther;
+@property (nonatomic, retain) NSString *tempBackground;
 
 @end

@@ -2,6 +2,3 @@ TDL:
 -add loading screen, main icon, default background, eraser/food buttons
 -add sounds/music
 -clean up overall
-
-BUGS TDL:
--should not save when cancel is pressed in customization view controller
