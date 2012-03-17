@@ -302,7 +302,6 @@
 		[image drawInRect:CGRectMake(firstPoint.x - 7, firstPoint.y - 45, 40.0f, 60.0f)];
 		pinsLayer.image = UIGraphicsGetImageFromCurrentImageContext();
 		UIGraphicsEndImageContext();
-        
 	} else if (fireButtonPressed) {
         [self fireAnimation];
         
@@ -734,6 +733,16 @@
         foodButtonPressed = NO;
     }
     
+    [button setSelected:YES];
+    
+    for (id otherButton in self.view.subviews) 
+    {
+        if ([otherButton isKindOfClass:[UIButton class]] && [otherButton tag] != button.tag)
+        {
+            [otherButton setSelected:NO];
+        }
+    }
+    
     [self optionsVisibility];
 }
 
@@ -781,19 +790,34 @@
     } else {
         eraserPressed = NO;
     }
+    
+    [button setSelected:YES];
+        
+    for (id otherButton in self.view.subviews) 
+    {
+        if ([otherButton isKindOfClass:[UIButton class]] && [otherButton tag] >= 8 && [otherButton tag] <= 14)
+        {
+            if ([otherButton tag] != button.tag) [otherButton setSelected:NO];
+        }
+    }
 }
 
 - (void)optionsVisibility
 {
-    for (UIView *view in self.view.subviews) 
+    for (id view in self.view.subviews) 
     {
         if ([view isKindOfClass:[UIButton class]]) 
         { 
-            if (drawingButtonPressed == YES && view.tag >= 8 && view.tag <= 14) view.hidden = NO;
-            else if (drawingButtonPressed == NO && view.tag >= 8 && view.tag <= 14) view.hidden = YES;
+            if (drawingButtonPressed == YES && [view tag] >= 8 && [view tag] <= 14) {
+                [view setHidden:NO];
+                
+                if ([view tag] == 8) [view setSelected:YES];
+            } else if (drawingButtonPressed == NO && [view tag] >= 8 && [view tag] <= 14) {
+                [view setHidden:YES];
+            }
 
-            if (foodButtonPressed == YES && view.tag >= 6 && view.tag <= 7) view.hidden = NO;
-            else if (foodButtonPressed == NO && view.tag >= 6 && view.tag <= 7) view.hidden = YES;
+            if (foodButtonPressed == YES && [view tag] >= 6 && [view tag] <= 7) [view setHidden:NO];
+            else if (foodButtonPressed == NO && [view tag] >= 6 && [view tag] <= 7) [view setHidden:YES];
         }
     }
 }
