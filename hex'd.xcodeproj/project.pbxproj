@@ -296,6 +296,8 @@
 		C1E162A71514029B0083B830 /* greenbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E162A61514029B0083B830 /* greenbutton@2x.png */; };
 		C1E162AE151406700083B830 /* DollCustomizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1E162AC151406700083B830 /* DollCustomizationViewController.m */; };
 		C1E162AF151406700083B830 /* DollCustomizationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1E162AD151406700083B830 /* DollCustomizationViewController.xib */; };
+		C1F496C715153EAB00F1D71D /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1F496C615153EAB00F1D71D /* icon@2x.png */; };
+		C1F496CA15153EAE00F1D71D /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C1F496C915153EAE00F1D71D /* icon.png */; };
 		C1F511A814F29E450005A8CA /* pin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1F511A714F29E450005A8CA /* pin@2x.png */; };
 		C1F511AA14F29E6D0005A8CA /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = C1F511A914F29E6D0005A8CA /* pin.png */; };
 		C1F511AD14F29F070005A8CA /* tomato.png in Resources */ = {isa = PBXBuildFile; fileRef = C1F511AB14F29F070005A8CA /* tomato.png */; };
@@ -635,6 +637,8 @@
 		C1E162A61514029B0083B830 /* greenbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greenbutton@2x.png"; sourceTree = "<group>"; };
 		C1E162AC151406700083B830 /* DollCustomizationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DollCustomizationViewController.m; sourceTree = "<group>"; };
 		C1E162AD151406700083B830 /* DollCustomizationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DollCustomizationViewController.xib; sourceTree = "<group>"; };
+		C1F496C615153EAB00F1D71D /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../icon@2x.png"; sourceTree = "<group>"; };
+		C1F496C915153EAE00F1D71D /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
 		C1F511A714F29E450005A8CA /* pin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin@2x.png"; sourceTree = "<group>"; };
 		C1F511A914F29E6D0005A8CA /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
 		C1F511AB14F29F070005A8CA /* tomato.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tomato.png; sourceTree = "<group>"; };
@@ -834,6 +838,8 @@
 				C17C5F4E14B27C8D00B2F38F /* InfoPlist.strings */,
 				C17C5F5114B27C8D00B2F38F /* main.m */,
 				C17C5F5314B27C8D00B2F38F /* hex'd-Prefix.pch */,
+				C1F496C915153EAE00F1D71D /* icon.png */,
+				C1F496C615153EAB00F1D71D /* icon@2x.png */,
 				C183AE0D14BBA975009D8ABF /* Main Images */,
 				C10854E1150DBA5E00EE6A0B /* Background Images */,
 				C183AE0F14BBA987009D8ABF /* Doll Images */,
@@ -1618,6 +1624,8 @@
 				C1E162A5151402980083B830 /* greenbuttonselected@2x.png in Resources */,
 				C1E162A71514029B0083B830 /* greenbutton@2x.png in Resources */,
 				C1E162AF151406700083B830 /* DollCustomizationViewController.xib in Resources */,
+				C1F496C715153EAB00F1D71D /* icon@2x.png in Resources */,
+				C1F496CA15153EAE00F1D71D /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
