@@ -53,6 +53,8 @@
 		C129540815163B83004FC1B9 /* eggbuttonselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C129540715163B83004FC1B9 /* eggbuttonselected@2x.png */; };
 		C129540A15163B87004FC1B9 /* tomatobuttonselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C129540915163B87004FC1B9 /* tomatobuttonselected@2x.png */; };
 		C129540C15163B8B004FC1B9 /* tomatobutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C129540B15163B8B004FC1B9 /* tomatobutton@2x.png */; };
+		C129541215163F26004FC1B9 /* background4.png in Resources */ = {isa = PBXBuildFile; fileRef = C129541115163F26004FC1B9 /* background4.png */; };
+		C129541515163F29004FC1B9 /* background4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C129541415163F29004FC1B9 /* background4@2x.png */; };
 		C17C5F4614B27C8D00B2F38F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C17C5F4514B27C8D00B2F38F /* UIKit.framework */; };
 		C17C5F4814B27C8D00B2F38F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C17C5F4714B27C8D00B2F38F /* Foundation.framework */; };
 		C17C5F4A14B27C8D00B2F38F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C17C5F4914B27C8D00B2F38F /* CoreGraphics.framework */; };
@@ -399,6 +401,8 @@
 		C129540715163B83004FC1B9 /* eggbuttonselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eggbuttonselected@2x.png"; sourceTree = "<group>"; };
 		C129540915163B87004FC1B9 /* tomatobuttonselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tomatobuttonselected@2x.png"; sourceTree = "<group>"; };
 		C129540B15163B8B004FC1B9 /* tomatobutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tomatobutton@2x.png"; sourceTree = "<group>"; };
+		C129541115163F26004FC1B9 /* background4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background4.png; sourceTree = "<group>"; };
+		C129541415163F29004FC1B9 /* background4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background4@2x.png"; sourceTree = "<group>"; };
 		C17C5F4114B27C8D00B2F38F /* hex'd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "hex'd.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C17C5F4514B27C8D00B2F38F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C17C5F4714B27C8D00B2F38F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -805,6 +809,8 @@
 				C10854E8150DBB3F00EE6A0B /* background2@2x.png */,
 				C10854EB150DBB4300EE6A0B /* background3.png */,
 				C10854ED150DBB4700EE6A0B /* background3@2x.png */,
+				C129541115163F26004FC1B9 /* background4.png */,
+				C129541415163F29004FC1B9 /* background4@2x.png */,
 			);
 			name = "Background Images";
 			sourceTree = "<group>";
@@ -1714,6 +1720,8 @@
 				C129540815163B83004FC1B9 /* eggbuttonselected@2x.png in Resources */,
 				C129540A15163B87004FC1B9 /* tomatobuttonselected@2x.png in Resources */,
 				C129540C15163B8B004FC1B9 /* tomatobutton@2x.png in Resources */,
+				C129541215163F26004FC1B9 /* background4.png in Resources */,
+				C129541515163F29004FC1B9 /* background4@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

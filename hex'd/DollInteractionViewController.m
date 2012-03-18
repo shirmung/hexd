@@ -58,7 +58,12 @@
     }
     
     // TDL: make this a loop
-    backgroundLayer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", specificDoll.background]]];
+    if (![specificDoll.background isEqualToString:@""]) {
+        backgroundLayer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", specificDoll.background]]];
+    } else {
+        backgroundLayer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"background4.png"]]];
+    }
+    
     [self.view addSubview:backgroundLayer];
     [backgroundLayer release];
     
