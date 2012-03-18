@@ -753,6 +753,16 @@
         tomatoButtonPressed = NO;
         eggButtonPressed = YES;
     }
+    
+    [button setSelected:YES];
+    
+    for (id otherButton in self.view.subviews) 
+    {
+        if ([otherButton isKindOfClass:[UIButton class]] && [otherButton tag] >= 6 && [otherButton tag] <= 7)
+        {
+            if ([otherButton tag] != button.tag) [otherButton setSelected:NO];
+        }
+    }
 }
 
 - (IBAction)drawingOptions:(UIButton *)button
@@ -814,8 +824,13 @@
                 [view setHidden:YES];
             }
 
-            if (foodButtonPressed == YES && [view tag] >= 6 && [view tag] <= 7) [view setHidden:NO];
-            else if (foodButtonPressed == NO && [view tag] >= 6 && [view tag] <= 7) [view setHidden:YES];
+            if (foodButtonPressed == YES && [view tag] >= 6 && [view tag] <= 7) {
+                [view setHidden:NO];
+                
+                if ([view tag] == 6) [view setSelected:YES];
+            } else if (foodButtonPressed == NO && [view tag] >= 6 && [view tag] <= 7) {
+                [view setHidden:YES];
+            }
         }
     }
 }

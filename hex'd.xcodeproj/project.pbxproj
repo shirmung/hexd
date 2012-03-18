@@ -41,6 +41,18 @@
 		C1211D3E1515444600E7C476 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1211D3D1515444600E7C476 /* AVFoundation.framework */; };
 		C1211D451515469300E7C476 /* musicbuttonselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1211D441515469300E7C476 /* musicbuttonselected@2x.png */; };
 		C1211D4C151546B600E7C476 /* musicbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1211D4B151546B600E7C476 /* musicbutton@2x.png */; };
+		C12953F515163B17004FC1B9 /* eraserbuttonselected.png in Resources */ = {isa = PBXBuildFile; fileRef = C12953F415163B17004FC1B9 /* eraserbuttonselected.png */; };
+		C12953F815163B27004FC1B9 /* eraserbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = C12953F715163B27004FC1B9 /* eraserbutton.png */; };
+		C12953FA15163B3F004FC1B9 /* eraserbuttonselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C12953F915163B3F004FC1B9 /* eraserbuttonselected@2x.png */; };
+		C12953FC15163B46004FC1B9 /* eraserbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C12953FB15163B46004FC1B9 /* eraserbutton@2x.png */; };
+		C129540115163B70004FC1B9 /* tomatobutton.png in Resources */ = {isa = PBXBuildFile; fileRef = C12953FD15163B70004FC1B9 /* tomatobutton.png */; };
+		C129540215163B70004FC1B9 /* tomatobuttonselected.png in Resources */ = {isa = PBXBuildFile; fileRef = C12953FE15163B70004FC1B9 /* tomatobuttonselected.png */; };
+		C129540315163B70004FC1B9 /* eggbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = C12953FF15163B70004FC1B9 /* eggbutton.png */; };
+		C129540415163B70004FC1B9 /* eggbuttonselected.png in Resources */ = {isa = PBXBuildFile; fileRef = C129540015163B70004FC1B9 /* eggbuttonselected.png */; };
+		C129540615163B7F004FC1B9 /* eggbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C129540515163B7F004FC1B9 /* eggbutton@2x.png */; };
+		C129540815163B83004FC1B9 /* eggbuttonselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C129540715163B83004FC1B9 /* eggbuttonselected@2x.png */; };
+		C129540A15163B87004FC1B9 /* tomatobuttonselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C129540915163B87004FC1B9 /* tomatobuttonselected@2x.png */; };
+		C129540C15163B8B004FC1B9 /* tomatobutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C129540B15163B8B004FC1B9 /* tomatobutton@2x.png */; };
 		C17C5F4614B27C8D00B2F38F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C17C5F4514B27C8D00B2F38F /* UIKit.framework */; };
 		C17C5F4814B27C8D00B2F38F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C17C5F4714B27C8D00B2F38F /* Foundation.framework */; };
 		C17C5F4A14B27C8D00B2F38F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C17C5F4914B27C8D00B2F38F /* CoreGraphics.framework */; };
@@ -375,6 +387,18 @@
 		C1211D3D1515444600E7C476 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C1211D441515469300E7C476 /* musicbuttonselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "musicbuttonselected@2x.png"; sourceTree = "<group>"; };
 		C1211D4B151546B600E7C476 /* musicbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "musicbutton@2x.png"; sourceTree = "<group>"; };
+		C12953F415163B17004FC1B9 /* eraserbuttonselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eraserbuttonselected.png; sourceTree = "<group>"; };
+		C12953F715163B27004FC1B9 /* eraserbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eraserbutton.png; sourceTree = "<group>"; };
+		C12953F915163B3F004FC1B9 /* eraserbuttonselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eraserbuttonselected@2x.png"; sourceTree = "<group>"; };
+		C12953FB15163B46004FC1B9 /* eraserbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eraserbutton@2x.png"; sourceTree = "<group>"; };
+		C12953FD15163B70004FC1B9 /* tomatobutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tomatobutton.png; sourceTree = "<group>"; };
+		C12953FE15163B70004FC1B9 /* tomatobuttonselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tomatobuttonselected.png; sourceTree = "<group>"; };
+		C12953FF15163B70004FC1B9 /* eggbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eggbutton.png; sourceTree = "<group>"; };
+		C129540015163B70004FC1B9 /* eggbuttonselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eggbuttonselected.png; sourceTree = "<group>"; };
+		C129540515163B7F004FC1B9 /* eggbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eggbutton@2x.png"; sourceTree = "<group>"; };
+		C129540715163B83004FC1B9 /* eggbuttonselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eggbuttonselected@2x.png"; sourceTree = "<group>"; };
+		C129540915163B87004FC1B9 /* tomatobuttonselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tomatobuttonselected@2x.png"; sourceTree = "<group>"; };
+		C129540B15163B8B004FC1B9 /* tomatobutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tomatobutton@2x.png"; sourceTree = "<group>"; };
 		C17C5F4114B27C8D00B2F38F /* hex'd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "hex'd.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C17C5F4514B27C8D00B2F38F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C17C5F4714B27C8D00B2F38F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -724,6 +748,14 @@
 				C10854CF150DB04E00EE6A0B /* foodbutton@2x.png */,
 				C10854CA150DB04400EE6A0B /* foodbuttonselected.png */,
 				C10854CD150DB04900EE6A0B /* foodbuttonselected@2x.png */,
+				C12953FD15163B70004FC1B9 /* tomatobutton.png */,
+				C129540B15163B8B004FC1B9 /* tomatobutton@2x.png */,
+				C12953FE15163B70004FC1B9 /* tomatobuttonselected.png */,
+				C129540915163B87004FC1B9 /* tomatobuttonselected@2x.png */,
+				C12953FF15163B70004FC1B9 /* eggbutton.png */,
+				C129540515163B7F004FC1B9 /* eggbutton@2x.png */,
+				C129540015163B70004FC1B9 /* eggbuttonselected.png */,
+				C129540715163B83004FC1B9 /* eggbuttonselected@2x.png */,
 				C10854D1150DB05A00EE6A0B /* drawingbutton.png */,
 				C10854D2150DB05A00EE6A0B /* drawingbutton@2x.png */,
 				C10854D3150DB05A00EE6A0B /* drawingbuttonselected.png */,
@@ -752,6 +784,10 @@
 				C1E16290151402600083B830 /* purplebutton@2x.png */,
 				C1E1628E151402540083B830 /* purplebuttonselected.png */,
 				C1E16292151402630083B830 /* purplebuttonselected@2x.png */,
+				C12953F715163B27004FC1B9 /* eraserbutton.png */,
+				C12953FB15163B46004FC1B9 /* eraserbutton@2x.png */,
+				C12953F415163B17004FC1B9 /* eraserbuttonselected.png */,
+				C12953F915163B3F004FC1B9 /* eraserbuttonselected@2x.png */,
 				C10854C1150DB03100EE6A0B /* sharebutton.png */,
 				C10854C2150DB03100EE6A0B /* sharebutton@2x.png */,
 				C10854C3150DB03100EE6A0B /* sharebuttonselected.png */,
@@ -1666,6 +1702,18 @@
 				C1F496E2151543C000F1D71D /* darkestchild.mp3 in Resources */,
 				C1211D451515469300E7C476 /* musicbuttonselected@2x.png in Resources */,
 				C1211D4C151546B600E7C476 /* musicbutton@2x.png in Resources */,
+				C12953F515163B17004FC1B9 /* eraserbuttonselected.png in Resources */,
+				C12953F815163B27004FC1B9 /* eraserbutton.png in Resources */,
+				C12953FA15163B3F004FC1B9 /* eraserbuttonselected@2x.png in Resources */,
+				C12953FC15163B46004FC1B9 /* eraserbutton@2x.png in Resources */,
+				C129540115163B70004FC1B9 /* tomatobutton.png in Resources */,
+				C129540215163B70004FC1B9 /* tomatobuttonselected.png in Resources */,
+				C129540315163B70004FC1B9 /* eggbutton.png in Resources */,
+				C129540415163B70004FC1B9 /* eggbuttonselected.png in Resources */,
+				C129540615163B7F004FC1B9 /* eggbutton@2x.png in Resources */,
+				C129540815163B83004FC1B9 /* eggbuttonselected@2x.png in Resources */,
+				C129540A15163B87004FC1B9 /* tomatobuttonselected@2x.png in Resources */,
+				C129540C15163B8B004FC1B9 /* tomatobutton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
