@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46AF2D261516563A002051EA /* blank.png in Resources */ = {isa = PBXBuildFile; fileRef = 46AF2D251516563A002051EA /* blank.png */; };
 		C10854AA150DAFCA00EE6A0B /* pinbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C10854A9150DAFCA00EE6A0B /* pinbutton@2x.png */; };
 		C10854AC150DAFCD00EE6A0B /* pinbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = C10854AB150DAFCD00EE6A0B /* pinbutton.png */; };
 		C10854AE150DAFD400EE6A0B /* pinbuttonselected.png in Resources */ = {isa = PBXBuildFile; fileRef = C10854AD150DAFD400EE6A0B /* pinbuttonselected.png */; };
@@ -359,6 +360,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		46AF2D251516563A002051EA /* blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank.png; sourceTree = "<group>"; };
 		C10854A9150DAFCA00EE6A0B /* pinbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pinbutton@2x.png"; sourceTree = "<group>"; };
 		C10854AB150DAFCD00EE6A0B /* pinbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pinbutton.png; sourceTree = "<group>"; };
 		C10854AD150DAFD400EE6A0B /* pinbuttonselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pinbuttonselected.png; sourceTree = "<group>"; };
@@ -826,6 +828,7 @@
 		C1181D1114BEBEC3002AB227 /* Interaction Images */ = {
 			isa = PBXGroup;
 			children = (
+				46AF2D251516563A002051EA /* blank.png */,
 				C1F511A914F29E6D0005A8CA /* pin.png */,
 				C1F511A714F29E450005A8CA /* pin@2x.png */,
 				C1F511BF14F2A2820005A8CA /* flame1.png */,
@@ -1738,6 +1741,7 @@
 				C129542A151645E7004FC1B9 /* female2.wav in Resources */,
 				C129542E151645ED004FC1B9 /* male1.wav in Resources */,
 				C129542F151645ED004FC1B9 /* male2.wav in Resources */,
+				46AF2D261516563A002051EA /* blank.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

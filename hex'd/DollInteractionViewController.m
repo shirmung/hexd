@@ -26,6 +26,7 @@
     if (self)
     {
         // Custom initialization
+        
     }
     
     return self;
@@ -75,7 +76,7 @@
     [self.view addSubview:eyesLayer];
     [eyesLayer release];
     
-    cryingLayer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"crying1.png"]];
+    cryingLayer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"blank.png"]];
     cryingLayer.animationImages = [NSArray arrayWithObjects:
                                    [UIImage imageNamed:@"crying1.png"],
                                    [UIImage imageNamed:@"crying2.png"],
@@ -275,19 +276,39 @@
     
     if (bodyHit)
     {
-        [self feelingWorse];
-        [self bodyAnimation];
+        //[self feelingWorse];
+        //[self bodyAnimation];
         
         if (pinButtonPressed) {
             [self wince];
+            [self feelingWorse];
         } else if (fireButtonPressed) {
             [self ouch];
+            [self feelingWorse];
         } else if (lightningButtonPressed) {
-            [NSTimer scheduledTimerWithTimeInterval:0.3
+            double lightningDelay = 0.3;
+            [NSTimer scheduledTimerWithTimeInterval:lightningDelay
                                              target:self 
                                            selector:@selector(wince) 
                                            userInfo:nil 
                                             repeats:NO];
+            [NSTimer scheduledTimerWithTimeInterval:lightningDelay
+                                             target:self 
+                                           selector:@selector(feelingWorse) 
+                                           userInfo:nil 
+                                            repeats:NO];
+            
+            double blinkAnimationDuration = 0.15;
+            int bodyRepeatCount = 2;
+            NSInvocation *bodyInvocation = [NSInvocation invocationWithMethodSignature:
+                                            [self methodSignatureForSelector:
+                                             @selector(bodyAnimationWithDuration:withRepeatCount:)]];
+            [bodyInvocation setTarget:self];
+            [bodyInvocation setSelector:@selector(bodyAnimationWithDuration:withRepeatCount:)];
+            [bodyInvocation setArgument:&blinkAnimationDuration atIndex:2];
+            [bodyInvocation setArgument:&bodyRepeatCount atIndex:3];
+            [NSTimer scheduledTimerWithTimeInterval:lightningDelay invocation:bodyInvocation repeats:NO];
+            
         } else if (foodButtonPressed) {
             [self wince];
         } else {
@@ -501,13 +522,13 @@
         [mouthLayer setImage:[UIImage imageNamed:specificDoll.mouth]];
     }
     
-    NSLog(@"emotion level: %d", specificDoll.emotionLevel);
+    //NSLog(@"emotion level: %d", specificDoll.emotionLevel);
 }
 
 // time wounds all heals
 - (void)feelingWorse
 {
-    if (specificDoll.emotionLevel > INT_MIN)
+    if (specificDoll.emotionLevel > CRYING-5)
     {
         // change emotion level
         specificDoll.emotionLevel -= 1;
@@ -519,17 +540,19 @@
         } else if ( specificDoll.emotionLevel <= REALLY_SAD && specificDoll.emotionLevel > CRYING) {
             specificDoll.eyes = @"sadeyes2";
             specificDoll.mouth = @"sadmouth2";
-        } else if ( specificDoll.emotionLevel <= CRYING) {
-            NSLog(@"cry");
-            cryingLayer.alpha = 1;
-            [cryingLayer startAnimating];
         }
         
         [eyesLayer setImage:[UIImage imageNamed:specificDoll.eyes]];
         [mouthLayer setImage:[UIImage imageNamed:specificDoll.mouth]];
     }
     
-    NSLog(@"emotion level: %d", specificDoll.emotionLevel);
+    if ( specificDoll.emotionLevel <= CRYING) {
+        NSLog(@"cry");
+        cryingLayer.alpha = 1;
+        [cryingLayer startAnimating];
+    }
+    
+    //NSLog(@"emotion level: %d", specificDoll.emotionLevel);
 }
 
 #pragma mark - Facial expressions
@@ -573,6 +596,18 @@
     [squeezeEyesInvocation setArgument:&squeezeLength atIndex:2];
     
     [NSTimer scheduledTimerWithTimeInterval:ouchDelay invocation:squeezeEyesInvocation repeats:NO];
+    
+    // animate body
+    double bodyAnimationDuration = 0.2;
+    int bodyRepeatCount = 5;
+    NSInvocation *bodyInvocation = [NSInvocation invocationWithMethodSignature:
+                                    [self methodSignatureForSelector:@selector(bodyAnimationWithDuration:withRepeatCount:)]];
+    [bodyInvocation setTarget:self];
+    [bodyInvocation setSelector:@selector(bodyAnimationWithDuration:withRepeatCount:)];
+    [bodyInvocation setArgument:&bodyAnimationDuration atIndex:2];
+    [bodyInvocation setArgument:&bodyRepeatCount atIndex:3];
+    [NSTimer scheduledTimerWithTimeInterval:ouchDelay invocation:bodyInvocation repeats:NO];
+    
 }
 
 // blink (eyes blink for 1/3 of animation)
@@ -641,23 +676,23 @@
 
 #pragma mark - Animations
 
-- (void)bodyAnimation
+- (void)bodyAnimationWithDuration:(double)animationDuration withRepeatCount:(int)repeatCount
 {
     genderLayer.animationImages = [NSArray arrayWithObjects: [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", specificDoll.gender]],[UIImage imageNamed:[NSString stringWithFormat:@"%@out.png", specificDoll.gender]], nil];
-	genderLayer.animationDuration = 0.2;
-	genderLayer.animationRepeatCount = 5;
+	genderLayer.animationDuration = animationDuration;
+	genderLayer.animationRepeatCount = repeatCount;
     
     shirtLayer.animationImages = [NSArray arrayWithObjects: [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", specificDoll.shirt]],[UIImage imageNamed:[NSString stringWithFormat:@"%@out.png", specificDoll.shirt]], nil];
-	shirtLayer.animationDuration = 0.2;
-	shirtLayer.animationRepeatCount = 5;
+	shirtLayer.animationDuration = animationDuration;
+	shirtLayer.animationRepeatCount = repeatCount;
     
     pantsLayer.animationImages = [NSArray arrayWithObjects: [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", specificDoll.pants]],[UIImage imageNamed:[NSString stringWithFormat:@"%@out.png", specificDoll.pants]], nil];
-	pantsLayer.animationDuration = 0.2;
-	pantsLayer.animationRepeatCount = 5;
+	pantsLayer.animationDuration = animationDuration;
+	pantsLayer.animationRepeatCount = repeatCount;
     
     otherLayer.animationImages = [NSArray arrayWithObjects: [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", specificDoll.other]],[UIImage imageNamed:[NSString stringWithFormat:@"%@out.png", specificDoll.other]], nil];
-	otherLayer.animationDuration = 0.2;
-	otherLayer.animationRepeatCount = 5;
+	otherLayer.animationDuration = animationDuration;
+	otherLayer.animationRepeatCount = repeatCount;
 
     [genderLayer startAnimating];
     [shirtLayer startAnimating];
