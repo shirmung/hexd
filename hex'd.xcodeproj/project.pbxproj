@@ -55,6 +55,10 @@
 		C129540C15163B8B004FC1B9 /* tomatobutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C129540B15163B8B004FC1B9 /* tomatobutton@2x.png */; };
 		C129541215163F26004FC1B9 /* background4.png in Resources */ = {isa = PBXBuildFile; fileRef = C129541115163F26004FC1B9 /* background4.png */; };
 		C129541515163F29004FC1B9 /* background4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C129541415163F29004FC1B9 /* background4@2x.png */; };
+		C1295429151645E7004FC1B9 /* female1.wav in Resources */ = {isa = PBXBuildFile; fileRef = C1295427151645E7004FC1B9 /* female1.wav */; };
+		C129542A151645E7004FC1B9 /* female2.wav in Resources */ = {isa = PBXBuildFile; fileRef = C1295428151645E7004FC1B9 /* female2.wav */; };
+		C129542E151645ED004FC1B9 /* male1.wav in Resources */ = {isa = PBXBuildFile; fileRef = C129542C151645ED004FC1B9 /* male1.wav */; };
+		C129542F151645ED004FC1B9 /* male2.wav in Resources */ = {isa = PBXBuildFile; fileRef = C129542D151645ED004FC1B9 /* male2.wav */; };
 		C17C5F4614B27C8D00B2F38F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C17C5F4514B27C8D00B2F38F /* UIKit.framework */; };
 		C17C5F4814B27C8D00B2F38F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C17C5F4714B27C8D00B2F38F /* Foundation.framework */; };
 		C17C5F4A14B27C8D00B2F38F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C17C5F4914B27C8D00B2F38F /* CoreGraphics.framework */; };
@@ -403,6 +407,10 @@
 		C129540B15163B8B004FC1B9 /* tomatobutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tomatobutton@2x.png"; sourceTree = "<group>"; };
 		C129541115163F26004FC1B9 /* background4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background4.png; sourceTree = "<group>"; };
 		C129541415163F29004FC1B9 /* background4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background4@2x.png"; sourceTree = "<group>"; };
+		C1295427151645E7004FC1B9 /* female1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = female1.wav; sourceTree = "<group>"; };
+		C1295428151645E7004FC1B9 /* female2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = female2.wav; sourceTree = "<group>"; };
+		C129542C151645ED004FC1B9 /* male1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = male1.wav; sourceTree = "<group>"; };
+		C129542D151645ED004FC1B9 /* male2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = male2.wav; sourceTree = "<group>"; };
 		C17C5F4114B27C8D00B2F38F /* hex'd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "hex'd.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C17C5F4514B27C8D00B2F38F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C17C5F4714B27C8D00B2F38F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1302,6 +1310,10 @@
 			isa = PBXGroup;
 			children = (
 				C1F496E1151543C000F1D71D /* darkestchild.mp3 */,
+				C129542C151645ED004FC1B9 /* male1.wav */,
+				C129542D151645ED004FC1B9 /* male2.wav */,
+				C1295427151645E7004FC1B9 /* female1.wav */,
+				C1295428151645E7004FC1B9 /* female2.wav */,
 			);
 			name = Audio;
 			sourceTree = "<group>";
@@ -1722,6 +1734,10 @@
 				C129540C15163B8B004FC1B9 /* tomatobutton@2x.png in Resources */,
 				C129541215163F26004FC1B9 /* background4.png in Resources */,
 				C129541515163F29004FC1B9 /* background4@2x.png in Resources */,
+				C1295429151645E7004FC1B9 /* female1.wav in Resources */,
+				C129542A151645E7004FC1B9 /* female2.wav in Resources */,
+				C129542E151645ED004FC1B9 /* male1.wav in Resources */,
+				C129542F151645ED004FC1B9 /* male2.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

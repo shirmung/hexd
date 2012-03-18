@@ -599,6 +599,27 @@
     NSArray *openAnimation = [NSArray arrayWithObject:image1];
     
     [self animateLayer:mouthLayer withImages:openAnimation withDuration:duration withRepeatCount:1];
+    
+    NSString *fileName = @"";
+    
+    if (fireButtonPressed) {
+        if (![specificDoll.gender isEqualToString:@"othergender"]) {
+            fileName = [NSString stringWithFormat:@"%@2", specificDoll.gender];
+        } else {
+            fileName = @"male2";
+        }
+    } else {
+        if (![specificDoll.gender isEqualToString:@"othergender"]) {
+            fileName = [NSString stringWithFormat:@"%@1", specificDoll.gender];
+        } else {
+            fileName = @"male1";
+        }  
+    }
+    
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"wav"];
+    SystemSoundID soundID;
+    AudioServicesCreateSystemSoundID((CFURLRef)[NSURL fileURLWithPath:filePath], &soundID);
+    AudioServicesPlaySystemSound (soundID);	
 }
 
 // helper method for animations
