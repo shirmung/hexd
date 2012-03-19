@@ -26,7 +26,7 @@
     if (self)
     {
         // Custom initialization
-        
+        locked = NO; // Howard: Not sure what booleans are initialized to by default
     }
     
     return self;
@@ -153,17 +153,11 @@
 
     // the doll should blink
     double blinkDelay = 4;
-    double blinkDuration = 0.25;
-    int blinkRepeatCount = 1;
-    NSMethodSignature *blinkEyesSignature = [self methodSignatureForSelector:@selector(blinkEyesWithDuration:withRepeatCount:)];
-    NSInvocation *blinkEyesInvocation = [NSInvocation invocationWithMethodSignature:blinkEyesSignature];
-    [blinkEyesInvocation setTarget:self];
-    [blinkEyesInvocation setSelector:@selector(blinkEyesWithDuration:withRepeatCount:)];
-    [blinkEyesInvocation setArgument:&blinkDuration atIndex:2];
-    [blinkEyesInvocation setArgument:&blinkRepeatCount atIndex:3];
-    
-    blinkTimer = [NSTimer scheduledTimerWithTimeInterval:blinkDelay invocation:blinkEyesInvocation repeats:YES];
-    
+    blinkTimer = [NSTimer scheduledTimerWithTimeInterval:blinkDelay
+                                                  target:self
+                                                selector:@selector(blink)
+                                                userInfo:nil
+                                                 repeats:YES];
     // the doll should feel better over time
     emotionTimer = [NSTimer scheduledTimerWithTimeInterval:blinkDelay
                                      target:self
@@ -274,7 +268,7 @@
 	
     CGPathRelease(bodyPath);
     
-    if (bodyHit)
+    if (bodyHit && !locked)
     {
         //[self feelingWorse];
         //[self bodyAnimation];
@@ -567,14 +561,24 @@
 // wince after being stuck with a pin
 - (void)wince
 {
+    locked = YES;
     double winceDuration = 0.25;    
     [self squeezeEyesWithDuration:winceDuration];
     [self openMouthWithDuration:winceDuration];
+    
+    [NSTimer scheduledTimerWithTimeInterval:winceDuration
+                                     target:self
+                                   selector:@selector(unlock)
+                                   userInfo:nil
+                                    repeats:NO];
+    
 }
 
 // ouch after being burned
 - (void)ouch
 {
+    locked = YES;
+    
     // blink twice
     double blinkLength = 0.35;
     double squeezeLength = 1;
@@ -612,6 +616,21 @@
     [bodyInvocation setArgument:&bodyRepeatCount atIndex:3];
     [NSTimer scheduledTimerWithTimeInterval:ouchDelay invocation:bodyInvocation repeats:NO];
     
+    [NSTimer scheduledTimerWithTimeInterval:ouchDelay + (bodyAnimationDuration*bodyRepeatCount)
+                                     target:self
+                                   selector:@selector(unlock)
+                                   userInfo:nil
+                                    repeats:NO];
+}
+
+// blinking
+- (void)blink
+{
+    if (!locked) {
+        double blinkDuration = 0.25;
+        int blinkRepeatCount = 1;
+        [self blinkEyesWithDuration:blinkDuration withRepeatCount:blinkRepeatCount];
+    }
 }
 
 // blink (eyes blink for 1/3 of animation)
@@ -669,6 +688,12 @@
     layer.animationRepeatCount = repeatCount;
 
     [layer startAnimating];
+}
+
+
+- (void)unlock
+{
+    locked = NO;
 }
 
 // helper method for getting file types

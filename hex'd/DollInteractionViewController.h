@@ -44,6 +44,7 @@
     BOOL eggButtonPressed; 
     BOOL drawingButtonPressed;
     BOOL eraserPressed;
+    BOOL locked;
     
     CGPoint firstPoint;
     CGPoint lastPoint;
