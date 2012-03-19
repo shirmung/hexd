@@ -71,6 +71,7 @@
         [newDoll release];
     }
     
+    [[DollDataManager sharedDollDataManager] sort];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(updateDollsData:) 
                                                  name:@"Update Dolls Data"
@@ -152,6 +153,7 @@
 
 - (void)updateDollsData:(NSNotification *)notification
 {
+    [[DollDataManager sharedDollDataManager] sort];
     [dollsTableView reloadData];
 }
 

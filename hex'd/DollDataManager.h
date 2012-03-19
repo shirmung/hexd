@@ -11,6 +11,7 @@
 @interface DollDataManager : NSObject
 {
     NSMutableArray *dolls;
+    NSArray *sortDescriptors;
 }
 
 @property (nonatomic, retain) NSMutableArray *dolls;
@@ -18,5 +19,6 @@
 + (DollDataManager *)sharedDollDataManager;
 
 - (void)saveDolls;
+- (void)sort;
 
 @end
