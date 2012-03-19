@@ -1,6 +1,7 @@
 FINAL MODIFICATIONS:
 -Howard: 
   -tighten up the animations timing
+  -lock doll when animating
   -search for bugs
 -Shirmung: 
   -clean code

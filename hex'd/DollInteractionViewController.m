@@ -310,9 +310,13 @@
             [NSTimer scheduledTimerWithTimeInterval:lightningDelay invocation:bodyInvocation repeats:NO];
             
         } else if (foodButtonPressed) {
+            [self feelingWorse];
             [self wince];
-        } else {
+        } else if (drawingButtonPressed) {
+            //[self wince];
+        } else { // nothing pressed
             [self wince];
+            [self feelingWorse];
         }
         
         bodyHit = NO;
@@ -755,44 +759,47 @@
 - (IBAction)selectInteraction:(UIButton *)button
 {
     if (button.tag == 1) {
-        pinButtonPressed = YES; 
+        pinButtonPressed = pinButtonPressed? NO : YES;  // toggle button
+        [button setSelected:pinButtonPressed];
         
         fireButtonPressed = NO;
         lightningButtonPressed = NO;
         foodButtonPressed = NO;
         drawingButtonPressed = NO;
     } else if (button.tag == 2) {
-        fireButtonPressed = YES;
+        fireButtonPressed = fireButtonPressed? NO : YES;
+        [button setSelected:fireButtonPressed];
         
         pinButtonPressed = NO;
         lightningButtonPressed = NO;
         foodButtonPressed = NO;
         drawingButtonPressed = NO;
     } else if (button.tag == 3) {
-        lightningButtonPressed = YES;
+        lightningButtonPressed = lightningButtonPressed? NO : YES;
+        [button setSelected:lightningButtonPressed];
         
         pinButtonPressed = NO;
         fireButtonPressed = NO;
         foodButtonPressed = NO;
         drawingButtonPressed = NO;
     } else if (button.tag == 4) {
-        foodButtonPressed = YES;
-        tomatoButtonPressed = YES;
+        foodButtonPressed = foodButtonPressed? NO : YES;
+        tomatoButtonPressed = foodButtonPressed;
+        [button setSelected:foodButtonPressed];
         
         pinButtonPressed = NO;
         fireButtonPressed = NO;
         lightningButtonPressed = NO;
         drawingButtonPressed = NO;
     } else if (button.tag == 5) {
-        drawingButtonPressed = YES;
-        
+        drawingButtonPressed = drawingButtonPressed? NO : YES;
+        [button setSelected:drawingButtonPressed];
+         
         pinButtonPressed = NO;
         fireButtonPressed = NO;
         lightningButtonPressed = NO;
         foodButtonPressed = NO;
     }
-    
-    [button setSelected:YES];
     
     for (id otherButton in self.view.subviews) 
     {
