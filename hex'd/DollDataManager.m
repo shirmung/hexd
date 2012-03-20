@@ -31,6 +31,12 @@ static DollDataManager *sharedDollDataManager;
     {
         dolls = [[NSMutableArray alloc] init];
         
+        // for sorting
+        NSSortDescriptor *nameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name"
+                                                                             ascending:YES
+                                                                              selector:@selector(compare:)];
+        sortDescriptors = [[NSArray alloc] initWithObjects:nameSortDescriptor,nil];
+        
         NSString *dollsFilePath = [NSString stringWithString:[self dollsFilePath]];
         BOOL dollsFileExists = [[NSFileManager defaultManager] fileExistsAtPath:dollsFilePath];
                                       
@@ -66,17 +72,8 @@ static DollDataManager *sharedDollDataManager;
                 
                 [doll release];
             }
-            
-            // for sorting
-            NSLog(@"executing");
-            NSSortDescriptor *nameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name"
-                                                                                 ascending:YES
-                                                                                  selector:@selector(compare:)];
-            sortDescriptors = [[NSArray alloc] initWithObjects:nameSortDescriptor,nil];
-            NSLog(@"sortDescriptors:%@", sortDescriptors);
         }
     }
-    
     return self;
 }
 
@@ -133,7 +130,6 @@ static DollDataManager *sharedDollDataManager;
 
 - (void)sort
 {
-    NSLog(@"Sorting Descritors: %@", sortDescriptors);
     [dolls sortUsingDescriptors:sortDescriptors];
 }
 

@@ -70,7 +70,7 @@
     
         [newDoll release];
     }
-    
+
     [[DollDataManager sharedDollDataManager] sort];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(updateDollsData:) 
@@ -132,7 +132,6 @@
     {
         [[[DollDataManager sharedDollDataManager] dolls] removeObjectAtIndex:[indexPath row]];
         [[DollDataManager sharedDollDataManager] saveDolls];
-        
         [dollsTableView reloadData];
     } 
 }
