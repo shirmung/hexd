@@ -280,7 +280,7 @@
             [self ouch];
             [self feelingWorse];
         } else if (lightningButtonPressed) {
-            double lightningDelay = 0.3;
+            double lightningDelay = 0.25;
             [NSTimer scheduledTimerWithTimeInterval:lightningDelay
                                              target:self 
                                            selector:@selector(wince) 
@@ -749,7 +749,7 @@
     }
     
     fireLayer.animationImages = fireAnimation;
-    fireLayer.animationRepeatCount = 8;
+    fireLayer.animationRepeatCount = 26;
     
     [fireLayer startAnimating];
 }
