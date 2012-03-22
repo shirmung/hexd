@@ -14,8 +14,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     
-    if (self) 
-    {
+    if (self) {
         // Custom initialization
     }
     
@@ -36,6 +35,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    self.navigationItem.title = @"Credits";
 }
 
 - (void)viewDidUnload
