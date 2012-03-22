@@ -17,8 +17,7 @@ static DollDataManager *sharedDollDataManager;
 
 + (DollDataManager *)sharedDollDataManager
 {
-    if (sharedDollDataManager == nil) 
-    {
+    if (sharedDollDataManager == nil) {
         sharedDollDataManager = [[DollDataManager alloc] init];
     }
     
@@ -27,25 +26,20 @@ static DollDataManager *sharedDollDataManager;
 
 - (id)init
 {
-    if (self = [super init]) 
-    {
+    if (self = [super init]) {
         dolls = [[NSMutableArray alloc] init];
         
         // for sorting
-        NSSortDescriptor *nameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name"
-                                                                             ascending:YES
-                                                                              selector:@selector(compare:)];
+        NSSortDescriptor *nameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(compare:)];
         sortDescriptors = [[NSArray alloc] initWithObjects:nameSortDescriptor,nil];
         
         NSString *dollsFilePath = [NSString stringWithString:[self dollsFilePath]];
         BOOL dollsFileExists = [[NSFileManager defaultManager] fileExistsAtPath:dollsFilePath];
                                       
-        if (dollsFileExists)
-        {
+        if (dollsFileExists) {
             NSDictionary *dollsData = [NSDictionary dictionaryWithContentsOfFile:dollsFilePath];
 
-            for (NSString *dollKey in dollsData)
-            {
+            for (NSString *dollKey in dollsData) {
                 NSDictionary *detailsOfDoll = [dollsData objectForKey:dollKey];
                     
                 Doll *doll = [[Doll alloc] init];
@@ -81,6 +75,7 @@ static DollDataManager *sharedDollDataManager;
 {
     [dolls release];
     [sortDescriptors release];
+    
     [super dealloc];
 }
             
@@ -88,8 +83,7 @@ static DollDataManager *sharedDollDataManager;
 {
     NSMutableDictionary *dollsData = [[NSMutableDictionary alloc] init];
     
-    for (Doll *doll in dolls)
-    {
+    for (Doll *doll in dolls) {
         NSMutableDictionary *detailsOfDoll = [[NSMutableDictionary alloc] init];
         
         [detailsOfDoll setObject:doll.name forKey:@"name"];

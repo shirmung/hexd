@@ -17,8 +17,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     
-    if (self) 
-    {
+    if (self) {
         // Custom initialization
         backgroundMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"darkestchild" ofType:@"mp3"]] error:NULL];
         [backgroundMusic setNumberOfLoops:-1];

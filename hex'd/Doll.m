@@ -16,8 +16,7 @@
 
 -(id)init
 {
-    if (self = [super init])
-    {
+    if (self = [super init]) {
         name = @"";
         gender = @"";
         eyes = @"neutraleyes";
