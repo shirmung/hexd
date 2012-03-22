@@ -21,8 +21,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     
-    if (self) 
-    {
+    if (self) {
         // Custom initialization
     }
     
@@ -56,8 +55,7 @@
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
-    if (![userDefaults objectForKey:@"hasUsed"])
-    {
+    if (![userDefaults objectForKey:@"hasUsed"]) {
         [userDefaults setObject:@"YES" forKey:@"hasUsed"];
         [userDefaults synchronize];
         
@@ -72,10 +70,8 @@
     }
 
     [[DollDataManager sharedDollDataManager] sort];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(updateDollsData:) 
-                                                 name:@"Update Dolls Data"
-                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateDollsData:) name:@"Update Dolls Data" object:nil];
 }
 
 - (void)viewDidUnload
@@ -108,8 +104,7 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    if (cell == nil) 
-    {
+    if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
@@ -128,8 +123,7 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) 
-    {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
         [[[DollDataManager sharedDollDataManager] dolls] removeObjectAtIndex:[indexPath row]];
         [[DollDataManager sharedDollDataManager] saveDolls];
         [dollsTableView reloadData];

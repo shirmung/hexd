@@ -18,8 +18,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     
-    if (self) 
-    {
+    if (self) {
         // Custom initialization
     }
     
@@ -76,8 +75,7 @@
 
 - (IBAction)dismissView:(UIBarButtonItem *)barButtonItem
 {
-    if (barButtonItem.tag == 1) 
-    {
+    if (barButtonItem.tag == 1) {
         Doll *newDoll = [[[Doll alloc] init] autorelease];
         newDoll.name = nameTextField.text;
         
