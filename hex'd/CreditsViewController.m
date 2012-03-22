@@ -52,4 +52,20 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+#pragma mark - Buttons
+
+- (IBAction)openSafari:(UIButton *)button
+{
+    NSString *uRLString = @"";
+    
+    if (button.tag == 1) {
+        uRLString = @"http://incompetech.com/";
+    } else if (button.tag == 2) {
+        uRLString = @"http://www.freesound.org/people/thanvannispen/";
+    }
+    
+    NSURL *uRL = [NSURL URLWithString:uRLString];
+    [[UIApplication sharedApplication] openURL:uRL];
+}
+
 @end
