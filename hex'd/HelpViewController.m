@@ -10,8 +10,6 @@
 
 @implementation HelpViewController
 
-@synthesize scrollView;
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -34,8 +32,6 @@
 
 - (void)dealloc
 {
-    [scrollView release];
-    
     [super dealloc];
 }
 
@@ -46,8 +42,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [scrollView setScrollEnabled:YES];
-    [scrollView setContentSize:CGSizeMake(320, 544)];
+    self.navigationItem.title = @"Help";
 }
 
 - (void)viewDidUnload
