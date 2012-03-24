@@ -123,7 +123,7 @@
     glEnableVertexAttribArray(color);
 }
 
-#pragma mark - Drawing
+#pragma mark - Set up shapes
 typedef struct {
     float Position[3];
     float Color[4];
@@ -167,8 +167,6 @@ Vertex circle[30];
     }
 }
 
-
-
 - (void)setUpBufferObjects
 {
     // set up square
@@ -185,15 +183,33 @@ Vertex circle[30];
     glGenBuffers(1, &circleVBO);
     glBindBuffer(GL_ARRAY_BUFFER, circleVBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(circle), circle, GL_STATIC_DRAW);
-
 }
 
+- (void)drawSquare
+{
+    glUniformMatrix4fv(modelViewUniform, 1, GL_FALSE, [modelView peek]);
+    glBindBuffer(GL_ARRAY_BUFFER, squareVBO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, squareIBO);
+    glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
+    glVertexAttribPointer(color, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) (sizeof(float)*3));
+    glDrawElements(GL_TRIANGLES, sizeof(squareIndices)/sizeof(squareIndices[0]), GL_UNSIGNED_BYTE, 0);
+}
 
+- (void)drawCircle
+{
+    glUniformMatrix4fv(modelViewUniform, 1, GL_FALSE, [modelView peek]);
+    glBindBuffer(GL_ARRAY_BUFFER, circleVBO);
+    glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
+    glVertexAttribPointer(color, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) (sizeof(float)*3));
+    glDrawArrays(GL_TRIANGLE_FAN, 0, sizeof(circle)/sizeof(circle[0]));
+}
+
+#pragma mark - Draw the doll
 - (void)draw 
 {
     glClearColor(1, 0, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    //glEnable(GL_DEPTH_TEST);
+    glEnable(GL_DEPTH_TEST);
     
     // projection matrix
     CC3GLMatrix *projection = [CC3GLMatrix matrix];
@@ -210,30 +226,18 @@ Vertex circle[30];
     
     [modelView push];
     
-    //[modelView scale:CC3VectorMake(0.5,0.5,1)];
     [modelView translate:CC3VectorMake(0, 0, 0)];
-    glUniformMatrix4fv(modelViewUniform, 1, GL_FALSE, [modelView peek]);
-    
-    // draw a square
-    glBindBuffer(GL_ARRAY_BUFFER, squareVBO);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, squareIBO);
-    glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
-    glVertexAttribPointer(color, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) (sizeof(float)*3));
-    glDrawElements(GL_TRIANGLES, sizeof(squareIndices)/sizeof(squareIndices[0]), GL_UNSIGNED_BYTE, 0);
+    [self drawSquare];
     
     [modelView translate:CC3VectorMake(-0.5, 0.5, 0)];
-    glUniformMatrix4fv(modelViewUniform, 1, GL_FALSE, [modelView peek]);
-    
-    // draw a circle
-    glBindBuffer(GL_ARRAY_BUFFER, circleVBO);
-    glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
-    glVertexAttribPointer(color, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) (sizeof(float)*3));
-    glDrawArrays(GL_TRIANGLE_FAN, 0, sizeof(circle)/sizeof(circle[0]));
+    [self drawCircle];
 
     [modelView pop];
     
     [context presentRenderbuffer:GL_RENDERBUFFER];
 }
+
+
 
 
 # pragma mark - Boring stuff
