@@ -15,6 +15,8 @@
 		46370796151E1E22005DEC98 /* DollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 46370795151E1E22005DEC98 /* DollView.m */; };
 		46370798151E1E3C005DEC98 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46370797151E1E3C005DEC98 /* OpenGLES.framework */; };
 		4637079B151E2453005DEC98 /* DollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4637079A151E2453005DEC98 /* DollViewController.m */; };
+		4637079D151E2BA3005DEC98 /* VertexShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 4637079C151E2BA3005DEC98 /* VertexShader.glsl */; };
+		4637079F151E2C02005DEC98 /* FragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 4637079E151E2C02005DEC98 /* FragmentShader.glsl */; };
 		46AF2D261516563A002051EA /* blank.png in Resources */ = {isa = PBXBuildFile; fileRef = 46AF2D251516563A002051EA /* blank.png */; };
 		C10854AA150DAFCA00EE6A0B /* pinbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C10854A9150DAFCA00EE6A0B /* pinbutton@2x.png */; };
 		C10854AC150DAFCD00EE6A0B /* pinbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = C10854AB150DAFCD00EE6A0B /* pinbutton.png */; };
@@ -385,6 +387,8 @@
 		46370797151E1E3C005DEC98 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		46370799151E2453005DEC98 /* DollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DollViewController.h; sourceTree = "<group>"; };
 		4637079A151E2453005DEC98 /* DollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DollViewController.m; sourceTree = "<group>"; };
+		4637079C151E2BA3005DEC98 /* VertexShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VertexShader.glsl; sourceTree = "<group>"; };
+		4637079E151E2C02005DEC98 /* FragmentShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader.glsl; sourceTree = "<group>"; };
 		46AF2D251516563A002051EA /* blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank.png; sourceTree = "<group>"; };
 		C10854A9150DAFCA00EE6A0B /* pinbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pinbutton@2x.png"; sourceTree = "<group>"; };
 		C10854AB150DAFCD00EE6A0B /* pinbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pinbutton.png; sourceTree = "<group>"; };
@@ -803,6 +807,8 @@
 				46370795151E1E22005DEC98 /* DollView.m */,
 				46370799151E2453005DEC98 /* DollViewController.h */,
 				4637079A151E2453005DEC98 /* DollViewController.m */,
+				4637079C151E2BA3005DEC98 /* VertexShader.glsl */,
+				4637079E151E2C02005DEC98 /* FragmentShader.glsl */,
 			);
 			name = "Doll View";
 			path = ..;
@@ -1810,6 +1816,8 @@
 				C1CE5CB3151D6745001244FE /* creditsbutton@2x.png in Resources */,
 				C1CE5CB4151D6745001244FE /* creditsbuttonselected.png in Resources */,
 				C1CE5CB5151D6745001244FE /* creditsbuttonselected@2x.png in Resources */,
+				4637079D151E2BA3005DEC98 /* VertexShader.glsl in Resources */,
+				4637079F151E2C02005DEC98 /* FragmentShader.glsl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
