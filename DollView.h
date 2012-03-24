@@ -29,10 +29,13 @@
     
     // Vertex Buffer Objects and
     // Index Buffer Objects
-    GLuint circleVBO;
-    
     GLuint squareVBO;
     GLuint squareIBO;
+    
+    GLuint circleVBO;
+    
+    GLuint trapezoidVBO;
+    GLuint trapezoidIBO;
 }
 
 @end

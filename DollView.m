@@ -124,22 +124,31 @@
 }
 
 #pragma mark - Set up shapes
+
+// structure to store vertex information
 typedef struct {
     float Position[3];
     float Color[4];
 } Vertex;
 
-const Vertex square[] = {
-    {{1, -1, 0}, {1, 0, 0, 1}},
-    {{1, 1, 0}, {0, 1, 0, 1}},
-    {{-1, 1, 0}, {0, 0, 1, 1}},
-    {{-1, -1, 0}, {0, 0, 0, 1}}
-};
 
-const GLubyte squareIndices[] = {
-    0,1,2,
-    2,3,0
+// A square
+const Vertex square[] = {
+    {{ 1, -1, 0}, {0.5, 0.5, 0.5, 1}}, // bottom right
+    {{ 1,  1, 0}, {0.5, 0.5, 0.5, 1}}, // top right
+    {{-1,  1, 0}, {0.5, 0.5, 0.5, 1}}, // top left
+    {{-1, -1, 0}, {0.5, 0.5, 0.5, 1}}  // bottom left
 };
+const GLubyte squareIndices[] = {0,1,2,3,0};
+
+// A trapezoid
+const Vertex trapezoid[] = {
+    {{   1, -1, 0}, {0.5, 0.5, 0.5, 1}}, // bottom right
+    {{ 0.9,  1, 0}, {0.5, 0.5, 0.5, 1}}, // top right
+    {{-0.9,  1, 0}, {0.5, 0.5, 0.5, 1}}, // top left
+    {{  -1, -1, 0}, {0.5, 0.5, 0.5, 1}}  // bottom left
+};
+const GLubyte trapezoidIndices[] = {0,1,2,3,0};
 
 // find circle vertex points
 Vertex circle[30];
@@ -178,6 +187,15 @@ Vertex circle[30];
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, squareIBO);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(squareIndices), squareIndices, GL_STATIC_DRAW);
     
+    // set up trapezoid
+    glGenBuffers(1, &trapezoidVBO);
+    glBindBuffer(GL_ARRAY_BUFFER, trapezoidVBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(trapezoid), trapezoid, GL_STATIC_DRAW);
+    
+    glGenBuffers(1, &trapezoidIBO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, trapezoidIBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(trapezoidIndices), trapezoidIndices, GL_STATIC_DRAW);
+    
     // set up circle
     [self setUpCircle];
     glGenBuffers(1, &circleVBO);
@@ -192,7 +210,7 @@ Vertex circle[30];
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, squareIBO);
     glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
     glVertexAttribPointer(color, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) (sizeof(float)*3));
-    glDrawElements(GL_TRIANGLES, sizeof(squareIndices)/sizeof(squareIndices[0]), GL_UNSIGNED_BYTE, 0);
+    glDrawElements(GL_TRIANGLE_STRIP, sizeof(squareIndices)/sizeof(squareIndices[0]), GL_UNSIGNED_BYTE, 0);
 }
 
 - (void)drawCircle
@@ -203,6 +221,17 @@ Vertex circle[30];
     glVertexAttribPointer(color, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) (sizeof(float)*3));
     glDrawArrays(GL_TRIANGLE_FAN, 0, sizeof(circle)/sizeof(circle[0]));
 }
+
+- (void)drawTrapezoid
+{
+    glUniformMatrix4fv(modelViewUniform, 1, GL_FALSE, [modelView peek]);
+    glBindBuffer(GL_ARRAY_BUFFER, trapezoidVBO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, trapezoidIBO);
+    glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
+    glVertexAttribPointer(color, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) (sizeof(float)*3));
+    glDrawElements(GL_TRIANGLE_STRIP, sizeof(trapezoidIndices)/sizeof(trapezoidIndices[0]), GL_UNSIGNED_BYTE, 0);
+}
+
 
 #pragma mark - Draw the doll
 - (void)draw 
@@ -217,26 +246,43 @@ Vertex circle[30];
     [projection populateOrthoFromFrustumLeft:-1 andRight:1 andBottom:-h andTop:h andNear:-1 andFar:1];
     glUniformMatrix4fv(projectionUniform, 1, 0, projection.glMatrix);
     
-    
-
     glViewport(0, 0, self.frame.size.width, self.frame.size.height);
     
-    //glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
-    //glVertexAttribPointer(color, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) (sizeof(float)*3));
+
+    // ==== Drawing Stuff Start ====
     
     [modelView push];
+    [modelView scale:CC3VectorMake(0.5, 0.5, 0.5)];
+    [modelView translate:CC3VectorMake(0, 1, 0)];
     
-    [modelView translate:CC3VectorMake(0, 0, 0)];
-    [self drawSquare];
+    [self drawTrapezoid];
+    [self drawHead];
+    [self drawBody];
     
-    [modelView translate:CC3VectorMake(-0.5, 0.5, 0)];
-    [self drawCircle];
-
     [modelView pop];
     
+    // ==== Drawing Stuff End ====
     [context presentRenderbuffer:GL_RENDERBUFFER];
 }
 
+- (void)drawHead
+{
+    [modelView push];
+    
+    [modelView scale:CC3VectorMake(0.9,1,1)];
+    [self drawCircle];
+    [modelView pop];
+}
+
+- (void)drawBody
+{
+    [modelView push];
+    
+    [modelView translate:CC3VectorMake(0, -2, 0)];
+    [modelView scale:CC3VectorMake(0.5, 0.5, 1)];
+    [self drawSquare];
+    [modelView pop];
+}
 
 
 
@@ -266,7 +312,17 @@ Vertex circle[30];
 {
     [context release];
     [modelView release];
+    [self deleteBuffers];
     [super dealloc];
+}
+
+- (void)deleteBuffers 
+{
+    glDeleteBuffers(1, &squareVBO);
+    glDeleteBuffers(1, &squareIBO);
+    glDeleteBuffers(1, &circleVBO);
+    glDeleteBuffers(1, &trapezoidVBO);
+    glDeleteBuffers(1, &trapezoidIBO);
 }
 
 /*

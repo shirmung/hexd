@@ -23,7 +23,7 @@
         backgroundMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"darkestchild" ofType:@"mp3"]] error:NULL];
         [backgroundMusic setNumberOfLoops:-1];
         [backgroundMusic prepareToPlay];
-        [backgroundMusic play];
+        //[backgroundMusic play];
     }
     
     return self;
