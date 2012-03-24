@@ -7,12 +7,11 @@
 //
 
 #import "DollView.h"
-#import "MatrixStack.h"
+
 
 @implementation DollView
 
 #pragma mark - Setting up OpenGLES
-
 + (Class)layerClass {
     return [CAEAGLLayer class];
 }
@@ -37,6 +36,13 @@
     }
 }
 
+- (void)setUpDepthBuffer
+{
+    glGenRenderbuffers(1, &depthRenderBuffer);
+    glBindRenderbuffer(GL_RENDERBUFFER, depthRenderBuffer);
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, self.frame.size.width, self.frame.size.height);
+}
+
 - (void)setUpRenderBuffer
 {
     glGenRenderbuffers(1, &colorRenderBuffer);
@@ -44,13 +50,18 @@
     [context renderbufferStorage:GL_RENDERBUFFER fromDrawable:eaglLayer];
 }
 
+
+
 - (void)setUpFrameBuffer
 {
     GLuint frameBuffer;
     glGenFramebuffers(1, &frameBuffer);
     glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, colorRenderBuffer);
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthRenderBuffer);
 }
+
+
 
 #pragma mark - Compiling shaders
 - (GLuint)compileShader:(NSString*)shaderName withType:(GLenum)shaderType {
@@ -113,7 +124,6 @@
 }
 
 #pragma mark - Drawing
-
 typedef struct {
     float Position[3];
     float Color[4];
@@ -143,21 +153,21 @@ const GLubyte indices[] = {
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 }
+
 - (void)render 
 {
     glClearColor(1, 0, 1, 1);
-    glClear(GL_COLOR_BUFFER_BIT);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glEnable(GL_DEPTH_TEST);
     
     // projection matrix
     CC3GLMatrix *projection = [CC3GLMatrix matrix];
-    
-    // ModelView matrix
-    MatrixStack *modelView = [[[MatrixStack alloc] init] autorelease];
-    
-    float h = 4*self.frame.size.height / self.frame.size.width;
-    [projection populateFromFrustumLeft:-2 andRight:2 andBottom:-h/2 andTop:h/2 andNear:4 andFar:10];
+    float h = self.frame.size.height / self.frame.size.width;
+    [projection populateOrthoFromFrustumLeft:-1 andRight:1 andBottom:-h andTop:h andNear:-1 andFar:1];
     glUniformMatrix4fv(projectionUniform, 1, 0, projection.glMatrix);
     
+    
+
     glViewport(0, 0, self.frame.size.width, self.frame.size.height);
     
     glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
@@ -165,18 +175,18 @@ const GLubyte indices[] = {
     
     [modelView push];
     
-    [modelView translate:CC3VectorMake(0, 0, -7)];
-    glUniformMatrix4fv(modelViewUniform, 1, 0, [modelView peek]);
+    [modelView scale:CC3VectorMake(0.5,0.5,1)];
+    [modelView translate:CC3VectorMake(0, 0, 0)];
+    glUniformMatrix4fv(modelViewUniform, 1, GL_FALSE, [modelView peek]);
     glDrawElements(GL_TRIANGLES, sizeof(indices)/sizeof(indices[0]), GL_UNSIGNED_BYTE, 0);
     
     [modelView translate:CC3VectorMake(-0.5, 0.5, 0)];
-    glUniformMatrix4fv(modelViewUniform, 1, 0, [modelView peek]);
+    glUniformMatrix4fv(modelViewUniform, 1, GL_FALSE, [modelView peek]);
     glDrawElements(GL_TRIANGLES, sizeof(indices)/sizeof(indices[0]), GL_UNSIGNED_BYTE, 0);
     
     [modelView pop];
     
     [context presentRenderbuffer:GL_RENDERBUFFER];
-
 }
 
 
@@ -186,8 +196,13 @@ const GLubyte indices[] = {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        
+        // ModelView matrix
+        modelView = [[MatrixStack alloc] init];
+        
         [self setUpLayer];
         [self setUpContext];
+        [self setUpDepthBuffer];
         [self setUpRenderBuffer];
         [self setUpFrameBuffer];
         [self compileShaders];
@@ -200,6 +215,7 @@ const GLubyte indices[] = {
 - (void)dealloc
 {
     [context release];
+    [modelView release];
     [super dealloc];
 }
 
