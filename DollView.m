@@ -143,10 +143,10 @@ const GLubyte squareIndices[] = {0,1,2,3,0};
 
 // A trapezoid
 const Vertex trapezoid[] = {
-    {{   1, -1, 0}, {0.5, 0.5, 0.5, 1}}, // bottom right
-    {{ 0.9,  1, 0}, {0.5, 0.5, 0.5, 1}}, // top right
-    {{-0.9,  1, 0}, {0.5, 0.5, 0.5, 1}}, // top left
-    {{  -1, -1, 0}, {0.5, 0.5, 0.5, 1}}  // bottom left
+    {{    1, -1, 0}, {0.5, 0.5, 0.5, 1}}, // bottom right
+    {{ 0.68,  1, 0}, {0.5, 0.5, 0.5, 1}}, // top right
+    {{-0.68,  1, 0}, {0.5, 0.5, 0.5, 1}}, // top left
+    {{   -1, -1, 0}, {0.5, 0.5, 0.5, 1}}  // bottom left
 };
 const GLubyte trapezoidIndices[] = {0,1,2,3,0};
 
@@ -254,9 +254,11 @@ Vertex circle[30];
     [modelView push];
     [modelView scale:CC3VectorMake(0.5, 0.5, 0.5)];
     [modelView translate:CC3VectorMake(0, 1, 0)];
-    
-    [self drawTrapezoid];
+
     [self drawHead];
+    [modelView translate:CC3VectorMake(0, -1.25, 0)];
+    [self drawNeck];
+    [modelView translate:CC3VectorMake(0, -0.77, 0)];
     [self drawBody];
     
     [modelView pop];
@@ -268,19 +270,23 @@ Vertex circle[30];
 - (void)drawHead
 {
     [modelView push];
-    
-    [modelView scale:CC3VectorMake(0.9,1,1)];
+    [modelView scale:CC3VectorMake(1.1,1.25,1)];
     [self drawCircle];
     [modelView pop];
 }
 
+- (void)drawNeck
+{
+    [modelView push];
+    [modelView scale:CC3VectorMake(0.1, 0.1, 1)];
+    [self drawSquare];
+    [modelView pop];
+}
 - (void)drawBody
 {
     [modelView push];
-    
-    [modelView translate:CC3VectorMake(0, -2, 0)];
-    [modelView scale:CC3VectorMake(0.5, 0.5, 1)];
-    [self drawSquare];
+    [modelView scale:CC3VectorMake(0.42, 0.72, 1)];
+    [self drawTrapezoid];
     [modelView pop];
 }
 
