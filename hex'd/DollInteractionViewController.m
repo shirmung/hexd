@@ -203,6 +203,7 @@
     // Do any additional setup after loading the view from its nib.
     
     self.navigationItem.title = specificDoll.name;
+
     
     UIBarButtonItem *customizationButton = [[UIBarButtonItem alloc] initWithTitle:@"Customize" 
                                                                             style:UIBarButtonItemStyleDone

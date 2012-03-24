@@ -53,6 +53,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    self.navigationItem.title = @"My Voodoo Dolls";
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
+    
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
     if (![userDefaults objectForKey:@"hasUsed"]) {

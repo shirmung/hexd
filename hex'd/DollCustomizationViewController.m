@@ -14,15 +14,14 @@
 
 @synthesize specificDoll;
 @synthesize tempHair, tempShirt, tempPants, tempOther, tempBackground;
+@synthesize hairScrollView, shirtScrollView, pantsScrollView, otherScrollView, backgroundScrollView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
 
-    if (self)
-    {
+    if (self) {
         // Custom initialization
-        self.view.backgroundColor = [UIColor blackColor];
     }
     
     return self;
@@ -46,6 +45,12 @@
     [tempOther release];
     [tempBackground release];
     
+    [hairScrollView release];
+    [shirtScrollView release];
+    [pantsScrollView release];
+    [otherScrollView release];
+    [backgroundScrollView release];
+    
     [super dealloc];
 }
 
@@ -55,6 +60,15 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [hairScrollView setScrollEnabled:YES];
+    [hairScrollView setContentSize:CGSizeMake(560, 70)];
+    
+    [shirtScrollView setScrollEnabled:YES];
+    [shirtScrollView setContentSize:CGSizeMake(833, 70)];
+
+    [pantsScrollView setScrollEnabled:YES];
+    [pantsScrollView setContentSize:CGSizeMake(560, 70)];
 }
 
 - (void)viewWillAppear:(BOOL)animated 
@@ -68,55 +82,24 @@
     self.tempBackground = specificDoll.background;
     
     // highlight the doll's selected buttons
-    for (id button in self.view.subviews) 
-    {
-        if ([button isKindOfClass:[UIButton class]]) 
-        {
-            // highlight hair
-            if ([[button currentTitle] isEqualToString:@"hair"]) 
-            {
-                if ([button tag] == [self hair]) 
-                {
-                    [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"hair%ibuttonselected.png", [button tag]]] forState:UIControlStateSelected];
-                    [button setSelected:YES];
-                }
-            }
+    for (id button in hairScrollView.subviews) {
+        if ([button isKindOfClass:[UIButton class]] && [button tag] == [self hair]) [button setSelected:YES];
+    }
+    
+    for (id button in shirtScrollView.subviews) {
+        if ([button isKindOfClass:[UIButton class]] && [button tag] == [self shirt]) [button setSelected:YES];
+    }
             
-            // highlight shirt
-            if ([[button currentTitle] isEqualToString:@"shirt"]) 
-            {
-                if ([button tag] == [self shirt]) 
-                {
-                    [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"shirt%ibuttonselected.png", [button tag]]] forState:UIControlStateSelected];
-                    [button setSelected:YES];
-                }
-            }
-            
-            // highlight pants
-            if ([[button currentTitle] isEqualToString:@"pants"]) 
-            {
-                if ([button tag] == [self pants]) 
-                {
-                    [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"pants%ibuttonselected.png", [button tag]]] forState:UIControlStateSelected];
-                    [button setSelected:YES];
-                }
-            }
-            
-            // highlight other
-            if ([[button currentTitle] isEqualToString:@"other"]) 
-            {
-                if ([button tag] == [self other]) 
-                {
-                    [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"other%ibuttonselected.png", [button tag]]] forState:UIControlStateSelected];
-                    [button setSelected:YES];
-                }
-            }
-            
-            if ([[button currentTitle] isEqualToString:@"background"]) 
-            {
-                if ([button tag] == [self background]) [button setSelected:YES];
-            }
-        }
+    for (id button in pantsScrollView.subviews) {
+        if ([button isKindOfClass:[UIButton class]] && [button tag] == [self pants]) [button setSelected:YES];
+    }
+          
+    for (id button in otherScrollView.subviews) {
+        if ([button isKindOfClass:[UIButton class]] && [button tag] == [self other]) [button setSelected:YES];
+    }
+
+    for (id button in backgroundScrollView.subviews) {
+        if ([button isKindOfClass:[UIButton class]] && [button tag] == [self background]) [button setSelected:YES];
     }
 }
 
@@ -137,53 +120,36 @@
 
 - (IBAction)selectHair:(UIButton *)button
 {
-    // if the button was selected, then unselect it
     if ([button isSelected]) {
-        [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"hair%ibutton.png", button.tag]] forState:UIControlStateNormal];
-        
-        // unselect the hair
         specificDoll.hair = @"";
+        
         [button setSelected:NO];
-    } else { // otherwise select it, unselect previous hair
-        [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"hair%ibuttonselected.png", button.tag]] forState:UIControlStateSelected];
-        
-        // deselect other hair buttons
-        for (id butt in self.view.subviews) 
-        {
-            if ([butt isKindOfClass:[UIButton class]] && [[butt currentTitle] isEqualToString:@"hair"]) 
-            {
-                [butt setSelected:NO];
-            }
+    } else {
+        for (id button in hairScrollView.subviews) {
+            if ([button isKindOfClass:[UIButton class]]) [button setSelected:NO];
         }
-        
-        // select the hair
+
         specificDoll.hair = [NSString stringWithFormat:@"hair%i", button.tag];
+
         [button setSelected:YES];
     }
 }
 
 - (IBAction)selectShirt:(UIButton *)button
 {
-    // if the button was selected, then unselect it
     if ([button isSelected]) {
-        [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"shirt%ibutton.png", button.tag]] forState:UIControlStateNormal];
-        
-        // unselect the shirt
         specificDoll.shirt = @"";
-        [button setSelected:NO];
-    } else { // otherwise select it, unselect previous shirt
-        [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"shirt%ibuttonselected.png", button.tag]] forState:UIControlStateSelected];
         
-        // deselect other shirt buttons
-        for (id butt in self.view.subviews)
-        {
-            if ([butt isKindOfClass:[UIButton class]] && ([[butt currentTitle] isEqualToString:@"shirt"] || [[butt currentTitle] isEqualToString:@"other"])) 
-            {
-                [butt setSelected:NO];
-            }
+        [button setSelected:NO];
+    } else {
+        for (id button in shirtScrollView.subviews) {
+            if ([button isKindOfClass:[UIButton class]]) [button setSelected:NO];
         }
         
-        // select the shirt
+        for (id button in otherScrollView.subviews) {
+            if ([button isKindOfClass:[UIButton class]]) [button setSelected:NO];
+        }
+        
         specificDoll.shirt = [NSString stringWithFormat:@"shirt%i", button.tag];
         specificDoll.other = @"";
         
@@ -193,26 +159,19 @@
 
 - (IBAction)selectPants:(UIButton *)button
 {
-    // if the button was selected, then unselect it
     if ([button isSelected]) {
-        [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"pants%ibutton.png", button.tag]] forState:UIControlStateNormal];
-        
-        // unselect the pants
         specificDoll.pants = @"";
-        [button setSelected:NO];
-    } else { // otherwise select it, unselect previous pants
-        [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"pants%ibuttonselected.png", button.tag]] forState:UIControlStateSelected];
         
-        // deselect other pants buttons
-        for (id butt in self.view.subviews) 
-        {
-            if ([butt isKindOfClass:[UIButton class]] && ([[butt currentTitle] isEqualToString:@"pants"] || [[butt currentTitle] isEqualToString:@"other"]))  
-            {
-                [butt setSelected:NO];
-            }
+        [button setSelected:NO];
+    } else {
+        for (id button in pantsScrollView.subviews) {
+            if ([button isKindOfClass:[UIButton class]]) [button setSelected:NO];
         }
         
-        // select the pants
+        for (id button in otherScrollView.subviews) {
+            if ([button isKindOfClass:[UIButton class]]) [button setSelected:NO];
+        }
+
         specificDoll.pants = [NSString stringWithFormat:@"pants%i", button.tag];
         specificDoll.other = @"";
         
@@ -222,25 +181,23 @@
 
 - (IBAction)selectOther:(UIButton *)button
 {
-    // if the button was selected, then unselect it
     if ([button isSelected]) {
-        [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"other%ibutton.png", button.tag]] forState:UIControlStateNormal];
-        
-        // unselect the other
         specificDoll.other = @"";
-        [button setSelected:NO];
-    } else { // otherwise select it, unselect previous other
-        [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"other%ibuttonselected.png", button.tag]] forState:UIControlStateSelected];
         
-        // deselect other other buttons
-        for (id butt in self.view.subviews) 
-        {
-            if ([butt isKindOfClass:[UIButton class]] && ([[butt currentTitle] isEqualToString:@"other"] || [[butt currentTitle] isEqualToString:@"shirt"] || [[butt currentTitle] isEqualToString:@"pants"])) {
-                [butt setSelected:NO];
-            }
+        [button setSelected:NO];
+    } else {
+        for (id button in otherScrollView.subviews) {
+            if ([button isKindOfClass:[UIButton class]]) [button setSelected:NO];
         }
         
-        // select the other
+        for (id button in shirtScrollView.subviews) {
+            if ([button isKindOfClass:[UIButton class]]) [button setSelected:NO];
+        }
+        
+        for (id button in pantsScrollView.subviews) {
+            if ([button isKindOfClass:[UIButton class]]) [button setSelected:NO];
+        }
+        
         specificDoll.other = [NSString stringWithFormat:@"other%i", button.tag];
         specificDoll.shirt = @"";
         specificDoll.pants = @"";
@@ -253,25 +210,22 @@
 {
     if ([button isSelected]) {
         specificDoll.background = @"";
+        
         [button setSelected:NO];
     } else {
-        for (id button in self.view.subviews) 
-        {
-            if ([button isKindOfClass:[UIButton class]] && [[button currentTitle] isEqualToString:@"background"]) 
-            {
-                [button setSelected:NO];
-            }
+        for (id button in backgroundScrollView.subviews) {
+            if ([button isKindOfClass:[UIButton class]]) [button setSelected:NO];
         }
         
         specificDoll.background = [NSString stringWithFormat:@"background%i", button.tag];
+        
         [button setSelected:YES];
     }
 }
 
 - (IBAction)dismissView:(UIBarButtonItem *)barButtonItem
 {
-    if (barButtonItem.tag == 1) 
-    {
+    if (barButtonItem.tag == 1) {
         [[DollDataManager sharedDollDataManager] saveDolls];
     } else {
         specificDoll.hair = self.tempHair;
@@ -290,8 +244,7 @@
 // helper method to get specific doll's hair
 - (int)hair
 {
-    if (![specificDoll.hair isEqualToString:@""]) 
-    {
+    if (![specificDoll.hair isEqualToString:@""]) {
         return [[specificDoll.hair substringFromIndex:4] intValue];
     }
     
@@ -301,8 +254,7 @@
 // helper method to get specific doll's shirt
 - (int)shirt
 {
-    if (![specificDoll.shirt isEqualToString:@""]) 
-    {
+    if (![specificDoll.shirt isEqualToString:@""]) {
         return [[specificDoll.shirt substringFromIndex:5] intValue];
     }
     
@@ -312,8 +264,7 @@
 // helper method to get specific doll's pants
 - (int)pants
 {
-    if (![specificDoll.pants isEqualToString:@""]) 
-    {
+    if (![specificDoll.pants isEqualToString:@""]) {
         return [[specificDoll.pants substringFromIndex:5] intValue];
     }
     
@@ -323,8 +274,7 @@
 // helper method to get specific doll's other
 - (int)other
 {
-    if (![specificDoll.other isEqualToString:@""]) 
-    {
+    if (![specificDoll.other isEqualToString:@""]) {
         return [[specificDoll.other substringFromIndex:5] intValue];
     }
     
@@ -333,8 +283,7 @@
 
 - (int)background
 {
-    if (![specificDoll.background isEqualToString:@""]) 
-    {
+    if (![specificDoll.background isEqualToString:@""]) {
         return [[specificDoll.background substringFromIndex:10] intValue];
     }
     
