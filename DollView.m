@@ -129,36 +129,71 @@ typedef struct {
     float Color[4];
 } Vertex;
 
-const Vertex rect[] = {
+const Vertex square[] = {
     {{1, -1, 0}, {1, 0, 0, 1}},
     {{1, 1, 0}, {0, 1, 0, 1}},
     {{-1, 1, 0}, {0, 0, 1, 1}},
     {{-1, -1, 0}, {0, 0, 0, 1}}
 };
 
-const GLubyte indices[] = {
+const GLubyte squareIndices[] = {
     0,1,2,
     2,3,0
 };
 
-- (void)setUpVBOs 
+// find circle vertex points
+Vertex circle[30];
+- (void)setUpCircle
 {
-    GLuint vertexBuffer;
-    glGenBuffers(1, &vertexBuffer);
-    glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(rect), rect, GL_STATIC_DRAW);
-    
-    GLuint indexBuffer;
-    glGenBuffers(1, &indexBuffer);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+    int limit = 30;
+    float changeInTheata = 2*M_PI/limit;
+    float theta;
+    float x;
+    float y;
+    float z = 0;
+    for (int i=0; i<limit; i++) {
+        theta = changeInTheata*i;
+        x = cos(-theta);
+        y = sin(-theta);
+        
+        circle[i].Position[0] = x;
+        circle[i].Position[1] = y;
+        circle[i].Position[2] = z;
+        
+        circle[i].Color[0] = 0.5;
+        circle[i].Color[1] = 0.5;
+        circle[i].Color[2] = 0.5;
+        circle[i].Color[3] = 1;
+    }
 }
 
-- (void)render 
+
+
+- (void)setUpBufferObjects
+{
+    // set up square
+    glGenBuffers(1, &squareVBO);
+    glBindBuffer(GL_ARRAY_BUFFER, squareVBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(square), square, GL_STATIC_DRAW);
+    
+    glGenBuffers(1, &squareIBO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, squareIBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(squareIndices), squareIndices, GL_STATIC_DRAW);
+    
+    // set up circle
+    [self setUpCircle];
+    glGenBuffers(1, &circleVBO);
+    glBindBuffer(GL_ARRAY_BUFFER, circleVBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(circle), circle, GL_STATIC_DRAW);
+
+}
+
+
+- (void)draw 
 {
     glClearColor(1, 0, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glEnable(GL_DEPTH_TEST);
+    //glEnable(GL_DEPTH_TEST);
     
     // projection matrix
     CC3GLMatrix *projection = [CC3GLMatrix matrix];
@@ -170,20 +205,31 @@ const GLubyte indices[] = {
 
     glViewport(0, 0, self.frame.size.width, self.frame.size.height);
     
-    glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
-    glVertexAttribPointer(color, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) (sizeof(float)*3));
+    //glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
+    //glVertexAttribPointer(color, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) (sizeof(float)*3));
     
     [modelView push];
     
-    [modelView scale:CC3VectorMake(0.5,0.5,1)];
+    //[modelView scale:CC3VectorMake(0.5,0.5,1)];
     [modelView translate:CC3VectorMake(0, 0, 0)];
     glUniformMatrix4fv(modelViewUniform, 1, GL_FALSE, [modelView peek]);
-    glDrawElements(GL_TRIANGLES, sizeof(indices)/sizeof(indices[0]), GL_UNSIGNED_BYTE, 0);
+    
+    // draw a square
+    glBindBuffer(GL_ARRAY_BUFFER, squareVBO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, squareIBO);
+    glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
+    glVertexAttribPointer(color, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) (sizeof(float)*3));
+    glDrawElements(GL_TRIANGLES, sizeof(squareIndices)/sizeof(squareIndices[0]), GL_UNSIGNED_BYTE, 0);
     
     [modelView translate:CC3VectorMake(-0.5, 0.5, 0)];
     glUniformMatrix4fv(modelViewUniform, 1, GL_FALSE, [modelView peek]);
-    glDrawElements(GL_TRIANGLES, sizeof(indices)/sizeof(indices[0]), GL_UNSIGNED_BYTE, 0);
     
+    // draw a circle
+    glBindBuffer(GL_ARRAY_BUFFER, circleVBO);
+    glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
+    glVertexAttribPointer(color, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) (sizeof(float)*3));
+    glDrawArrays(GL_TRIANGLE_FAN, 0, sizeof(circle)/sizeof(circle[0]));
+
     [modelView pop];
     
     [context presentRenderbuffer:GL_RENDERBUFFER];
@@ -206,8 +252,8 @@ const GLubyte indices[] = {
         [self setUpRenderBuffer];
         [self setUpFrameBuffer];
         [self compileShaders];
-        [self setUpVBOs];
-        [self render];
+        [self setUpBufferObjects];
+        [self draw];
     }
     return self;
 }

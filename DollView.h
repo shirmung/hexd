@@ -26,6 +26,13 @@
     GLuint modelViewUniform;
     
     MatrixStack *modelView;
+    
+    // Vertex Buffer Objects and
+    // Index Buffer Objects
+    GLuint circleVBO;
+    
+    GLuint squareVBO;
+    GLuint squareIBO;
 }
 
 @end
