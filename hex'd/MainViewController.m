@@ -10,6 +10,7 @@
 #import "DollsViewController.h"
 #import "HelpViewController.h"
 #import "CreditsViewController.h"
+#import "DollViewController.h"
 
 @implementation MainViewController
 
@@ -106,6 +107,9 @@
         [[self navigationController] pushViewController:creditsViewController animated:YES];
         
         [creditsViewController release];
+    } else if (button.tag == 4) {
+        DollViewController *dollViewController = [[[DollViewController alloc] init] autorelease];
+        [[self navigationController] pushViewController:dollViewController animated:YES];
     }
 }
 
