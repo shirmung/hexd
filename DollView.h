@@ -36,6 +36,10 @@
     
     GLuint trapezoidVBO;
     GLuint trapezoidIBO;
+    
+    // rotation
+    int rotation;
+    //int angle;
 }
 
 @end

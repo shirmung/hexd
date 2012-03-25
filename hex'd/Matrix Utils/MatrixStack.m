@@ -10,8 +10,8 @@
 
 @implementation MatrixStack
 
-- (id)init {
-    
+- (id)init
+{
     self = [super init];
     
     if (self != nil) {
@@ -23,31 +23,41 @@
     return self;
 }
 
-- (void)push {
+- (void)push 
+{
     CC3GLMatrix *matrix = [[[CC3GLMatrix alloc] init] autorelease];
     [CC3GLMatrix copyMatrix:[self peek] into:matrix.glMatrix];
     [stack addObject:matrix];
 }
 
-- (void)pop {
+- (void)pop 
+{
     [stack removeLastObject];
 }
 
-- (GLfloat *)peek {
+- (GLfloat *)peek 
+{
     CC3GLMatrix *currentMatrix = (CC3GLMatrix *)[stack objectAtIndex:[stack count]-1];
     return currentMatrix.glMatrix;
 }
 
 // translate the current matrix
-- (void)translate:(CC3Vector)vector {
+- (void)translate:(CC3Vector)vector 
+{
     [CC3GLMatrix translate:[self peek] by:vector];
 }
 
 // rotate the current matrix
-- (void)rotate:(GLfloat)angle along:(CC3Vector)vector {
-    // instantiate matrix in column major order
-    CC3GLMatrix *rotateMat = [[[CC3GLMatrix alloc] init] autorelease];
-    [CC3GLMatrix multiply:[self peek] byMatrix:rotateMat.glMatrix];
+//- (void)rotate:(GLfloat)angle along:(CC3Vector)vector 
+//{
+//    // instantiate matrix in column major order
+//    CC3GLMatrix *rotateMat = [[[CC3GLMatrix alloc] init] autorelease];
+//    [CC3GLMatrix multiply:[self peek] byMatrix:rotateMat.glMatrix];
+//}
+
+- (void)rotateYXZ:(CC3Vector)vector 
+{
+    [CC3GLMatrix rotateYXZ:[self peek] by:vector];
 }
 
 // scale the current matrix

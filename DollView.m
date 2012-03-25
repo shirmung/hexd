@@ -50,8 +50,6 @@
     [context renderbufferStorage:GL_RENDERBUFFER fromDrawable:eaglLayer];
 }
 
-
-
 - (void)setUpFrameBuffer
 {
     GLuint frameBuffer;
@@ -59,6 +57,12 @@
     glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, colorRenderBuffer);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthRenderBuffer);
+}
+
+- (void)setUpDisplayLink 
+{
+    CADisplayLink *displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(draw:)];
+    [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
 }
 
 
@@ -148,6 +152,7 @@ const Vertex trapezoid[] = {
     {{-0.68,  1, 0}, {0.5, 0.5, 0.5, 1}}, // top left
     {{   -1, -1, 0}, {0.5, 0.5, 0.5, 1}}  // bottom left
 };
+
 const GLubyte trapezoidIndices[] = {0,1,2,3,0};
 
 // find circle vertex points
@@ -234,7 +239,7 @@ Vertex circle[30];
 
 
 #pragma mark - Draw the doll
-- (void)draw 
+- (void)draw:(CADisplayLink *)displayLink
 {
     glClearColor(1, 0, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -242,6 +247,7 @@ Vertex circle[30];
     
     // projection matrix
     CC3GLMatrix *projection = [CC3GLMatrix matrix];
+    //float w = self.frame.size.width / self.frame.size.height;
     float h = self.frame.size.height / self.frame.size.width;
     [projection populateOrthoFromFrustumLeft:-1 andRight:1 andBottom:-h andTop:h andNear:-1 andFar:1];
     glUniformMatrix4fv(projectionUniform, 1, 0, projection.glMatrix);
@@ -252,18 +258,27 @@ Vertex circle[30];
     // ==== Drawing Stuff Start ====
     
     [modelView push];
+    
     [modelView scale:CC3VectorMake(0.5, 0.5, 0.5)];
-    [modelView translate:CC3VectorMake(0, 1, 0)];
-
+    [modelView translate:CC3VectorMake(0, 1.5, 0)];
     [self drawHead];
+    
     [modelView translate:CC3VectorMake(0, -1.25, 0)];
     [self drawNeck];
+    
     [modelView translate:CC3VectorMake(0, -0.77, 0)];
     [self drawBody];
-    
+    [self drawLeftArm];
+    [self drawRightArm];
+    [self drawLeftLeg];
+    [self drawRightLeg];
     [modelView pop];
     
     // ==== Drawing Stuff End ====
+    
+    // update variables
+    rotation++;
+    
     [context presentRenderbuffer:GL_RENDERBUFFER];
 }
 
@@ -282,10 +297,55 @@ Vertex circle[30];
     [self drawSquare];
     [modelView pop];
 }
+
 - (void)drawBody
 {
     [modelView push];
     [modelView scale:CC3VectorMake(0.42, 0.72, 1)];
+    [self drawTrapezoid];
+    [modelView pop];
+}
+
+- (void)drawLeftArm
+{
+    [modelView push];
+    [modelView translate:CC3VectorMake(-0.2, 0.62, 0)];
+    [modelView rotateYXZ:CC3VectorMake(0, 0, rotation)];
+    [modelView translate:CC3VectorMake(0, 0.55, 0)];
+    [modelView scale:CC3VectorMake(0.1, 0.6, 1)];
+    [self drawTrapezoid];
+    [modelView pop];
+}
+
+- (void)drawRightArm
+{
+    [modelView push];
+    [modelView translate:CC3VectorMake(0.2, 0.62, 0)];
+    [modelView rotateYXZ:CC3VectorMake(0, 0, -rotation)];
+    [modelView translate:CC3VectorMake(0, 0.55, 0)];
+    [modelView scale:CC3VectorMake(0.1, 0.6, 1)];
+    [self drawTrapezoid];
+    [modelView pop];
+}
+
+- (void)drawLeftLeg
+{
+    [modelView push];
+    [modelView translate:CC3VectorMake(-0.3, -0.67, 0)];
+    [modelView rotateYXZ:CC3VectorMake(0, 0, 175)];
+    [modelView translate:CC3VectorMake(0, 0.6, 0)];
+    [modelView scale:CC3VectorMake(0.1, 0.6, 1)];
+    [self drawTrapezoid];
+    [modelView pop];
+}
+
+- (void)drawRightLeg
+{
+    [modelView push];
+    [modelView translate:CC3VectorMake(0.3, -0.67, 0)];
+    [modelView rotateYXZ:CC3VectorMake(0, 0, 185)];
+    [modelView translate:CC3VectorMake(0, 0.6, 0)];
+    [modelView scale:CC3VectorMake(0.1, 0.6, 1)];
     [self drawTrapezoid];
     [modelView pop];
 }
@@ -309,7 +369,7 @@ Vertex circle[30];
         [self setUpFrameBuffer];
         [self compileShaders];
         [self setUpBufferObjects];
-        [self draw];
+        [self setUpDisplayLink];
     }
     return self;
 }

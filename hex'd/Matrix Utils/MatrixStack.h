@@ -19,7 +19,7 @@
 - (void)pop;
 - (GLfloat *)peek;  // returns a pointer to the current matrix
 - (void)translate:(CC3Vector)vector;
-- (void)rotate:(GLfloat)angle along:(CC3Vector)vector;
+//- (void)rotate:(GLfloat)angle along:(CC3Vector)vector;
 - (void)scale:(CC3Vector)factor;
-
+- (void)rotateYXZ:(CC3Vector)vector;
 @end
