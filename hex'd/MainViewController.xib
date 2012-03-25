@@ -153,8 +153,9 @@
 					<object class="IBUIButton" id="303492184">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{277, 417}, {40, 40}}</string>
+						<string key="NSFrame">{{266, 406}, {60, 60}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -257,8 +258,8 @@
 							<reference ref="565580842"/>
 							<reference ref="218831361"/>
 							<reference ref="984928761"/>
-							<reference ref="303492184"/>
 							<reference ref="414654922"/>
+							<reference ref="303492184"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -308,7 +309,7 @@
 				<string key="1.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="11.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="14.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<real value="1" key="14.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
+				<real value="0.0" key="14.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<real value="1" key="4.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -337,8 +338,8 @@
 			<string key="helpbutton.png">{102, 51}</string>
 			<string key="helpbuttonselected.png">{102, 51}</string>
 			<string key="mainview.png">{320, 460}</string>
-			<string key="musicbutton.png">{40, 40}</string>
-			<string key="musicbuttonselected.png">{40, 40}</string>
+			<string key="musicbutton.png">{60, 60}</string>
+			<string key="musicbuttonselected.png">{60, 60}</string>
 			<string key="startbutton.png">{139, 58}</string>
 			<string key="startbuttonselected.png">{139, 58}</string>
 		</dictionary>

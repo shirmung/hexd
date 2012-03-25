@@ -40,8 +40,6 @@
 		C10854EE150DBB4700EE6A0B /* background3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C10854ED150DBB4700EE6A0B /* background3@2x.png */; };
 		C10D926014F20483000EA216 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C10D925F14F20483000EA216 /* AudioToolbox.framework */; };
 		C1211D3E1515444600E7C476 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1211D3D1515444600E7C476 /* AVFoundation.framework */; };
-		C1211D451515469300E7C476 /* musicbuttonselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1211D441515469300E7C476 /* musicbuttonselected@2x.png */; };
-		C1211D4C151546B600E7C476 /* musicbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1211D4B151546B600E7C476 /* musicbutton@2x.png */; };
 		C12953F515163B17004FC1B9 /* eraserbuttonselected.png in Resources */ = {isa = PBXBuildFile; fileRef = C12953F415163B17004FC1B9 /* eraserbuttonselected.png */; };
 		C12953F815163B27004FC1B9 /* eraserbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = C12953F715163B27004FC1B9 /* eraserbutton.png */; };
 		C12953FA15163B3F004FC1B9 /* eraserbuttonselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C12953F915163B3F004FC1B9 /* eraserbuttonselected@2x.png */; };
@@ -320,8 +318,6 @@
 		C1E162AF151406700083B830 /* DollCustomizationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1E162AD151406700083B830 /* DollCustomizationViewController.xib */; };
 		C1F496C715153EAB00F1D71D /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1F496C615153EAB00F1D71D /* icon@2x.png */; };
 		C1F496CA15153EAE00F1D71D /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C1F496C915153EAE00F1D71D /* icon.png */; };
-		C1F496DD151542DE00F1D71D /* musicbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = C1F496DB151542DE00F1D71D /* musicbutton.png */; };
-		C1F496E01515430C00F1D71D /* musicbuttonselected.png in Resources */ = {isa = PBXBuildFile; fileRef = C1F496DF1515430C00F1D71D /* musicbuttonselected.png */; };
 		C1F496E2151543C000F1D71D /* darkestchild.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C1F496E1151543C000F1D71D /* darkestchild.mp3 */; };
 		C1F511A814F29E450005A8CA /* pin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1F511A714F29E450005A8CA /* pin@2x.png */; };
 		C1F511AA14F29E6D0005A8CA /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = C1F511A914F29E6D0005A8CA /* pin.png */; };
@@ -357,6 +353,10 @@
 		C1FA68DE150AC40A0097B378 /* pants5.png in Resources */ = {isa = PBXBuildFile; fileRef = C1FA68DD150AC40A0097B378 /* pants5.png */; };
 		C1FA68E1150AC8FC0097B378 /* pants4out.png in Resources */ = {isa = PBXBuildFile; fileRef = C1FA68DF150AC8FC0097B378 /* pants4out.png */; };
 		C1FA68E2150AC8FC0097B378 /* pants4.png in Resources */ = {isa = PBXBuildFile; fileRef = C1FA68E0150AC8FC0097B378 /* pants4.png */; };
+		C1FEEEFE151F855C00F34AAF /* musicbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = C1FEEEFD151F855C00F34AAF /* musicbutton.png */; };
+		C1FEEF00151F855F00F34AAF /* musicbuttonselected.png in Resources */ = {isa = PBXBuildFile; fileRef = C1FEEEFF151F855F00F34AAF /* musicbuttonselected.png */; };
+		C1FEEF02151F856200F34AAF /* musicbuttonselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1FEEF01151F856200F34AAF /* musicbuttonselected@2x.png */; };
+		C1FEEF04151F856500F34AAF /* musicbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1FEEF03151F856500F34AAF /* musicbutton@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -393,8 +393,6 @@
 		C10854ED150DBB4700EE6A0B /* background3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background3@2x.png"; sourceTree = "<group>"; };
 		C10D925F14F20483000EA216 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C1211D3D1515444600E7C476 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		C1211D441515469300E7C476 /* musicbuttonselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "musicbuttonselected@2x.png"; sourceTree = "<group>"; };
-		C1211D4B151546B600E7C476 /* musicbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "musicbutton@2x.png"; sourceTree = "<group>"; };
 		C12953F415163B17004FC1B9 /* eraserbuttonselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eraserbuttonselected.png; sourceTree = "<group>"; };
 		C12953F715163B27004FC1B9 /* eraserbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eraserbutton.png; sourceTree = "<group>"; };
 		C12953F915163B3F004FC1B9 /* eraserbuttonselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eraserbuttonselected@2x.png"; sourceTree = "<group>"; };
@@ -686,8 +684,6 @@
 		C1E162AD151406700083B830 /* DollCustomizationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DollCustomizationViewController.xib; sourceTree = "<group>"; };
 		C1F496C615153EAB00F1D71D /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../icon@2x.png"; sourceTree = "<group>"; };
 		C1F496C915153EAE00F1D71D /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
-		C1F496DB151542DE00F1D71D /* musicbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = musicbutton.png; sourceTree = "<group>"; };
-		C1F496DF1515430C00F1D71D /* musicbuttonselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = musicbuttonselected.png; sourceTree = "<group>"; };
 		C1F496E1151543C000F1D71D /* darkestchild.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = darkestchild.mp3; sourceTree = "<group>"; };
 		C1F511A714F29E450005A8CA /* pin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin@2x.png"; sourceTree = "<group>"; };
 		C1F511A914F29E6D0005A8CA /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
@@ -723,6 +719,10 @@
 		C1FA68DD150AC40A0097B378 /* pants5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pants5.png; sourceTree = "<group>"; };
 		C1FA68DF150AC8FC0097B378 /* pants4out.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pants4out.png; sourceTree = "<group>"; };
 		C1FA68E0150AC8FC0097B378 /* pants4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pants4.png; sourceTree = "<group>"; };
+		C1FEEEFD151F855C00F34AAF /* musicbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = musicbutton.png; sourceTree = "<group>"; };
+		C1FEEEFF151F855F00F34AAF /* musicbuttonselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = musicbuttonselected.png; sourceTree = "<group>"; };
+		C1FEEF01151F856200F34AAF /* musicbuttonselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "musicbuttonselected@2x.png"; sourceTree = "<group>"; };
+		C1FEEF03151F856500F34AAF /* musicbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "musicbutton@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -911,6 +911,7 @@
 				C10854E1150DBA5E00EE6A0B /* Background Images */,
 				C183AE0F14BBA987009D8ABF /* Doll Images */,
 				C1181D1114BEBEC3002AB227 /* Interaction Images */,
+				C1FEEEEE151E172800F34AAF /* Customization Images */,
 				C1D774F7150D35C00060F02A /* Button Images */,
 				C1F496E3151543C500F1D71D /* Audio */,
 			);
@@ -1301,10 +1302,10 @@
 				C1CE5CA7151D6745001244FE /* creditsbutton@2x.png */,
 				C1CE5CA8151D6745001244FE /* creditsbuttonselected.png */,
 				C1CE5CA9151D6745001244FE /* creditsbuttonselected@2x.png */,
-				C1F496DB151542DE00F1D71D /* musicbutton.png */,
-				C1211D4B151546B600E7C476 /* musicbutton@2x.png */,
-				C1F496DF1515430C00F1D71D /* musicbuttonselected.png */,
-				C1211D441515469300E7C476 /* musicbuttonselected@2x.png */,
+				C1FEEEFD151F855C00F34AAF /* musicbutton.png */,
+				C1FEEF03151F856500F34AAF /* musicbutton@2x.png */,
+				C1FEEEFF151F855F00F34AAF /* musicbuttonselected.png */,
+				C1FEEF01151F856200F34AAF /* musicbuttonselected@2x.png */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -1358,6 +1359,13 @@
 				C1C46F03150C7B360047479D /* squeezedeyes@2x.png */,
 			);
 			name = Face;
+			sourceTree = "<group>";
+		};
+		C1FEEEEE151E172800F34AAF /* Customization Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Customization Images";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1608,11 +1616,7 @@
 				C1E162AF151406700083B830 /* DollCustomizationViewController.xib in Resources */,
 				C1F496C715153EAB00F1D71D /* icon@2x.png in Resources */,
 				C1F496CA15153EAE00F1D71D /* icon.png in Resources */,
-				C1F496DD151542DE00F1D71D /* musicbutton.png in Resources */,
-				C1F496E01515430C00F1D71D /* musicbuttonselected.png in Resources */,
 				C1F496E2151543C000F1D71D /* darkestchild.mp3 in Resources */,
-				C1211D451515469300E7C476 /* musicbuttonselected@2x.png in Resources */,
-				C1211D4C151546B600E7C476 /* musicbutton@2x.png in Resources */,
 				C12953F515163B17004FC1B9 /* eraserbuttonselected.png in Resources */,
 				C12953F815163B27004FC1B9 /* eraserbutton.png in Resources */,
 				C12953FA15163B3F004FC1B9 /* eraserbuttonselected@2x.png in Resources */,
@@ -1742,6 +1746,10 @@
 				C1CE5CB3151D6745001244FE /* creditsbutton@2x.png in Resources */,
 				C1CE5CB4151D6745001244FE /* creditsbuttonselected.png in Resources */,
 				C1CE5CB5151D6745001244FE /* creditsbuttonselected@2x.png in Resources */,
+				C1FEEEFE151F855C00F34AAF /* musicbutton.png in Resources */,
+				C1FEEF00151F855F00F34AAF /* musicbuttonselected.png in Resources */,
+				C1FEEF02151F856200F34AAF /* musicbuttonselected@2x.png in Resources */,
+				C1FEEF04151F856500F34AAF /* musicbutton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

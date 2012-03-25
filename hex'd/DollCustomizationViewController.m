@@ -62,13 +62,13 @@
     // Do any additional setup after loading the view from its nib.
     
     [hairScrollView setScrollEnabled:YES];
-    [hairScrollView setContentSize:CGSizeMake(560, 70)];
+    [hairScrollView setContentSize:CGSizeMake(650, 70)];
     
     [shirtScrollView setScrollEnabled:YES];
-    [shirtScrollView setContentSize:CGSizeMake(833, 70)];
+    [shirtScrollView setContentSize:CGSizeMake(993, 70)];
 
     [pantsScrollView setScrollEnabled:YES];
-    [pantsScrollView setContentSize:CGSizeMake(560, 70)];
+    [pantsScrollView setContentSize:CGSizeMake(650, 70)];
 }
 
 - (void)viewWillAppear:(BOOL)animated 
