@@ -23,10 +23,9 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     
-    if (self)
-    {
+    if (self) {
         // Custom initialization
-        locked = NO; // Howard: Not sure what booleans are initialized to by default
+        locked = NO;
     }
     
     return self;
@@ -53,8 +52,7 @@
 {
     [super viewWillAppear:animated];
     
-    for (UIView *view in self.view.subviews) 
-    {
+    for (UIView *view in self.view.subviews) {
         if (![view isKindOfClass:[UIButton class]]) [view removeFromSuperview];
     }
     
@@ -146,8 +144,7 @@
     [self.view insertSubview:lightningLayer aboveSubview:fireLayer];
     [lightningLayer release];
     
-    for (UIView *view in self.view.subviews) 
-    {
+    for (UIView *view in self.view.subviews) {
         if ([view isKindOfClass:[UIButton class]]) [self.view bringSubviewToFront:view];
     }
 
@@ -164,17 +161,6 @@
                                    selector:@selector(feelingBetter)
                                    userInfo:nil
                                     repeats:YES];
-    
-//    NSLog(@"Lightning retain count: %d", [lightningLayer retainCount]);
-//    
-//    NSLog(@"name: %@", specificDoll.name);
-//    NSLog(@"gender: %@", specificDoll.gender);
-//    NSLog(@"eyes: %@", specificDoll.eyes);
-//    NSLog(@"mouth: %@", specificDoll.mouth);
-//    NSLog(@"hair: %@", specificDoll.hair);
-//    NSLog(@"shirt: %@", specificDoll.shirt);
-//    NSLog(@"pants: %@", specificDoll.pants);
-//    NSLog(@"other: %@", specificDoll.other);
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -269,8 +255,7 @@
 	
     CGPathRelease(bodyPath);
     
-    if (bodyHit && !locked)
-    {
+    if (bodyHit && !locked) {
         //[self feelingWorse];
         //[self bodyAnimation];
         
@@ -369,8 +354,7 @@
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event 
 {
-	if (drawingButtonPressed) 
-    {
+	if (drawingButtonPressed) {
 		fingerSwiped = YES;
 		
 		UITouch *touch = [touches anyObject];	
@@ -407,10 +391,8 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event 
 {
-	if (drawingButtonPressed) 
-    {
-        if (!fingerSwiped) 
-        {
+	if (drawingButtonPressed) {
+        if (!fingerSwiped) {
 			UIGraphicsBeginImageContext(self.view.frame.size);
 			[drawingLayer.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
 			CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
@@ -436,8 +418,7 @@
 
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event 
 {
-	if (event.type == UIEventSubtypeMotionShake) 
-    {
+	if (event.type == UIEventSubtypeMotionShake) {
 		if (drawingButtonPressed == YES) {
             drawingLayer.image = nil;
 		} else if (pinButtonPressed == YES) {
@@ -496,14 +477,13 @@
 #pragma mark - Emotions
 
 #define SAD -5
-#define REALLY_SAD -15
-#define CRYING -25
+#define REALLY_SAD -10
+#define CRYING -15
 
 // time heals all wounds
 - (void)feelingBetter
 {
-    if (specificDoll.emotionLevel < 0)
-    {
+    if (specificDoll.emotionLevel < 0) {
         // change emotion level
         specificDoll.emotionLevel += 1;
         
@@ -527,8 +507,7 @@
 // time wounds all heals
 - (void)feelingWorse
 {
-    if (specificDoll.emotionLevel > CRYING-5)
-    {
+    if (specificDoll.emotionLevel > CRYING - 5) {
         // change emotion level
         specificDoll.emotionLevel -= 1;
         
@@ -572,7 +551,6 @@
                                    selector:@selector(unlock)
                                    userInfo:nil
                                     repeats:NO];
-    
 }
 
 // ouch after being burned
@@ -734,8 +712,7 @@
 {
     NSMutableArray *fireAnimation = [[NSMutableArray alloc] initWithObjects: [UIImage imageNamed:@"flame1.png"], [UIImage imageNamed:@"flame2.png"], nil];
 	
-    for (int i = 0; i < [fireAnimation count]; i++) 
-    {			
+    for (int i = 0; i < [fireAnimation count]; i++) {			
         UIImage *image = [fireAnimation objectAtIndex:i];
         
         UIGraphicsBeginImageContext(self.view.frame.size);
@@ -759,8 +736,7 @@
 {
     NSMutableArray *lightningAnimation = [[NSMutableArray alloc] initWithObjects: [UIImage imageNamed:@"lightning1.png"], [UIImage imageNamed:@"lightning2.png"], [UIImage imageNamed:@"lightning3.png"], [UIImage imageNamed:@"lightning3.png"], [UIImage imageNamed:@"lightning4.png"], [UIImage imageNamed:@"lightning5.png"], nil];
     
-    for (int i = 0; i < [lightningAnimation count]; i++) 
-    {			
+    for (int i = 0; i < [lightningAnimation count]; i++) {			
         UIImage *image = [lightningAnimation objectAtIndex:i];
         
         UIGraphicsBeginImageContext(self.view.frame.size);
@@ -827,10 +803,8 @@
         foodButtonPressed = NO;
     }
     
-    for (id otherButton in self.view.subviews) 
-    {
-        if ([otherButton isKindOfClass:[UIButton class]] && [otherButton tag] != button.tag)
-        {
+    for (id otherButton in self.view.subviews) {
+        if ([otherButton isKindOfClass:[UIButton class]] && [otherButton tag] != button.tag) {
             [otherButton setSelected:NO];
         }
     }
@@ -850,10 +824,8 @@
     
     [button setSelected:YES];
     
-    for (id otherButton in self.view.subviews) 
-    {
-        if ([otherButton isKindOfClass:[UIButton class]] && [otherButton tag] >= 6 && [otherButton tag] <= 7)
-        {
+    for (id otherButton in self.view.subviews) {
+        if ([otherButton isKindOfClass:[UIButton class]] && [otherButton tag] >= 6 && [otherButton tag] <= 7) {
             if ([otherButton tag] != button.tag) [otherButton setSelected:NO];
         }
     }
@@ -895,10 +867,8 @@
     
     [button setSelected:YES];
         
-    for (id otherButton in self.view.subviews) 
-    {
-        if ([otherButton isKindOfClass:[UIButton class]] && [otherButton tag] >= 8 && [otherButton tag] <= 14)
-        {
+    for (id otherButton in self.view.subviews) {
+        if ([otherButton isKindOfClass:[UIButton class]] && [otherButton tag] >= 8 && [otherButton tag] <= 14) {
             if ([otherButton tag] != button.tag) [otherButton setSelected:NO];
         }
     }
@@ -906,10 +876,8 @@
 
 - (void)optionsVisibility
 {
-    for (id view in self.view.subviews) 
-    {
-        if ([view isKindOfClass:[UIButton class]]) 
-        { 
+    for (id view in self.view.subviews) {
+        if ([view isKindOfClass:[UIButton class]]) { 
             if (drawingButtonPressed == YES && [view tag] >= 8 && [view tag] <= 14) {
                 [view setHidden:NO];
                 
@@ -958,8 +926,7 @@
     if (index == 0) {
         UIImageWriteToSavedPhotosAlbum(croppedImage, nil, nil, nil);
     } else if (index == 1) {
-        if ([MFMailComposeViewController canSendMail]) 
-        {
+        if ([MFMailComposeViewController canSendMail]) {
             MFMailComposeViewController *mailComposeViewController = [[MFMailComposeViewController alloc] init];
             mailComposeViewController.mailComposeDelegate = self;
             mailComposeViewController.subject = @"Check out the voodoo doll that I created with hex'd!";
