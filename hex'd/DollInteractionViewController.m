@@ -214,7 +214,7 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return (interfaceOrientation == UIInterfaceOrientationPortrait || interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown);
 }
 
 #pragma mark - Touch/movement methods
@@ -266,7 +266,7 @@
             [self ouch];
             [self feelingWorse];
         } else if (lightningButtonPressed) {
-            double lightningDelay = 0.25;
+            double lightningDelay = 0.2;
             [NSTimer scheduledTimerWithTimeInterval:lightningDelay
                                              target:self 
                                            selector:@selector(wince) 
@@ -476,9 +476,9 @@
 
 #pragma mark - Emotions
 
-#define SAD -5
-#define REALLY_SAD -10
-#define CRYING -15
+#define SAD -4
+#define REALLY_SAD -8
+#define CRYING -12
 
 // time heals all wounds
 - (void)feelingBetter
@@ -932,7 +932,7 @@
             mailComposeViewController.subject = @"Check out the voodoo doll that I created with hex'd!";
             
             NSData *croppedImageData = UIImagePNGRepresentation(croppedImage);
-            [mailComposeViewController addAttachmentData:croppedImageData mimeType:@"image/png" fileName:@"croppedImageData.png"];
+            [mailComposeViewController addAttachmentData:croppedImageData mimeType:@"image/png" fileName:@"image.png"];
             
             [self presentModalViewController:mailComposeViewController animated:YES];
             [mailComposeViewController release];
